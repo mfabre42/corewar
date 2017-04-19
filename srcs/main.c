@@ -6,42 +6,53 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 17:05:36 by mafabre           #+#    #+#             */
-/*   Updated: 2017/04/18 17:15:51 by mafabre          ###   ########.fr       */
+/*   Updated: 2017/04/19 18:19:27 by mafabre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-char		*save_file(char *file)
+int		save_file(char *file, int *cor)
 {
-	int		fd;
-	int		ret;
-	char	*tab;
+	t_convert	convert;
+	int			fd;
+	int			ret;
+	char		tmp;
+	int			i;
 
 	ret = 0;
-	tab = 0;
-	fd = open(file, O_RDONLY, 0);
+	i = 0;
+	fd = open(file, O_RDONLY);
 	if (fd == -1)
+		ft_printf("exit\n");
+	while ((ret = read(fd, convert.c_char, BUF_SIZE)) > 0)
 	{
-		printf("hello\n");
-		return (NULL);
+		tmp = convert.c_char[0];
+		convert.c_char[0] = convert.c_char[3];
+		convert.c_char[3] = tmp;
+		tmp = convert.c_char[1];
+		convert.c_char[1] = convert.c_char[2];
+		convert.c_char[2] = tmp;
+		cor[i] = convert.c_int;
+		ft_bzero(convert.c_char, 4);
+		i++;
 	}
-	ret = read(fd, tab, BUF_SIZE);
-	printf("coucou\n");
-	printf("%s", tab);
 	close(fd);
-	return (tab);
+	return (i);
 }
 
-int   main(int ac, char **av)
+int		main(int ac, char **av)
 {
-  char *cor;
+	int		*cor;
+	int		i;
+	int		j;
 
-  if (ac == 2)
-  {
-    cor = save_file(av[1]);
-		printf("coucou\n");
-    printf("%s", cor);
-  }
-  ft_printf("Coucou\n");
+	cor = (int *)malloc(sizeof(int) * 800);
+	i = save_file(av[1], cor);
+	j = 0;
+	while (j < i)
+	{
+		printf("%s ", ft_itoa_base(cor[j], 16));
+		j++;
+	}
 }
