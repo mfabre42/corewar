@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/20 14:35:05 by mafabre           #+#    #+#             */
-/*   Updated: 2017/04/18 19:42:18 by mafabre          ###   ########.fr       */
+/*   Updated: 2017/04/25 16:14:41 by mafabre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 
 typedef union u_convert
 {
-  int   c_int;
-  char  c_char[4];
+  unsigned int	c_int;
+  unsigned char	c_char[4];
 }             t_convert;
 
 # include "ft_printf.h"
