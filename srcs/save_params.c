@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 19:32:42 by mafabre           #+#    #+#             */
-/*   Updated: 2017/04/26 22:35:11 by mafabre          ###   ########.fr       */
+/*   Updated: 2017/04/26 23:29:52 by mafabre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void	save_params(int ac, char **av, unsigned char *arena)
 
 	i = 1;
 	param.np = 0;
+	param.n = 0;
 	while (i < ac)
 	{
 		if (ft_strstr(av[i], ".cor") != NULL)
