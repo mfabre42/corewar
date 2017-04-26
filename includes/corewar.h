@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/20 14:35:05 by mafabre           #+#    #+#             */
-/*   Updated: 2017/04/26 21:13:35 by mafabre          ###   ########.fr       */
+/*   Updated: 2017/04/26 22:31:23 by mafabre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ typedef struct	s_params
 	int		p4;
 }				t_params;
 
-void		save_file(char *file);
-void		save_params(int ac, char **av);
-t_convert	create_arena(void);
+void		save_file(char *file, t_params *param, unsigned char *arena);
+void		save_params(int ac, char **av, unsigned char *arena);
+void		send_in_arena(t_convert *tab, t_params *param, unsigned char *arena);
 
 #endif

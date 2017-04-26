@@ -6,14 +6,14 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 19:35:01 by mafabre           #+#    #+#             */
-/*   Updated: 2017/04/26 21:12:19 by mafabre          ###   ########.fr       */
+/*   Updated: 2017/04/26 22:35:06 by mafabre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 #include "op.h"
 
-void		save_file(char *file, t_params *param, t_convert *arena)
+void		save_file(char *file, t_params *param, unsigned char *arena)
 {
 	t_convert	convert;
 	int			fd;
@@ -59,4 +59,5 @@ void		save_file(char *file, t_params *param, t_convert *arena)
 	// 	i++;
 	// }
 	close(fd);
+	send_in_arena(tab, param, arena);
 }
