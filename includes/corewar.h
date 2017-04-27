@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/20 14:35:05 by mafabre           #+#    #+#             */
-/*   Updated: 2017/04/27 22:46:43 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/04/27 23:13:20 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ typedef struct	s_params
 
 typedef struct	s_player
 {
-	t_reg			*reg;
+	unsigned int	*reg;
 	char			*name;
 	char			*comm;
 	int				num;
@@ -68,6 +68,7 @@ typedef struct	s_ocp
 	char			param3;
 }				t_ocp;
 
+void			place_in_arena(t_map *map, int dest, int nbr)
 unsigned int	hex_to_int(unsigned char a, unsigned char b,
 					unsigned char c, unsigned char d);
 t_ocp			ocp_master(int	ocp);
