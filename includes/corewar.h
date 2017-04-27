@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/20 14:35:05 by mafabre           #+#    #+#             */
-/*   Updated: 2017/04/27 17:43:14 by mafabre          ###   ########.fr       */
+/*   Updated: 2017/04/27 22:46:43 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,14 @@ typedef struct	s_params
 
 typedef struct	s_player
 {
-//	tab de registre;
+	t_reg			*reg;
 	char			*name;
 	char			*comm;
 	int				num;
 	int				pc;
 	int				start;
 	int				carry;
+	int				cycle;
 	int				in_life;
 	int				last_live;
 	struct s_player	*next;
@@ -60,6 +61,16 @@ typedef struct	s_map
 	t_player		*player;
 }				t_map;
 
+typedef struct	s_ocp
+{
+	char			param1;
+	char			param2;
+	char			param3;
+}				t_ocp;
+
+unsigned int	hex_to_int(unsigned char a, unsigned char b,
+					unsigned char c, unsigned char d);
+t_ocp			ocp_master(int	ocp);
 void			save_file(char *file, t_params *param, unsigned char *arena);
 void			save_params(int ac, char **av, unsigned char *arena);
 void			send_in_arena(t_convert *tab, t_params *param,

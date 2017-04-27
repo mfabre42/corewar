@@ -6,7 +6,7 @@
 #    By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/10 15:31:11 by mafabre           #+#    #+#              #
-#    Updated: 2017/04/26 21:29:39 by mafabre          ###   ########.fr        #
+#    Updated: 2017/04/27 22:11:54 by acoupleu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ LIBFTPRINTF_PATH	=	ft_printf/
 LIBFTPRINTF			=	$(LIBFTPRINTF_PATH)libftprintf.a
 LIB_LINK			=	-L $(LIBFT_PATH) -lft -L $(LIBFTPRINTF_PATH) -lftprintf
 INCLUDES			=	-I $(LIBFT_PATH) -I $(LIBFTPRINTF_PATH)/includes -I ./includes
-SRCS				=	srcs/main.c srcs/save_params.c srcs/save_file.c srcs/init_arena.c
+SRCS				=	srcs/main.c srcs/save_params.c srcs/save_file.c srcs/init_arena.c \
+						srcs/calc_ocp.c srcs/utils/hex_to_int.c srcs/utils/is_register.c
 
 OBJS				=	$(SRCS:srcs/%.c=obj/%.o)
 

@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 17:05:36 by mafabre           #+#    #+#             */
-/*   Updated: 2017/04/26 22:35:00 by mafabre          ###   ########.fr       */
+/*   Updated: 2017/04/27 21:52:11 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,16 @@ int		main(int ac, char **av)
 	ft_bzero(arena, MEM_SIZE);
 	int i = 0;
 	save_params(ac, av, arena);
-	while (i < MEM_SIZE)
-	{
-		if (i % 64 == 0)
-			printf("\n");
-		printf("%02x ", arena[i]);
-		i++;
-	}
+	unsigned int qwerty;
+
+	qwerty = hex_to_int(0x0e, 0x68, 0x36, 0xea);
+	printf("Coucou = %d\n", qwerty);
+	// while (i < MEM_SIZE)
+	// {
+	// 	if (i % 64 == 0)
+	// 		printf("\n");
+	// 	printf("%02x ", arena[i]);
+	// 	i++;
+	// }
 	return (0);
 }

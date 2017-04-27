@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   inst_live.c                                        :+:      :+:    :+:   */
+/*   is_register.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aleveque <aleveque@student.42.fr>          +#+  +:+       +#+        */
+/*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/27 16:03:13 by aleveque          #+#    #+#             */
-/*   Updated: 2017/04/27 22:34:39 by acoupleu         ###   ########.fr       */
+/*   Created: 2017/04/27 22:11:57 by acoupleu          #+#    #+#             */
+/*   Updated: 2017/04/27 22:33:49 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include ""
+#include "corewar.h"
 
-inst_live(struct)
+int	is_register(unsigned int reg)
 {
-	t_convert param;
-
-	param.c_char[0];
-	param.c_char[1];
-	param.c_char[2];
-	param.c_char[3];
+	if (reg >= 1 && reg <= REG_NUMBER)
+		return (1);
+	return (0);
 }
