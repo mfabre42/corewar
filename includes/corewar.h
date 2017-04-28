@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/20 14:35:05 by mafabre           #+#    #+#             */
-/*   Updated: 2017/04/27 23:13:20 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/04/28 15:46:11 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,30 +36,31 @@ typedef struct	s_params
 	int			p4;
 }				t_params;
 
-typedef struct	s_player
+typedef struct	s_process
 {
-	unsigned int	*reg;
-	char			*name;
-	char			*comm;
-	int				num;
-	int				pc;
-	int				start;
-	int				carry;
-	int				cycle;
-	int				in_life;
-	int				last_live;
-	struct s_player	*next;
-}				t_player;
+	unsigned int			*reg;
+	char							*name;
+	char							*comm;
+	int								player;
+	int								process_nbr;
+	int								pc;
+	int								start;
+	int								carry;
+	int								cycle;
+	int								in_life;
+	int								last_live;
+	struct s_process	*next;
+}				t_process;
 
 typedef struct	s_map
 {
-	int				check;
-	int				nb_player;
-	int				cycle;
-	int				nb_process;
+	int						check;
+	int						cycle;
+	int						nb_player;
+	int						nb_process;
 	unsigned char	*arena;
-	t_player		*player;
-}				t_map;
+	t_process			*process;
+}								t_map;
 
 typedef struct	s_ocp
 {
@@ -73,7 +74,7 @@ unsigned int	hex_to_int(unsigned char a, unsigned char b,
 					unsigned char c, unsigned char d);
 t_ocp			ocp_master(int	ocp);
 void			save_file(char *file, t_params *param, unsigned char *arena);
-void			save_params(int ac, char **av, unsigned char *arena);
+t_params			save_params(int ac, char **av, unsigned char *arena);
 void			send_in_arena(t_convert *tab, t_params *param,
 		unsigned char *arena);
 

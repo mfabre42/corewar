@@ -16,13 +16,15 @@
 int		main(int ac, char **av)
 {
 	unsigned char	*arena;
+	t_params param;
 
 	arena = (unsigned char *)malloc(sizeof(unsigned char) * MEM_SIZE);
 	ft_bzero(arena, MEM_SIZE);
 	int i = 0;
-	save_params(ac, av, arena);
+	param = save_params(ac, av, arena);
 	unsigned int qwerty;
 
+	init_vm(arena, param);
 	qwerty = hex_to_int(0x0e, 0x68, 0x36, 0xea);
 	printf("Coucou = %d\n", qwerty);
 	// while (i < MEM_SIZE)

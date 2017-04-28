@@ -3,58 +3,63 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+         #
+#    By: aleveque <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2016/03/23 16:29:44 by mafabre           #+#    #+#              #
-#    Updated: 2016/09/21 15:15:06 by mafabre          ###   ########.fr        #
+#    Created: 2016/11/04 14:51:15 by aleveque          #+#    #+#              #
+#    Updated: 2017/04/28 14:02:40 by aleveque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME=libft.a
+CC = gcc
 
-CC=gcc
+NAME = libft.a
 
-CFLAGS=-Wall -Wextra -Werror -I includes
+SRCDIR = src
 
-RM=rm -f
+OBJDIR = obj
 
-LDFLAGS=-L.
+SRC = ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c\
+	  ft_isprint.c ft_itoa.c ft_lstadd.c ft_lstdel.c ft_lstdelone.c\
+	  ft_lstnew.c ft_memalloc.c ft_memccpy.c ft_memchr.c\
+	  ft_memcmp.c ft_memcpy.c ft_memdel.c ft_memmove.c ft_memset.c\
+	  ft_putchar.c ft_putchar_fd.c ft_putendl.c ft_putendl_fd.c\
+	  ft_putnbr.c ft_putnbr_fd.c ft_putstr.c ft_putstr_fd.c ft_strcat.c\
+	  ft_strchr.c ft_strclr.c ft_strcmp.c ft_strcpy.c ft_strdel.c ft_strdup.c\
+	  ft_strequ.c ft_striter.c ft_striteri.c ft_strjoin.c ft_strlcat.c\
+	  ft_strlen.c get_next_line.c ft_freetab.c ft_tablen.c\
+	  ft_strmap.c ft_strmapi.c ft_strncat.c ft_strncmp.c ft_strncpy.c\
+	  ft_strnequ.c ft_strnew.c ft_strnstr.c ft_strrchr.c ft_strsplit.c\
+	  ft_strstr.c ft_strsub.c ft_strtrim.c ft_tolower.c ft_toupper.c\
+	  ft_absolu.c ft_lstaddend.c ft_freeall.c ft_strlen_c.c\
+	  ft_nbrlen.c
 
-LDLIBS=-lft
+OBJ = $(SRC:.c=.o)
 
-HDDIRS=-I includes/
+OBJP = $(addprefix $(OBJDIR)/, $(SRC:.c=.o))
 
-SRC=ft_memset.c ft_bzero.c ft_memcpy.c  ft_memmove.c ft_memchr.c ft_memcmp.c \
-ft_memalloc.c ft_memdel.c ft_memccpy.c ft_memtab.c \
-ft_strlen.c ft_strdup.c ft_strcpy.c ft_strncpy.c ft_strcat.c ft_strncat.c \
-ft_strlcat.c ft_strchr.c ft_strrchr.c ft_strstr.c ft_strnstr.c \
-ft_strcmp.c ft_strncmp.c ft_atoi.c ft_itoa.c \
-ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c \
-ft_isprint.c ft_isblank.c \
-ft_toupper.c ft_tolower.c \
-ft_strnew.c ft_strdel.c ft_strclr.c ft_striter.c ft_striteri.c \
-ft_strmap.c ft_strmapi.c ft_strequ.c ft_strnequ.c ft_strsub.c ft_strjoin.c \
-ft_strtrim.c ft_strsplit.c \
-ft_putchar.c ft_putstr.c ft_putendl.c ft_putnbr.c ft_putchar_fd.c \
-ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
-ft_count_word.c \
-get_next_line.c \
+SRCPATH = $(addprefix $(SRCDIR)/, $(SRC))
 
-OBJ=$(SRC:.c=.o)
+FLAG = -Wall -Werror -Wextra
 
-$(NAME): libft.h
-	$(CC) $(CFLAGS) -c $(SRC) $(HDDIRS)
-	ar rc $(NAME) $(OBJ)
-	ranlib $(NAME)
-
-all: $(NAME)
-
-clean:
-	$(RM) $(OBJ)
-
-fclean: clean
-	$(RM) $(NAME)
+all: $(OBJDIR) $(NAME)
 
 re: fclean all
 
-.PHONY: clean fclean
+$(OBJDIR)/%.o: $(SRCDIR)/%.c
+	@$(CC) -c -o $@ $^
+
+$(OBJDIR):
+	@echo "\033[1;32mcompiling libft obj"
+	@mkdir -p $(OBJDIR)
+
+$(NAME): $(OBJP)
+	@echo "\033[1;34mcompiling libft"
+	@ar rc $@ $^
+
+clean:
+	@echo "\033[1;31mcleaning libft"
+	@rm -rf $(OBJDIR)
+
+fclean: clean
+	@echo "\033[1;31mfclean libft.a"
+	@rm -f $(NAME)

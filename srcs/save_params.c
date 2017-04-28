@@ -89,7 +89,7 @@ void	init_params(t_params *param)
 	param->p4 = 0;
 }
 
-void	save_params(int ac, char **av, unsigned char *arena)
+t_params	save_params(int ac, char **av, unsigned char *arena)
 {
 	int			i;
 	t_params	param;
@@ -114,4 +114,5 @@ void	save_params(int ac, char **av, unsigned char *arena)
 			save_file(av[i], &param, arena);
 		i++;
 	}
+	return (param);
 }
