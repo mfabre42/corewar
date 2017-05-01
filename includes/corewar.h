@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/20 14:35:05 by mafabre           #+#    #+#             */
-/*   Updated: 2017/04/28 15:46:11 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/01 21:25:30 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,19 +38,24 @@ typedef struct	s_params
 
 typedef struct	s_process
 {
-	unsigned int			*reg;
-	char							*name;
-	char							*comm;
-	int								player;
-	int								process_nbr;
+	unsigned int					*reg;
 	int								pc;
 	int								start;
 	int								carry;
 	int								cycle;
+	struct s_process				*next;
+}				t_process;
+
+typedef struct	s_player
+{
+	char							*name;
+	char							*comm;
+	int								process_nbr;
+	int								start;
+	t_process					*process;
 	int								in_life;
 	int								last_live;
-	struct s_process	*next;
-}				t_process;
+}				t_player;
 
 typedef struct	s_map
 {
@@ -59,7 +64,6 @@ typedef struct	s_map
 	int						nb_player;
 	int						nb_process;
 	unsigned char	*arena;
-	t_process			*process;
 }								t_map;
 
 typedef struct	s_ocp

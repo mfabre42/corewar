@@ -6,7 +6,7 @@
 /*   By: aleveque <aleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 12:40:09 by aleveque          #+#    #+#             */
-/*   Updated: 2017/04/28 15:19:20 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/01 21:43:21 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <stdlib.h>
 #include "../../srcs/op.h"
 
-unsigned int	*init_reg(int player, int nb_player, int process_nbr)
+unsigned int	*init_reg()
 {
 	unsigned int	*reg;
 	int						i;
@@ -28,12 +28,10 @@ unsigned int	*init_reg(int player, int nb_player, int process_nbr)
 		reg[i] = 0;
 		i++;
 	}
-	if (process_nbr <= nb_player)
-		reg[0] = player;
 	return (reg);
 }
 
-t_process				*ft_lstnew(int player, int nb_player)
+t_process				*ft_lstnew(int start)
 {
 	t_process				*new;
 	static int		process_nbr = 1;
@@ -44,17 +42,10 @@ t_process				*ft_lstnew(int player, int nb_player)
 	if ((reg = init_reg(player, nb_player, process_nbr)) == NULL)
 		return (NULL);
 	new->reg = reg;
-	new->name = NULL;
-	new->comm = NULL;
-	new->player = player;
-	new->process_nbr = process_nbr;
-	new->pc = 0;
-	new->start = 0;
+	new->pc = start;
+	new->start = start;
 	new->carry = 0;
 	new->cycle = 0;
-	new->in_life = 1;
-	new->last_live = -1;
 	new->next = NULL;
-	process_nbr++;
 	return (new);
 }
