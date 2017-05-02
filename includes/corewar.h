@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/20 14:35:05 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/02 12:11:51 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/02 13:14:23 by mafabre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # define BUF_SIZE 4
 
 # include "../ft_printf/includes/ft_printf.h"
-# include "../../libft/libft.h"
+# include "../libft/libft.h"
 # include <fcntl.h>
 
 typedef union	u_convert
@@ -63,6 +63,7 @@ typedef struct	s_map
 	int						cycle;
 	int						nb_player;
 	int						nb_process;
+	t_player				*player;
 	unsigned char	*arena;
 }								t_map;
 
@@ -78,8 +79,7 @@ unsigned int	hex_to_int(unsigned char a, unsigned char b,
 					unsigned char c, unsigned char d);
 t_ocp			ocp_master(int	ocp);
 void			save_file(char *file, t_params *param, unsigned char *arena);
-t_params			save_params(int ac, char **av, unsigned char *arena);
-void			send_in_arena(t_convert *tab, t_params *param,
-		unsigned char *arena);
+t_params			save_params(int ac, char **av, t_params param, t_map *map);
+void			send_in_arena(t_convert *tab, t_params *param, t_map *map);
 
 #endif

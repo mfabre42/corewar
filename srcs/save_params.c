@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 19:32:42 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/02 11:56:39 by mafabre          ###   ########.fr       */
+/*   Updated: 2017/05/02 13:08:55 by mafabre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,11 +89,9 @@ void	init_params(t_params *param)
 	param->p4 = 0;
 }
 
-t_params	save_params(int ac, char **av, unsigned char *arena)
+t_params	save_params(int ac, char **av, t_params param, t_map *map)
 {
 	int			i;
-	t_params	param;
-	t_map		map;
 
 	i = 1;
 	init_params(&param);
@@ -112,7 +110,7 @@ t_params	save_params(int ac, char **av, unsigned char *arena)
 			i++;
 		}
 		if (ft_strstr(av[i], ".cor") != NULL)
-			save_file(av[i], &param, arena);
+			save_file(av[i], &param, map->arena);
 		i++;
 	}
 	return (param);

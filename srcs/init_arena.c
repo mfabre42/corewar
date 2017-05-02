@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 20:49:40 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/02 12:43:47 by mafabre          ###   ########.fr       */
+/*   Updated: 2017/05/02 14:38:39 by mafabre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,9 @@ void	get_name_comment(t_convert *tab, t_params *param, t_map *map, int i)
 	j = 1;
 	tmp = map->player[param->n - 1];
 	i = 0;
-	while (j < PROG_NAME_LENGTH / 4)
+	tmp.name = (char *)malloc(sizeof(char) * PROG_NAME_LENGTH);
+	tmp.comm = (char *)malloc(sizeof(char) * COMMENT_LENGTH);
+	while (j < PROG_NAME_LENGTH / 4 + 3)
 	{
 		tmp.name[i++] = tab[j].c_char[0];
 		tmp.name[i++] = tab[j].c_char[1];
@@ -53,7 +55,7 @@ void	get_name_comment(t_convert *tab, t_params *param, t_map *map, int i)
 		tmp.name[i++] = tab[j++].c_char[3];
 	}
 	i = 0;
-	while (j < COMMENT_LENGTH/4 + PROG_NAME_LENGTH/4 + 3)
+	while (j < COMMENT_LENGTH / 4 + PROG_NAME_LENGTH / 4 + 4)
 	{
 		tmp.comm[i++] = tab[j].c_char[0];
 		tmp.comm[i++] = tab[j].c_char[1];
@@ -64,9 +66,11 @@ void	get_name_comment(t_convert *tab, t_params *param, t_map *map, int i)
 	map->nb_player = param->np;
 	map->nb_process = param->np;
 	map->player[param->n - 1] = tmp;
+	printf("%s\n", tmp.name);
+	printf("%s\n", tmp.comm);
 }
 
-void	check_magic_number(tab)
+void	check_magic_number(t_convert *tab)
 {
 	if (hex_to_int(tab[0].c_char[0], tab[0].c_char[1], tab[0].c_char[2],
 			tab[0].c_char[3]) != 15369203)
@@ -80,6 +84,7 @@ void	send_in_arena(t_convert *tab, t_params *param, t_map *map)
 {
 	int	i;
 	int	j;
+	int k = 0;
 
 	if (param->n == 0)
 		get_n(param);
@@ -89,6 +94,13 @@ void	send_in_arena(t_convert *tab, t_params *param, t_map *map)
 	get_name_comment(tab, param, map, i);
 	check_magic_number(tab);
 	j = COMMENT_LENGTH/4 + PROG_NAME_LENGTH/4 + 4;
+   while (k < MEM_SIZE)
+   {
+   	if (k % 64 == 0)
+   		printf("\n");
+   	printf("%02x ", map->arena[k]);
+   	k++;
+   }
 	while (i < MEM_SIZE && j < COMMENT_LENGTH/4 + PROG_NAME_LENGTH/4 + CHAMP_MAX_SIZE/4 + 4)
 	{
 		map->arena[i++] = tab[j].c_char[0];
