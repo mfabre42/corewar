@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 20:49:40 by mafabre           #+#    #+#             */
-/*   Updated: 2017/04/27 16:02:08 by mafabre          ###   ########.fr       */
+/*   Updated: 2017/05/02 12:43:47 by mafabre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,46 @@ void	get_n(t_params *param)
 	}
 }
 
-void	send_in_arena(t_convert *tab, t_params *param, unsigned char *arena)
+void	get_name_comment(t_convert *tab, t_params *param, t_map *map, int i)
+{
+	t_player	tmp;
+	int			j;
+
+	j = 1;
+	tmp = map->player[param->n - 1];
+	i = 0;
+	while (j < PROG_NAME_LENGTH / 4)
+	{
+		tmp.name[i++] = tab[j].c_char[0];
+		tmp.name[i++] = tab[j].c_char[1];
+		tmp.name[i++] = tab[j].c_char[2];
+		tmp.name[i++] = tab[j++].c_char[3];
+	}
+	i = 0;
+	while (j < COMMENT_LENGTH/4 + PROG_NAME_LENGTH/4 + 3)
+	{
+		tmp.comm[i++] = tab[j].c_char[0];
+		tmp.comm[i++] = tab[j].c_char[1];
+		tmp.comm[i++] = tab[j].c_char[2];
+		tmp.comm[i++] = tab[j++].c_char[3];
+	}
+	tmp.process_nbr = 1;
+	map->nb_player = param->np;
+	map->nb_process = param->np;
+	map->player[param->n - 1] = tmp;
+}
+
+void	check_magic_number(tab)
+{
+	if (hex_to_int(tab[0].c_char[0], tab[0].c_char[1], tab[0].c_char[2],
+			tab[0].c_char[3]) != 15369203)
+			{
+				printf("wrong magic number exit\n"); // magic number check
+				exit(0);
+			}
+}
+
+void	send_in_arena(t_convert *tab, t_params *param, t_map *map)
 {
 	int	i;
 	int	j;
@@ -46,13 +85,16 @@ void	send_in_arena(t_convert *tab, t_params *param, unsigned char *arena)
 		get_n(param);
 	printf("DDDDDDD %d\n", param->n);
 	i = MEM_SIZE * (param->n - 1) / param->np;
+	map->player[param->n - 1].start = i;
+	get_name_comment(tab, param, map, i);
+	check_magic_number(tab);
 	j = COMMENT_LENGTH/4 + PROG_NAME_LENGTH/4 + 4;
 	while (i < MEM_SIZE && j < COMMENT_LENGTH/4 + PROG_NAME_LENGTH/4 + CHAMP_MAX_SIZE/4 + 4)
 	{
-		arena[i++] = tab[j].c_char[0];
-		arena[i++] = tab[j].c_char[1];
-		arena[i++] = tab[j].c_char[2];
-		arena[i++] = tab[j].c_char[3];
+		map->arena[i++] = tab[j].c_char[0];
+		map->arena[i++] = tab[j].c_char[1];
+		map->arena[i++] = tab[j].c_char[2];
+		map->arena[i++] = tab[j].c_char[3];
 		j++;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 19:32:42 by mafabre           #+#    #+#             */
-/*   Updated: 2017/04/27 15:56:48 by mafabre          ###   ########.fr       */
+/*   Updated: 2017/05/02 11:56:39 by mafabre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ t_params	save_params(int ac, char **av, unsigned char *arena)
 {
 	int			i;
 	t_params	param;
+	t_map		map;
 
 	i = 1;
 	init_params(&param);
