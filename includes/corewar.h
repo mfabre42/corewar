@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/20 14:35:05 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/02 14:59:29 by mafabre          ###   ########.fr       */
+/*   Updated: 2017/05/02 16:10:42 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ typedef struct	s_player
 	char							*comm;
 	int								process_nbr;
 	int								start;
-	t_process					*process;
+	t_process						*process;
 	int								in_life;
 	int								last_live;
 }				t_player;
@@ -55,7 +55,7 @@ typedef struct	s_map
 	int						nb_player;
 	int						nb_process;
 	t_player				*player;
-	unsigned char	*arena;
+	unsigned char			*arena;
 }								t_map;
 
 typedef struct	s_ocp
@@ -65,6 +65,7 @@ typedef struct	s_ocp
 	char			param3;
 }				t_ocp;
 
+t_player		init_process(t_map *map, int player, int start);
 void			place_in_arena(t_map *map, int dest, int nbr);
 unsigned int	hex_to_int(unsigned char a, unsigned char b,
 					unsigned char c, unsigned char d);

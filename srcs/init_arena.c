@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 20:49:40 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/02 15:02:13 by mafabre          ###   ########.fr       */
+/*   Updated: 2017/05/02 16:11:53 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void	get_name_comment(t_convert *tab, t_params *param, t_map *map, int i)
 		tmp.comm[i++] = tab[j++].c_char[3];
 	}
 	tmp.process_nbr = 1;
+	tmp.process = NULL;
 	map->nb_player = param->np;
 	map->nb_process = param->np;
 	map->player[param->n - 1] = tmp;
@@ -101,6 +102,7 @@ void	send_in_arena(t_convert *tab, t_params *param, t_map *map)
    // 	printf("%02x ", map->arena[k]);
    // 	k++;
    // }
+   map->player[param->n - 1] = init_process(map, param->n - 1, MEM_SIZE * (param->n - 1) / param->np);
 	while (i < MEM_SIZE && j < COMMENT_LENGTH/4 + PROG_NAME_LENGTH/4 + CHAMP_MAX_SIZE/4 + 4)
 	{
 		map->arena[i++] = tab[j].c_char[0];
