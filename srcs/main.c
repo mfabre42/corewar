@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 17:05:36 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/02 12:28:23 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/02 12:54:13 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 
 int		main(int ac, char **av)
 {
-	unsigned char	*arena;
-	t_params param;
+	t_params	param;
+	t_map		map;
 
-	arena = (unsigned char *)malloc(sizeof(unsigned char) * MEM_SIZE);
-	ft_bzero(arena, MEM_SIZE);
+	ft_bzero(map.arena, MEM_SIZE);
+	map.arena = (unsigned char *)malloc(sizeof(unsigned char) * MEM_SIZE);
 	int i = 0;
-	param = save_params(ac, av, arena);
+	param = save_params(ac, av, &map, param);
 	unsigned int qwerty;
 
 	//init_vm(arena, param);

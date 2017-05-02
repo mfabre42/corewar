@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 19:35:01 by mafabre           #+#    #+#             */
-/*   Updated: 2017/04/26 22:35:06 by mafabre          ###   ########.fr       */
+/*   Updated: 2017/05/02 12:06:41 by mafabre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,6 @@ void		save_file(char *file, t_params *param, unsigned char *arena)
 	// 	i++;
 	// }
 	close(fd);
+	init_map(tab, param, )
 	send_in_arena(tab, param, arena);
 }
