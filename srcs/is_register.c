@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   place_in_arena.c                                   :+:      :+:    :+:   */
+/*   is_register.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/04/27 23:07:14 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/04/27 23:11:37 by acoupleu         ###   ########.fr       */
+/*   Created: 2017/04/27 22:11:57 by acoupleu          #+#    #+#             */
+/*   Updated: 2017/05/02 12:26:18 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
+#include "op.h"
 
-void	place_in_arena(t_map *map, int dest, int nbr)
+int	is_register(unsigned int reg)
 {
-	t_convert conv;
-
-	t_convert.c_int = nbr;
-	map->arena[dest] = t_convert.c_char[0];
-	map->arena[dest + 1] = t_convert.c_char[1];
-	map->arena[dest + 2] = t_convert.c_char[2];
-	map->arena[dest + 3] = t_convert.c_char[3];
+	if (reg >= 1 && reg <= REG_NUMBER)
+		return (1);
+	return (0);
 }

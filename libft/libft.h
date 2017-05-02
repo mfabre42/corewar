@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 22:13:34 by mafabre           #+#    #+#             */
-/*   Updated: 2016/09/21 15:15:39 by mafabre          ###   ########.fr       */
+/*   Updated: 2017/05/02 12:01:13 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
+# include "../includes/corewar.h"
 
 int		ft_atoi(const char *nptr);
 void	ft_bzero(void *s, size_t n);

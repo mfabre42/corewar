@@ -6,7 +6,7 @@
 /*   By: aleveque <aleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 12:40:09 by aleveque          #+#    #+#             */
-/*   Updated: 2017/05/01 21:43:21 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/02 12:14:45 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,11 @@ t_process				*ft_lstnew(int start)
 {
 	t_process				*new;
 	static int		process_nbr = 1;
-	unsigned int	*reg
+	unsigned int	*reg;
 
 	if (!(new = (t_process*)malloc(sizeof(t_process))))
 		return (NULL);
-	if ((reg = init_reg(player, nb_player, process_nbr)) == NULL)
+	if ((reg = init_reg()) == NULL)
 		return (NULL);
 	new->reg = reg;
 	new->pc = start;

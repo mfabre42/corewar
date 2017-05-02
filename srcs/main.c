@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 17:05:36 by mafabre           #+#    #+#             */
-/*   Updated: 2017/04/27 21:52:11 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/02 12:28:23 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int		main(int ac, char **av)
 	param = save_params(ac, av, arena);
 	unsigned int qwerty;
 
-	init_vm(arena, param);
+	//init_vm(arena, param);
 	qwerty = hex_to_int(0x0e, 0x68, 0x36, 0xea);
 	printf("Coucou = %d\n", qwerty);
 	// while (i < MEM_SIZE)

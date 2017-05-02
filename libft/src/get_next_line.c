@@ -6,11 +6,11 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/27 17:39:25 by mafabre           #+#    #+#             */
-/*   Updated: 2017/04/28 14:00:04 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/02 12:18:43 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "../get_next_line.h"
 #include <stdio.h>
 
 static void	free_join(char **line, char *sub_line)

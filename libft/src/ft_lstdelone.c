@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aleveque <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: aleveque <aleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 13:55:11 by aleveque          #+#    #+#             */
-/*   Updated: 2017/03/28 19:39:37 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/02 12:13:42 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 #include <string.h>
 #include <stdlib.h>
 
-void	ft_lstdelone(t_list **alst)
+void	ft_lstdelone(t_process **alst)
 {
-	t_list *list;
+	t_process *list;
 
 	list = *alst;
-	free(list->name);
+	free(list->reg);
 	free(list);
 	*alst = NULL;
 }

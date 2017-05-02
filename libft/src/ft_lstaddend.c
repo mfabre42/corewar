@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstaddend.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aleveque <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: aleveque <aleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/06 16:22:01 by aleveque          #+#    #+#             */
-/*   Updated: 2017/03/27 14:48:05 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/02 12:00:09 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 
-void	ft_lstaddend(t_list **lst, t_list *new)
+void	ft_lstaddend(t_process **lst, t_process *new)
 {
-	t_list *tmp;
+	t_process *tmp;
 
 	tmp = *lst;
 	if (new != NULL)
