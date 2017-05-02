@@ -6,7 +6,7 @@
 /*   By: aleveque <aleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 12:40:09 by aleveque          #+#    #+#             */
-/*   Updated: 2017/05/02 12:14:45 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/02 17:01:28 by mafabre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ t_process				*ft_lstnew(int start)
 	if ((reg = init_reg()) == NULL)
 		return (NULL);
 	new->reg = reg;
-	new->pc = start;
+	new->pc = 0;
 	new->start = start;
 	new->carry = 0;
 	new->cycle = 0;

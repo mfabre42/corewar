@@ -6,12 +6,11 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 17:05:36 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/02 15:05:02 by mafabre          ###   ########.fr       */
+/*   Updated: 2017/05/02 17:27:13 by mafabre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
-#include "op.h"
 
 int		main(int ac, char **av)
 {
@@ -34,7 +33,15 @@ int		main(int ac, char **av)
 		printf("%02x ", map.arena[i]);
 		i++;
 	}
-	printf("%s\n", map.player[0].name);
-	printf("%d\n", map.player[1].start);
+	indirect_store(&map, map.player[0].process);
+	printf("After :\n");
+	i = 0;
+	while (i < MEM_SIZE)
+	{
+		if (i % 64 == 0)
+			printf("\n");
+		printf("%02x ", map.arena[i]);
+		i++;
+	}
 	return (0);
 }

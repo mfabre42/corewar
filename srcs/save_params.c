@@ -6,12 +6,11 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 19:32:42 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/02 15:00:39 by mafabre          ###   ########.fr       */
+/*   Updated: 2017/05/02 17:25:01 by mafabre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
-#include "op.h"
 
 void	save_dump(char *av, t_params *param)
 {

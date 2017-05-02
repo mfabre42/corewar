@@ -6,12 +6,12 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 20:49:40 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/02 16:11:53 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/02 17:25:22 by mafabre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
-#include "op.h"
+
 
 void	get_n(t_params *param)
 {

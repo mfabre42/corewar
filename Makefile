@@ -6,7 +6,7 @@
 #    By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/10 15:31:11 by mafabre           #+#    #+#              #
-#    Updated: 2017/05/02 15:43:48 by aleveque         ###   ########.fr        #
+#    Updated: 2017/05/02 17:26:41 by mafabre          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ LIB_LINK			=	-L $(LIBFT_PATH) -lft -L $(LIBFTPRINTF_PATH) -lftprintf
 INCLUDES			=	-I $(LIBFT_PATH) -I $(LIBFTPRINTF_PATH)/includes -I ./includes
 SRCS				=	srcs/main.c srcs/save_params.c srcs/save_file.c srcs/init_arena.c \
 						srcs/calc_ocp.c srcs/hex_to_int.c srcs/is_register.c \
-						srcs/place_in_arena.c srcs/init_process.c
+						srcs/place_in_arena.c srcs/init_process.c \
+						srcs/functions/func_sti.c
 
 OBJS				=	$(SRCS:srcs/%.c=obj/%.o)
 
@@ -50,6 +51,7 @@ $(LIB):
 
 obj:
 	@mkdir -p obj
+	@mkdir -p obj/functions
 
 obj/%.o: srcs/%.c
 	@$(CC) $(FLAGS) $(INCLUDES) -c -o $@ $<
