@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 22:13:34 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/02 13:03:52 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/02 14:46:50 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,16 @@
 # include <string.h>
 # include <unistd.h>
 # include "../includes/corewar.h"
+
+typedef struct	s_process
+{
+	unsigned int					*reg;
+	int								pc;
+	int								start;
+	int								carry;
+	int								cycle;
+	struct s_process				*next;
+}				t_process;
 
 int		ft_atoi(const char *nptr);
 void	ft_bzero(void *s, size_t n);

@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/20 14:35:05 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/02 14:41:32 by mafabre          ###   ########.fr       */
+/*   Updated: 2017/05/02 14:46:51 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,6 @@ typedef struct	s_params
 	int			p4;
 }				t_params;
 
-typedef struct	s_process
-{
-	unsigned int					*reg;
-	int								pc;
-	int								start;
-	int								carry;
-	int								cycle;
-	struct s_process				*next;
-}				t_process;
 
 typedef struct	s_player
 {
