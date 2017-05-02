@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/20 14:35:05 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/02 12:11:51 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/02 13:01:12 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # define BUF_SIZE 4
 
 # include "../ft_printf/includes/ft_printf.h"
-# include "../../libft/libft.h"
+# include "../libft/libft.h"
 # include <fcntl.h>
 
 typedef union	u_convert

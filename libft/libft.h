@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 22:13:34 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/02 12:01:13 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/02 13:03:52 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,11 @@ int		ft_isblank(int c);
 int		ft_isdigit(int c);
 int		ft_isprint(int c);
 char	*ft_itoa(int n);
+void	ft_lstadd(t_process **alst, t_process *new);
+void	ft_lstaddend(t_process **lst, t_process *new);
+void	ft_lstdel(t_process **alst);
+t_process *ft_lstnew(int start);
+void	ft_lstdelone(t_process **alst);
 void	*ft_memalloc(size_t size);
 void	*ft_memccpy(void *dest, const void *src, int c, size_t n);
 void	*ft_memchr(const void *s, int c, size_t n);
