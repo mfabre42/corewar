@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 20:49:40 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/02 14:38:39 by mafabre          ###   ########.fr       */
+/*   Updated: 2017/05/02 15:02:13 by mafabre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,13 +94,13 @@ void	send_in_arena(t_convert *tab, t_params *param, t_map *map)
 	get_name_comment(tab, param, map, i);
 	check_magic_number(tab);
 	j = COMMENT_LENGTH/4 + PROG_NAME_LENGTH/4 + 4;
-   while (k < MEM_SIZE)
-   {
-   	if (k % 64 == 0)
-   		printf("\n");
-   	printf("%02x ", map->arena[k]);
-   	k++;
-   }
+   // while (k < MEM_SIZE)
+   // {
+   // 	if (k % 64 == 0)
+   // 		printf("\n");
+   // 	printf("%02x ", map->arena[k]);
+   // 	k++;
+   // }
 	while (i < MEM_SIZE && j < COMMENT_LENGTH/4 + PROG_NAME_LENGTH/4 + CHAMP_MAX_SIZE/4 + 4)
 	{
 		map->arena[i++] = tab[j].c_char[0];

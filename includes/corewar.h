@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/20 14:35:05 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/02 14:46:51 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/02 14:59:29 by mafabre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void			place_in_arena(t_map *map, int dest, int nbr);
 unsigned int	hex_to_int(unsigned char a, unsigned char b,
 					unsigned char c, unsigned char d);
 t_ocp			ocp_master(int	ocp);
-void			save_file(char *file, t_params *param, unsigned char *arena);
+void			save_file(char *file, t_params *param, t_map *map);
 t_params			save_params(int ac, char **av, t_params param, t_map *map);
 void			send_in_arena(t_convert *tab, t_params *param, t_map *map);
 
