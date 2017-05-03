@@ -6,7 +6,7 @@
 /*   By: aleveque <aleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 15:22:14 by aleveque          #+#    #+#             */
-/*   Updated: 2017/05/02 17:30:50 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/02 18:13:52 by mafabre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_player	init_process(t_map *map, int player, int start)
 	t_player tmp;
 	t_process *proc;
 
-printf("player : %d\n", player);
+	printf("player : %d\n", player);//ici aussi
 	tmp = map->player[player];
 	proc = ft_lstnew(start);
 	proc->reg[0] = (unsigned int)player + 1;
