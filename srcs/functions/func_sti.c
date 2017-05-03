@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/27 18:15:10 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/03 17:32:50 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/03 19:15:55 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ void	indirect_store(t_map *map, t_process *proc)
 			result += proc->reg[(int)map->arena[pos + 5] - 1];
 			proc->pc = proc->pc + 6;
 		}
-		proc->cycle = 25;
 		place_in_arena(map, pos + (result % IDX_MOD), proc->reg[reg_nbr - 1]);
 	}
 }
