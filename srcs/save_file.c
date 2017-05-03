@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 19:35:01 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/02 17:25:04 by mafabre          ###   ########.fr       */
+/*   Updated: 2017/05/03 15:26:23 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,32 +32,6 @@ void		save_file(char *file, t_params *param, t_map *map)
 		ft_bzero(convert.c_char, 4);
 		i++;
 	}
-	// i = 1;
-	// while (i < PROG_NAME_LENGTH/4 + 1)
-	// {
-	// 	printf("%c", tab[i].c_char[0]);
-	// 	printf("%c", tab[i].c_char[1]);
-	// 	printf("%c", tab[i].c_char[2]);
-	// 	printf("%c", tab[i].c_char[3]);
-	// 	i++;
-	// }
-	// while (i < COMMENT_LENGTH/4 + PROG_NAME_LENGTH/4 + 2)
-	// {
-	// 	printf("%c", tab[i].c_char[0]);
-	// 	printf("%c", tab[i].c_char[1]);
-	// 	printf("%c", tab[i].c_char[2]);
-	// 	printf("%c", tab[i].c_char[3]);
-	// 	i++;
-	// }
-	// while (i < COMMENT_LENGTH/4 + PROG_NAME_LENGTH/4 + CHAMP_MAX_SIZE/4 + 2)
-	// {
-	// 	printf("%02x", tab[i].c_char[0]);
-	// 	printf("%02x", tab[i].c_char[1]);
-	// 	printf("%02x", tab[i].c_char[2]);
-	// 	printf("%02x ", tab[i].c_char[3]);
-	// 	i++;
-	// }
 	close(fd);
-	// init_map(tab, param, )
 	send_in_arena(tab, param, map);
 }
