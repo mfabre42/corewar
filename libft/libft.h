@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 22:13:34 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/02 14:51:39 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/02 18:13:26 by mafabre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct	s_process
 	int								start;
 	int								carry;
 	int								cycle;
+	int								do_funk;
 	struct s_process				*next;
 }				t_process;
 

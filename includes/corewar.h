@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/20 14:35:05 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/02 17:25:55 by mafabre          ###   ########.fr       */
+/*   Updated: 2017/05/02 18:50:29 by mafabre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,6 @@ void			save_file(char *file, t_params *param, t_map *map);
 t_params		save_params(int ac, char **av, t_params param, t_map *map);
 void			send_in_arena(t_convert *tab, t_params *param, t_map *map);
 int				is_register(unsigned int reg);
+void			play_game(t_map *map);
 
 #endif
