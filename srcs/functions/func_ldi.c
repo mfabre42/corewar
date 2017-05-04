@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 15:34:48 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/03 17:32:32 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/03 19:33:57 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,56 +14,71 @@
 
 void	indirect_load(t_map *map, t_process *proc)
 {
-	int		reg_nbr;
 	int		pos;
 	int		result;
 	t_ocp	ocp;
 
-	pos = proc->start + proc->pc;
-	ocp = ocp_master((int)map->arena[pos + 1]);
-	reg_nbr = (int)map->arena[pos + 2];
-	if (ocp.param1 == 'R' && ocp.param2 == 'D')
+	if (proc->do_funk == 1)
 	{
-		if (!is_register((int)map->arena[pos + 3]))
-		{
-			printf("crash process a gerer"); //LOL
-			exit(0);
-		}
-		result = proc->reg[(int)map->arena[pos + 3] - 1];
-		result += hex_to_int(0x00, 0x00, map->arena[pos + 4],
-			map->arena[pos + 5]);
-		proc->pc = proc->pc + 6;
+		proc->cycle = 25;
+		proc->do_funk = 0;
 	}
-	else if (ocp.param2 == 'R' && ocp.param3 == 'R')
+	else
 	{
-		if (!is_register((int)map->arena[pos + 3])
+		proc->do_funk = 1;
+		pos = proc->start + proc->pc;
+		ocp = ocp_master((int)map->arena[pos + 1]);
+		if (ocp.param1 == 'R' && ocp.param2 == 'R')
+		{
+			if (!is_register((int)map->arena[pos + 2])
+			|| !is_register((int)map->arena[pos + 3])
 			|| !is_register((int)map->arena[pos + 4]))
-		{
-			printf("crash process a gerer"); //LOL
-			exit(0);
+			{
+				printf("crash process a gerer"); //LOL
+				exit(0);
+			}
+			result = ((proc->reg[(int)map->arena[pos + 2] - 1]) % 3) + pos;
+			result += proc->reg[(int)map->arena[pos + 3] - 1];
+			proc->reg[(int)map->arena[pos + 4] - 1] = read_in_arena(map, pos + (result % IDX_MOD));
+			proc->pc = proc->pc + 5;
 		}
-		result = proc->reg[(int)map->arena[pos + 3] - 1];
-		result += proc->reg[(int)map->arena[pos + 4] - 1];
-		proc->pc = proc->pc + 5;
-	}
-	else if ((ocp.param2 == 'D' || ocp.param2 == 'I') && ocp.param3 == 'D')
-	{
-
-		result = hex_to_int(0x00, 0x00, map->arena[pos + 3], map->arena[pos + 4]);
-		result += hex_to_int(0x00, 0x00, map->arena[pos + 5], map->arena[pos + 6]);
-		proc->pc = proc->pc + 7;
-	}
-	else if ((ocp.param2 == 'D' || ocp.param2 == 'I') && ocp.param3 == 'R')
-	{
-		if (!is_register((int)map->arena[pos + 5]))
+		else if (ocp.param1 == 'R' && ocp.param2 == 'D')
 		{
-			printf("crash process a gerer"); //LOL
-			exit(0);
+			if (!is_register((int)map->arena[pos + 2])
+			|| !is_register((int)map->arena[pos + 5]))
+			{
+				printf("crash process a gerer"); //LOL
+				exit(0);
+			}
+			result = ((proc->reg[(int)map->arena[pos + 2] - 1]) % 3) + pos;
+			result += hex_to_int(0x00, 0x00, map->arena[pos + 3], map->arena[pos + 4]);
+			proc->reg[(int)map->arena[pos + 5] - 1] = read_in_arena(map, pos + (result % IDX_MOD));
+			proc->pc = proc->pc + 6;
 		}
-		result = hex_to_int(0x00, 0x00, map->arena[pos + 3], map->arena[pos + 4]);
-		result += proc->reg[(int)map->arena[pos + 5] - 1];
-		proc->pc = proc->pc + 6;
+		else if (ocp.param1 == 'D' || ocp.param1 == 'I') && ocp.param2 == 'R')
+		{
+			if (!is_register((int)map->arena[pos + 4])
+			|| !is_register((int)map->arena[pos + 5]))
+			{
+				printf("crash process a gerer"); //LOL
+				exit(0);
+			}
+			result = ((hex_to_int(0x00, 0x00, map->arena[pos + 2], map->arena[pos + 3])) % 3) + pos;
+			result += proc->reg[(int)map->arena[pos + 4] - 1];
+			proc->reg[(int)map->arena[pos + 5] - 1] = read_in_arena(map, pos + (result % IDX_MOD));
+			proc->pc = proc->pc + 6;
+		}
+		else if (ocp.param1 == 'D' || ocp.param1 == 'I') && ocp.param2 == 'D')
+		{
+			if (!is_register((int)map->arena[pos + 6]))
+			{
+				printf("crash process a gerer"); //LOL
+				exit(0);
+			}
+			result = ((hex_to_int(0x00, 0x00, map->arena[pos + 2], map->arena[pos + 3])) % 3 ) + pos;
+			result += hex_to_int(0x00, 0x00, map->arena[pos + 4], map->arena[pos + 5]);
+			proc->reg[(int)map->arena[pos + 6] - 1] = read_in_arena(map, pos + (result % IDX_MOD));
+			proc->pc = proc->pc + 7;
+		}
 	}
-	proc->cycle = 25;
-	place_in_arena(map, pos + (result % IDX_MOD), proc->reg[reg_nbr - 1]);
 }
