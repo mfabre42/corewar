@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 18:23:26 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/04 15:29:32 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/04 19:28:36 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,15 @@ void	play_game(t_map *map)
 	int			player;
 	t_process	*tmp;
 
-	while(map->cycle < 325)
+	while (map->cycle < 325)
 	{
-		player = map->nb_player;
+		player = map->nb_player - 1;
 		while (player > 0)
 		{
 			tmp = map->player[player].process;
 			while (tmp != NULL)
 			{
+				printf("player : %d,%p\n", player, tmp);
 				ft_cycle(tmp, map, player);
 				tmp = tmp->next;
 			}
