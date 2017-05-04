@@ -6,7 +6,7 @@
 /*   By: aleveque <aleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 12:40:09 by aleveque          #+#    #+#             */
-/*   Updated: 2017/05/04 18:10:56 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/04 18:22:58 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ unsigned int	*init_reg()
 t_process		*ft_lstnew(int start)
 {
 	t_process		*new;
-	static int		process_nbr = 1;
 	unsigned int	*reg;
 
 	if (!(new = (t_process*)malloc(sizeof(t_process))))

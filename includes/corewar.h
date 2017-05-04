@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/20 14:35:05 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/02 18:50:29 by mafabre          ###   ########.fr       */
+/*   Updated: 2017/05/04 18:45:40 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # define BUF_SIZE 4
 
-#include "../srcs/op.h"
+# include "../srcs/op.h"
 # include "../ft_printf/includes/ft_printf.h"
 # include "../libft/libft.h"
 # include <fcntl.h>
@@ -37,27 +37,26 @@ typedef struct	s_params
 	int			p4;
 }				t_params;
 
-
 typedef struct	s_player
 {
-	char							*name;
-	char							*comm;
-	int								process_nbr;
-	int								start;
-	t_process						*process;
-	int								in_life;
-	int								last_live;
+	char				*name;
+	char				*comm;
+	int					process_nbr;
+	int					start;
+	t_process			*process;
+	int					in_life;
+	int					last_live;
 }				t_player;
 
 typedef struct	s_map
 {
-	int						check;
-	int						cycle;
-	int						nb_player;
-	int						nb_process;
-	t_player				*player;
-	unsigned char			*arena;
-}								t_map;
+	int					check;
+	int					cycle;
+	int					nb_player;
+	int					nb_process;
+	t_player			*player;
+	unsigned char		*arena;
+}				t_map;
 
 typedef struct	s_ocp
 {
