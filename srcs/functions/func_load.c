@@ -6,7 +6,7 @@
 /*   By: aleveque <aleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 18:31:28 by aleveque          #+#    #+#             */
-/*   Updated: 2017/05/04 20:16:43 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/04 23:43:12 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	direct_load(t_map *map, t_process *proc)
 	{
 		proc->do_funk = 1;
 		pos = proc->start + proc->pc;
-		ocp = ocp_master((int)map_arena[pos + 1]);
+		ocp = ocp_master((int)map->arena[pos + 1]);
 		if (ocp.param1 == 'D')
 		{
 			if (!is_register((int)map->arena[pos + 6]))

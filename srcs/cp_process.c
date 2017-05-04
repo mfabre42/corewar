@@ -6,9 +6,11 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 16:28:45 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/04 18:43:09 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/04 23:41:53 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "corewar.h"
 
 void	cp_process(t_map *map, t_process *proc, int player, int adress)
 {

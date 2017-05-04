@@ -6,11 +6,13 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 18:51:41 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/04 20:09:12 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/04 23:35:25 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	fork(t_map *map, t_process *proc, int player)
+#include "corewar.h"
+
+void	lfork(t_map *map, t_process *proc, int player)
 {
 	int		pos;
 	int		dest;

@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:42:36 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/04 20:09:27 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/04 23:42:58 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	lindirect_load(t_map *map, t_process *proc)
 		proc->cycle = 49;
 		proc->do_funk = 0;
 	}
-	else r3 = hext(id1) & val2
+	else
 	{
 		proc->do_funk = 1;
 		pos = proc->start + proc->pc;
@@ -55,7 +55,7 @@ void	lindirect_load(t_map *map, t_process *proc)
 			proc->reg[(int)map->arena[pos + 5] - 1] = read_in_arena(map, pos + result);
 			proc->pc = proc->pc + 6;
 		}
-		else if (ocp.param1 == 'D' || ocp.param1 == 'I') && ocp.param2 == 'R')
+		else if ((ocp.param1 == 'D' || ocp.param1 == 'I') && ocp.param2 == 'R')
 		{
 			if (!is_register((int)map->arena[pos + 4])
 			|| !is_register((int)map->arena[pos + 5]))
@@ -68,7 +68,7 @@ void	lindirect_load(t_map *map, t_process *proc)
 			proc->reg[(int)map->arena[pos + 5] - 1] = read_in_arena(map, pos + result);
 			proc->pc = proc->pc + 6;
 		}
-		else if (ocp.param1 == 'D' || ocp.param1 == 'I') && ocp.param2 == 'D')
+		else if ((ocp.param1 == 'D' || ocp.param1 == 'I') && ocp.param2 == 'D')
 		{
 			if (!is_register((int)map->arena[pos + 6]))
 			{

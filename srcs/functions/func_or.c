@@ -6,13 +6,13 @@
 /*   By: aleveque <aleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 19:54:02 by aleveque          #+#    #+#             */
-/*   Updated: 2017/05/04 20:16:41 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/04 23:35:00 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-void	or(t_process *proc, t_map *map)
+void	func_or(t_map *map, t_process *proc)
 {
 	int		pos;
 	t_ocp	ocp;

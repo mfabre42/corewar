@@ -6,9 +6,11 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:43:55 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/04 20:08:48 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/04 23:34:12 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "corewar.h"
 
 void	aff_char(t_map *map, t_process *proc)
 {

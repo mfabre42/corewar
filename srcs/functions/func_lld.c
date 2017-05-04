@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:39:11 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/04 20:17:43 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/04 23:42:07 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ldirect_load(t_map *map, t_process *proc)
 	{
 		proc->do_funk = 1;
 		pos = proc->start + proc->pc;
-		ocp = ocp_master((int)map_arena[pos + 1]);
+		ocp = ocp_master((int)map->arena[pos + 1]);
 		if (ocp.param1 == 'D')
 		{
 			if (!is_register((int)map->arena[pos + 6]))

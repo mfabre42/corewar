@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/20 14:35:05 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/04 18:45:40 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/04 23:41:09 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,34 @@ typedef struct	s_ocp
 	char			param3;
 }				t_ocp;
 
+typedef struct	s_proto_func
+{
+	int				num_func;
+	void			(*func)(struct s_map*, struct s_process*);
+}				t_proto_func;
+
 /*
 ** Fonctions corewar
 */
 void			indirect_store(t_map *map, t_process *proc);
+void			addition(t_map *map, t_process *proc);
+void			aff_char(t_map *map, t_process *proc);
+void			func_and(t_map *map, t_process *proc);
+void			forkniquer(t_map *map, t_process *proc, int player);
+void			indirect_load(t_map *map, t_process *proc);
+void			lfork(t_map *map, t_process *proc, int player);
+void			live(t_map *map, t_process *proc);
+void			ldirect_load(t_map *map, t_process *proc);
+void			lindirect_load(t_map *map, t_process *proc);
+void			direct_load(t_map *map, t_process *proc);
+void			func_or(t_map *map, t_process *proc);
+void			direct_store(t_map *map, t_process *proc);
+void			indirect_store(t_map *map, t_process *proc);
+void			substraction(t_map *map, t_process *proc);
+void			func_xor(t_map *map, t_process *proc);
+void			jump_if_zero(t_map *map, t_process *proc);
 
+void			cp_process(t_map *map, t_process *proc, int player, int adress);
 t_player		init_process(t_map *map, int player, int start);
 void			place_in_arena(t_map *map, int dest, int nbr);
 unsigned int	hex_to_int(unsigned char a, unsigned char b,
@@ -80,5 +103,6 @@ t_params		save_params(int ac, char **av, t_params param, t_map *map);
 void			send_in_arena(t_convert *tab, t_params *param, t_map *map);
 int				is_register(unsigned int reg);
 void			play_game(t_map *map);
+unsigned int	read_in_arena(t_map *map, int adress);
 
 #endif

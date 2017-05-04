@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 18:23:26 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/04 19:28:36 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/04 23:39:23 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,3 +46,20 @@ void	play_game(t_map *map)
 		map->cycle++;
 	}
 }
+
+t_proto_func func_table[16] = {
+	{1, &live},
+	{2, &direct_load},
+	{3, &direct_store},
+	{4, &addition},
+	{5, &substraction},
+	{6, &func_and},
+	{7, &func_or},
+	{8, &func_xor},
+	{9, &jump_if_zero},
+	{10, &indirect_load},
+	{11, &indirect_store},
+	{13, &ldirect_load},
+	{14, &lindirect_load},
+	{16, &aff_char}
+};

@@ -6,7 +6,7 @@
 #    By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/10 15:31:11 by mafabre           #+#    #+#              #
-#    Updated: 2017/05/02 18:50:11 by mafabre          ###   ########.fr        #
+#    Updated: 2017/05/04 23:44:54 by acoupleu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,9 +23,17 @@ INCLUDES			=	-I $(LIBFT_PATH) -I $(LIBFTPRINTF_PATH)/includes -I ./includes
 SRCS				=	srcs/main.c srcs/save_params.c srcs/save_file.c srcs/init_arena.c \
 						srcs/calc_ocp.c srcs/hex_to_int.c srcs/is_register.c \
 						srcs/place_in_arena.c srcs/init_process.c \
-						srcs/functions/func_sti.c srcs/corewar.c 
+						srcs/cp_process.c srcs/corewar.c
+
+FUNCTIONS			=	srcs/functions/func_add.c srcs/functions/func_aff.c srcs/functions/func_and.c	\
+						srcs/functions/func_fork.c srcs/functions/func_ldi.c srcs/functions/func_lfork.c	\
+						srcs/functions/func_live.c srcs/functions/func_lld.c srcs/functions/func_lldi.c	\
+						srcs/functions/func_load.c srcs/functions/func_or.c srcs/functions/func_st.c	\
+						srcs/functions/func_sti.c srcs/functions/func_sub.c srcs/functions/func_xor.c	\
+						srcs/functions/func_zjmp.c
 
 OBJS				=	$(SRCS:srcs/%.c=obj/%.o)
+OBJS_FUNC			=	$(FUNCTIONS:srcs/functions/%.c=obj/%.o)
 
 # COLORS
 C_NO			=	"\033[00m"
@@ -41,8 +49,8 @@ OK				=	[ $(C_OK)OK$(C_NO) ]
 
 all: obj $(NAME)
 
-$(NAME): $(LIB) $(OBJS)
-	$(CC) $(FLAGS) -o $@ $(OBJS) $(LIB_LINK)
+$(NAME): $(LIB) $(OBJS) $(OBJS_FUNC)
+	$(CC) $(FLAGS) -o $@ $(OBJS) $(OBJS_FUNC) $(LIB_LINK)
 	@echo "Compiling" $(NAME) "\t\t" $(SUCCESS)
 
 $(LIB):
@@ -55,6 +63,10 @@ obj:
 
 obj/%.o: srcs/%.c
 	@$(CC) $(FLAGS) $(INCLUDES) -c -o $@ $<
+	@echo "Linking" $< "\t" $(OK)
+
+obj/%.o: srcs/functions/%.c
+	@$(CC) $(FLAGS) $(INCLUDES) -I ../includes/corewar.h -c -o $@ $<
 	@echo "Linking" $< "\t" $(OK)
 
 clean:
