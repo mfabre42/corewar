@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 18:23:26 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/02 19:10:38 by mafabre          ###   ########.fr       */
+/*   Updated: 2017/05/04 15:26:33 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ void	play_game(t_map *map)
 
 	while(map->cycle < 325)
 	{
-		player = 0;
-		while (player < map->nb_player)
+		player = map->nb_player;
+		while (player > 0)
 		{
 			tmp = map->player[player].process;
 			while (tmp != NULL)
@@ -40,7 +40,7 @@ void	play_game(t_map *map)
 				ft_cycle(tmp, map, player);
 				tmp = tmp->next;
 			}
-			player++;
+			player--;
 		}
 		map->cycle++;
 	}
