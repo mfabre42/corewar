@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 17:05:36 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/03 16:56:07 by mafabre          ###   ########.fr       */
+/*   Updated: 2017/05/04 17:23:04 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,10 @@ int		main(int ac, char **av)
 	while (i < MEM_SIZE)
 	{
 		if (i % 64 == 0)
+		{
 			printf("\n");
+			break;
+		}
 		printf("%02x ", map.arena[i]);
 		i++;
 	}
