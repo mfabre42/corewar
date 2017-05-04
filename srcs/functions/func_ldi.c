@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 15:34:48 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/04 16:12:42 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/04 18:09:40 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	indirect_load(t_map *map, t_process *proc)
 				printf("crash process a gerer"); //LOL
 				exit(0);
 			}
-			result = ((proc->reg[(int)map->arena[pos + 2] - 1]) % 3) + pos;
+			result = proc->reg[(int)map->arena[pos + 2] - 1];
 			result += proc->reg[(int)map->arena[pos + 3] - 1];
 			proc->reg[(int)map->arena[pos + 4] - 1] = read_in_arena(map, pos + (result % IDX_MOD));
 			proc->pc = proc->pc + 5;
@@ -50,7 +50,7 @@ void	indirect_load(t_map *map, t_process *proc)
 				printf("crash process a gerer"); //LOL
 				exit(0);
 			}
-			result = ((proc->reg[(int)map->arena[pos + 2] - 1]) % 3) + pos;
+			result = proc->reg[(int)map->arena[pos + 2] - 1];
 			result += hex_to_int(0x00, 0x00, map->arena[pos + 3], map->arena[pos + 4]);
 			proc->reg[(int)map->arena[pos + 5] - 1] = read_in_arena(map, pos + (result % IDX_MOD));
 			proc->pc = proc->pc + 6;
@@ -63,7 +63,7 @@ void	indirect_load(t_map *map, t_process *proc)
 				printf("crash process a gerer"); //LOL
 				exit(0);
 			}
-			result = ((hex_to_int(0x00, 0x00, map->arena[pos + 2], map->arena[pos + 3])) % 3) + pos;
+			result = hex_to_int(0x00, 0x00, map->arena[pos + 2], map->arena[pos + 3]);
 			result += proc->reg[(int)map->arena[pos + 4] - 1];
 			proc->reg[(int)map->arena[pos + 5] - 1] = read_in_arena(map, pos + (result % IDX_MOD));
 			proc->pc = proc->pc + 6;
@@ -75,7 +75,7 @@ void	indirect_load(t_map *map, t_process *proc)
 				printf("crash process a gerer"); //LOL
 				exit(0);
 			}
-			result = ((hex_to_int(0x00, 0x00, map->arena[pos + 2], map->arena[pos + 3])) % 3 ) + pos;
+			result = hex_to_int(0x00, 0x00, map->arena[pos + 2], map->arena[pos + 3]);
 			result += hex_to_int(0x00, 0x00, map->arena[pos + 4], map->arena[pos + 5]);
 			proc->reg[(int)map->arena[pos + 6] - 1] = read_in_arena(map, pos + (result % IDX_MOD));
 			proc->pc = proc->pc + 7;

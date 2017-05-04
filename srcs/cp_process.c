@@ -6,8 +6,11 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 16:28:45 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/04 16:38:18 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/04 18:02:37 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	cp_process(t_map *map, t_process *proc, int player)
+void	cp_process(t_map *map, t_process *proc, int player, int adress)
+{
+
+}
