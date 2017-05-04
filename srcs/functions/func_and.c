@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   inst_and.c                                         :+:      :+:    :+:   */
+/*   func_and.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aleveque <aleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:53:14 by aleveque          #+#    #+#             */
-/*   Updated: 2017/05/04 20:10:19 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/04 20:16:38 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-void	and(t_process *proc, t_map *map, int player)
+void	and(t_process *proc, t_map *map)
 {
 	int		pos;
 	t_ocp	ocp;

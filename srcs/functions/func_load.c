@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   inst_load.c                                        :+:      :+:    :+:   */
+/*   func_load.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aleveque <aleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 18:31:28 by aleveque          #+#    #+#             */
-/*   Updated: 2017/05/04 20:10:39 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/04 20:16:43 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-void	direct_load(t_map *map, t_process *proc, int player)
+void	direct_load(t_map *map, t_process *proc)
 {
 	int		pos;
 	t_ocp	ocp;

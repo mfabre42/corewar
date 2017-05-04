@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   inst_live.c                                        :+:      :+:    :+:   */
+/*   func_live.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aleveque <aleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/27 16:03:13 by aleveque          #+#    #+#             */
-/*   Updated: 2017/05/04 20:10:36 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/04 20:16:46 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-void	live(t_map map, t_process *proc, int n_player)
+void	live(t_map map, t_process *proc)
 {
 	int player;
 	int pos;

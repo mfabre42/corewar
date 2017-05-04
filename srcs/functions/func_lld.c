@@ -6,13 +6,13 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:39:11 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/04 20:09:24 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/04 20:16:36 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-void	ldirect_load(t_map *map, t_process *proc, int player)
+void	ldirect_load(t_map *map, t_process *proc)
 {
 	int		pos;
 	t_ocp	ocp;
