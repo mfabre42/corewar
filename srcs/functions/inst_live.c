@@ -6,7 +6,7 @@
 /*   By: aleveque <aleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/27 16:03:13 by aleveque          #+#    #+#             */
-/*   Updated: 2017/05/03 19:17:19 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/04 20:10:36 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	live(t_map map, t_process *proc, int n_player)
 
 	if (proc->do_funk == 1)
 	{
-		proc->cycle = 10;
+		proc->cycle = 9;
 		proc->do_funk = 0;
 	}
 	else

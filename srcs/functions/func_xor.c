@@ -6,7 +6,7 @@
 /*   By: aleveque <aleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 19:57:24 by aleveque          #+#    #+#             */
-/*   Updated: 2017/05/04 19:57:58 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/04 20:10:04 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@ void	xor(t_process *proc, t_map *map, int player)
 	int		pc;
 	int		param1;
 
-	pc = 2;
 	if (proc->do_funk == 1)
 	{
-		proc->cycle = 6;
+		proc->cycle = 5;
 		proc->do_funk = 0;
 	}
 	else
 	{
 		proc->do_funk = 1;
+		pc = 2;
 		pos = proc->start + proc->pc;
 		ocp = ocp_master((int)map->arena[pos + 1]);
 		if (ocp.param1 == 'R')

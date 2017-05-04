@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 18:03:03 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/03 18:10:27 by mafabre          ###   ########.fr       */
+/*   Updated: 2017/05/04 20:09:36 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	substraction(t_map *map, t_process *proc)
 
 	if (proc->do_funk == 1)
 	{
-		proc->cycle = 10;
+		proc->cycle = 9;
 		proc->do_funk = 0;
 	}
 	else

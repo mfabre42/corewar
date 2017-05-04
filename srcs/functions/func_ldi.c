@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 15:34:48 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/04 18:09:40 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/04 20:09:01 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	indirect_load(t_map *map, t_process *proc)
 
 	if (proc->do_funk == 1)
 	{
-		proc->cycle = 25;
+		proc->cycle = 24;
 		proc->do_funk = 0;
 	}
 	else

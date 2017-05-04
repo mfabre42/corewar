@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 17:42:39 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/04 16:12:26 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/04 20:08:43 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	addition(t_map *map, t_process *proc)
 
 	if (proc->do_funk == 1)
 	{
-		proc->cycle = 10;
+		proc->cycle = 9;
 		proc->do_funk = 0;
 	}
 	else

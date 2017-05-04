@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 15:34:09 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/03 17:42:31 by mafabre          ###   ########.fr       */
+/*   Updated: 2017/05/04 20:09:30 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	direct_store(t_map *map, t_process *proc)
 
 	if (proc->do_funk == 1)
 	{
-		proc->cycle = 5;
+		proc->cycle = 4;
 		proc->do_funk = 0;
 	}
 	else

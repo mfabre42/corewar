@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:43:55 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/04 16:09:58 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/04 20:08:48 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	aff_char(t_map *map, t_process *proc)
 
 	if (proc->do_funk == 1)
 	{
-		proc->cycle = 2;
+		proc->cycle = 1;
 		proc->do_funk = 0;
 	}
 	else

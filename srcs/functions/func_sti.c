@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/27 18:15:10 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/04 16:47:37 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/04 20:09:33 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	indirect_store(t_map *map, t_process *proc)
 
 	if (proc->do_funk == 1)
 	{
-		proc->cycle = 25;
+		proc->cycle = 24;
 		proc->do_funk = 0;
 	}
 	else

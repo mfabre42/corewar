@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 16:19:37 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/04 18:41:16 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/04 20:08:52 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	fork(t_map *map, t_process *proc, int player)
 
 	if (proc->do_funk == 1)
 	{
-		proc->cycle = 800;
+		proc->cycle = 799;
 		proc->do_funk = 0;
 	}
 	else

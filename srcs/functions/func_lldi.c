@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:42:36 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/04 15:55:12 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/04 20:09:27 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	lindirect_load(t_map *map, t_process *proc)
 
 	if (proc->do_funk == 1)
 	{
-		proc->cycle = 50;
+		proc->cycle = 49;
 		proc->do_funk = 0;
 	}
 	else r3 = hext(id1) & val2

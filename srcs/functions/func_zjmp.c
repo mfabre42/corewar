@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 19:26:28 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/04 16:18:04 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/04 20:09:44 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	jump_if_zero(t_map *map, t_process *proc)
 
 	if (proc->do_funk == 1)
 	{
-		proc->cycle = 20;
+		proc->cycle = 19;
 		proc->do_funk = 0;
 	}
 	else
