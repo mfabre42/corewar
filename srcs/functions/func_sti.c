@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/27 18:15:10 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/03 19:15:55 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/04 16:47:37 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,11 @@ void	indirect_store(t_map *map, t_process *proc)
 		proc->do_funk = 1;
 		pos = proc->start + proc->pc;
 		ocp = ocp_master((int)map->arena[pos + 1]);
+		if (!is_register((int)map->arena[pos + 2]))
+		{
+			printf("crash process a gerer"); //LOL
+			exit(0);
+		}
 		reg_nbr = (int)map->arena[pos + 2];
 		if (ocp.param2 == 'R' && ocp.param3 == 'D')
 		{
