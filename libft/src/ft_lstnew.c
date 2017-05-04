@@ -6,7 +6,7 @@
 /*   By: aleveque <aleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 12:40:09 by aleveque          #+#    #+#             */
-/*   Updated: 2017/05/04 18:22:58 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/04 18:56:17 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <stdlib.h>
 #include "../../includes/corewar.h"
 
-unsigned int	*init_reg()
+unsigned int	*init_reg(void)
 {
 	unsigned int	*reg;
 	int				i;
