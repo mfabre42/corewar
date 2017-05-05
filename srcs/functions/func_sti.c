@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/27 18:15:10 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/04 20:09:33 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/05 17:59:12 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	indirect_store(t_map *map, t_process *proc)
 	int		result;
 	t_ocp	ocp;
 
+	printf("\n\nYolo au debut\n\n");
 	if (proc->do_funk == 1)
 	{
 		proc->cycle = 24;
@@ -26,7 +27,7 @@ void	indirect_store(t_map *map, t_process *proc)
 	}
 	else
 	{
-		printf("ICI\n");
+		// printf("pc : %d\n", proc->pc);
 		proc->do_funk = 1;
 		pos = proc->start + proc->pc;
 		ocp = ocp_master((int)map->arena[pos + 1]);
@@ -80,4 +81,5 @@ void	indirect_store(t_map *map, t_process *proc)
 		}
 		place_in_arena(map, pos + (result % IDX_MOD), proc->reg[reg_nbr - 1]);
 	}
+	// printf("pc : %d\n", proc->pc);
 }

@@ -6,7 +6,7 @@
 /*   By: aleveque <aleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/27 16:03:13 by aleveque          #+#    #+#             */
-/*   Updated: 2017/05/04 22:55:20 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/05 16:57:24 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	live(t_map *map, t_process *proc)
 	int player;
 	int pos;
 
+	printf("\n\nMonsieur essaye de faire un live\n\n");
 	if (proc->do_funk == 1)
 	{
 		proc->cycle = 9;

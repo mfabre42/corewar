@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 17:05:36 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/04 19:16:55 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/05 17:52:31 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,20 +23,26 @@ int		main(int ac, char **av)
 	param = save_params(ac, av, param, &map);
 	while (i < MEM_SIZE)
 	{
-		if (i % 64 == 0)
+		if (i % 64 == 0 && i != 0)
+		{
 			printf("\n");
+			break;
+		}
 		printf("%02x ", map.arena[i]);
 		i++;
 	}
 	play_game(&map);
 	// indirect_store(&map, map.player[0].process);
 	printf("\n\n");
-	printf("After :");
+	printf("After :\n");
 	i = 0;
 	while (i < MEM_SIZE)
 	{
-		if (i % 64 == 0)
+		if (i % 64 == 0 && i != 0)
+		{
 			printf("\n");
+			// break;
+		}
 		printf("%02x ", map.arena[i]);
 		i++;
 	}

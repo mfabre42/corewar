@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/20 14:35:05 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/04 23:41:09 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/05 17:14:09 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ typedef struct	s_ocp
 typedef struct	s_proto_func
 {
 	int				num_func;
-	void			(*func)(struct s_map*, struct s_process*);
+	void			(*func)(t_map*, t_process*);
 }				t_proto_func;
 
 /*

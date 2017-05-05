@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 22:13:34 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/05 15:42:39 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/05 17:41:49 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 typedef struct	s_process
 {
 	unsigned int			*reg;
-	int						pc;
+	unsigned short			pc;
 	int						start;
 	int						carry;
 	int						cycle;
