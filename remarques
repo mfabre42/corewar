@@ -1,0 +1,3 @@
+si parametre change, faire fonction avec new param
+si op code change fini l'action normalement et avant le pc normal oklm
+si y'a un ocp et que tout passe a zero sauf opcode on saute juste ocp

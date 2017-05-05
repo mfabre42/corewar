@@ -6,7 +6,7 @@
 /*   By: aleveque <aleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 12:40:09 by aleveque          #+#    #+#             */
-/*   Updated: 2017/05/04 18:56:17 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/05 16:40:28 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ t_process		*ft_lstnew(int start)
 	new->start = start;
 	new->carry = 0;
 	new->cycle = 0;
+	new->ft = 0;
 	new->do_funk = 1;
 	new->next = NULL;
 	return (new);
