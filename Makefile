@@ -6,7 +6,7 @@
 #    By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/10 15:31:11 by mafabre           #+#    #+#              #
-#    Updated: 2017/05/08 14:31:32 by aleveque         ###   ########.fr        #
+#    Updated: 2017/05/08 15:10:34 by aleveque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,9 +47,9 @@ SUCCESS			=	[ $(C_GOOD)OK$(C_NO) ]
 OK				=	[ $(C_OK)OK$(C_NO) ]
 
 
-all: obj $(NAME)
+all: obj $(LIB) $(NAME)
 
-$(NAME): $(LIB) $(OBJS) $(OBJS_FUNC)
+$(NAME): $(OBJS) $(OBJS_FUNC)
 	$(CC) $(FLAGS) -o $@ $(OBJS) $(OBJS_FUNC) $(LIB_LINK)
 	@echo "Compiling" $(NAME) "\t\t" $(SUCCESS)
 
@@ -71,9 +71,13 @@ obj/%.o: srcs/functions/%.c
 
 clean:
 	@rm -rf obj
+	@make -C $(LIBFT_PATH) clean
+	@make -C $(LIBFTPRINTF_PATH) clean
 	@echo "Cleaning" $(NAME) "\t\t" $(OK)
 
-fclean: clean
+fclean:
+	@rm -rf obj
+	@echo "Cleaning" $(NAME) "\t\t" $(OK)
 	echo $(OBJS)
 	@rm -f $(NAME)
 	@make -C $(LIBFT_PATH) fclean
