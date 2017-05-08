@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:43:55 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/04 23:34:12 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/08 13:44:15 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,18 @@ void	aff_char(t_map *map, t_process *proc)
 
 	if (proc->do_funk == 1)
 	{
-		proc->cycle = 1;
-		proc->do_funk = 0;
+		do_funk(proc, 1, 16, 0);
 	}
 	else
 	{
-		proc->do_funk = 1;
+		do_funk(proc, 0, 0, 1);
 		pos = proc->start + proc->pc;
 		ocp = ocp_master((int)map->arena[pos + 1]);
 		if (ocp.param1 == 'R')
 		{
 			if (!is_register((int)map->arena[pos + 2]))
 			{
-				printf("crash process a gerer"); //LOL
+				fail_func(proc, 3, 0);
 				exit(0);
 			}
 			ft_putchar((proc->reg[(int)map->arena[pos + 2] - 1]) % 256);

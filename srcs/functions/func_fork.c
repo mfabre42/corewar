@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 16:19:37 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/04 23:35:19 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/08 13:51:38 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,11 @@ void	forkniquer(t_map *map, t_process *proc, int player)
 
 	if (proc->do_funk == 1)
 	{
-		proc->cycle = 799;
-		proc->do_funk = 0;
+		do_funk(proc, 799, 12, 0);
 	}
 	else
 	{
-		proc->do_funk = 1;
+		do_funk(proc, 0, 0, 1);
 		pos = proc->start + proc->pc;
 		dest = pos + (hex_to_int(0x00, 0x00, map->arena[pos + 1],
 			map->arena[pos + 2]) % IDX_MOD);

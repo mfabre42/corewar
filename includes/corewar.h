@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/20 14:35:05 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/04 23:41:09 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/08 13:32:55 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,9 @@ void			indirect_store(t_map *map, t_process *proc);
 void			substraction(t_map *map, t_process *proc);
 void			func_xor(t_map *map, t_process *proc);
 void			jump_if_zero(t_map *map, t_process *proc);
+void			fail_func(t_process proc, int pc, int carry);
+void			do_funk(t_process proc, int cycle, int ft, int what_to_do);
+
 
 void			cp_process(t_map *map, t_process *proc, int player, int adress);
 t_player		init_process(t_map *map, int player, int start);

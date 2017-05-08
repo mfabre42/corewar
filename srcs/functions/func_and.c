@@ -6,7 +6,7 @@
 /*   By: aleveque <aleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:53:14 by aleveque          #+#    #+#             */
-/*   Updated: 2017/05/04 23:34:41 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/08 13:50:46 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,21 @@ void	func_and(t_map *map, t_process *proc)
 
 	if (proc->do_funk == 1)
 	{
-		proc->cycle = 5;
-		proc->do_funk = 0;
+		do_funk(proc, 5, 6, 0);
 	}
 	else
 	{
-		proc->do_funk = 1;
+		do_funk(proc, 0, 0, 0);
 		pc = 2;
 		pos = proc->start + proc->pc;
 		ocp = ocp_master((int)map->arena[pos + 1]);
 		if (ocp.param1 == 'R')
 		{
-//			if (!is_register(()))
+			if (!is_register(((int)map->arena[pos + pc])))
+			{
+				fail_func(proc, 3, 1);
+				return ;
+			}
 			param1 = proc->reg[(int)map->arena[pos + pc] - 1];
 			pc += 1;
 		}
@@ -49,7 +52,11 @@ void	func_and(t_map *map, t_process *proc)
 		}
 		if (ocp.param2 == 'R')
 		{
-//			if (!is_register(()))
+			if (!is_register(((int)map->arena[pos + pc])))
+			{
+				fail_func(proc, pc + 1, 1);
+				return ;
+			}
 			param1 = param1 & proc->reg[(int)map->arena[pos + pc] - 1];
 			pc += 1;
 		}
@@ -64,7 +71,11 @@ void	func_and(t_map *map, t_process *proc)
 				map->arena[pos + pc + 2], map->arena[pos + pc + 3]);
 			pc += 4;
 		}
-		//			if (!is_register(()))
+		if (!is_register(((int)map->arena[pos + pc])))
+		{
+			fail_func(proc, pc + 1, 1);
+			return ;
+		}
 		proc->reg[(int)map->arena[pos + pc] - 1] = param1;
 		proc->pc += pc + 1;
 	}
