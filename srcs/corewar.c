@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 18:23:26 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/05 18:30:15 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/08 14:43:13 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ void	play_game(t_map *map)
 	int			player;
 	t_process	*tmp;
 
-	while (map->cycle < 1070)
+	while (1)
 	{
 		player = map->nb_player - 1;
 		while (player >= 0)
@@ -102,7 +102,7 @@ void	play_game(t_map *map)
 			tmp = map->player[player].process;
 			while (tmp != NULL)
 			{
-				printf("player : %d, cyle : %d, pc : %d, start : %d\n", player, map->cycle, tmp->pc, tmp->start);
+				printf("player : %d, cycle : %d, pc : %d, start : %d\n", player, map->cycle, tmp->pc, tmp->start);
 				ft_cycle(tmp, map, player);
 				tmp = tmp->next;
 			}

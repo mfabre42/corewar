@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/27 18:15:10 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/05 17:59:12 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/08 14:19:27 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,30 +19,30 @@ void	indirect_store(t_map *map, t_process *proc)
 	int		result;
 	t_ocp	ocp;
 
-	printf("\n\nYolo au debut\n\n");
 	if (proc->do_funk == 1)
 	{
+		do_funk(proc, 24, 11, 1);
 		proc->cycle = 24;
 		proc->do_funk = 0;
 	}
 	else
 	{
 		// printf("pc : %d\n", proc->pc);
-		proc->do_funk = 1;
+		do_funk(proc, 0, 0, 1);
 		pos = proc->start + proc->pc;
 		ocp = ocp_master((int)map->arena[pos + 1]);
 		if (!is_register((int)map->arena[pos + 2]))
 		{
-			printf("crash process a gerer"); //LOL
-			exit(0);
+			fail_func(proc, 5, 0);
+			return ;
 		}
 		reg_nbr = (int)map->arena[pos + 2];
 		if (ocp.param2 == 'R' && ocp.param3 == 'D')
 		{
 			if (!is_register((int)map->arena[pos + 3]))
 			{
-				printf("crash process a gerer"); //LOL
-				exit(0);
+				fail_func(proc, 6, 0);
+				return ;
 			}
 			result = proc->reg[(int)map->arena[pos + 3] - 1];
 			result += hex_to_int(0x00, 0x00, map->arena[pos + 4],
@@ -54,8 +54,8 @@ void	indirect_store(t_map *map, t_process *proc)
 			if (!is_register((int)map->arena[pos + 3])
 				|| !is_register((int)map->arena[pos + 4]))
 			{
-				printf("crash process a gerer"); //LOL
-				exit(0);
+				fail_func(proc, 5, 0);
+				return ;
 			}
 			result = proc->reg[(int)map->arena[pos + 3] - 1];
 			result += proc->reg[(int)map->arena[pos + 4] - 1];
@@ -72,8 +72,8 @@ void	indirect_store(t_map *map, t_process *proc)
 		{
 			if (!is_register((int)map->arena[pos + 5]))
 			{
-				printf("crash process a gerer"); //LOL
-				exit(0);
+				fail_func(proc, 6, 0);
+				return ;
 			}
 			result = hex_to_int(0x00, 0x00, map->arena[pos + 3], map->arena[pos + 4]);
 			result += proc->reg[(int)map->arena[pos + 5] - 1];

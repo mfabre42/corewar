@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 17:05:36 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/05 17:52:31 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/08 14:58:36 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int		main(int ac, char **av)
 	t_map		map;
 
 	map.arena = (unsigned char *)malloc(sizeof(unsigned char) * MEM_SIZE);
+	map.nb_live = 0;
 	ft_bzero(map.arena, MEM_SIZE);
 	int i = 0;
 	param = save_params(ac, av, param, &map);

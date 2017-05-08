@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/20 14:35:05 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/08 14:02:52 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/08 14:56:23 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ typedef struct	s_map
 {
 	int					check;
 	int					cycle;
+	unsigned int		nb_live;
 	int					nb_player;
 	int					nb_process;
 	t_player			*player;
@@ -91,8 +92,8 @@ void			indirect_store(t_map *map, t_process *proc);
 void			substraction(t_map *map, t_process *proc);
 void			func_xor(t_map *map, t_process *proc);
 void			jump_if_zero(t_map *map, t_process *proc);
-void			fail_func(t_process proc, int pc, int carry);
-void			do_funk(t_process proc, int cycle, int ft, int what_to_do);
+void			fail_func(t_process *proc, int pc, int carry);
+void			do_funk(t_process *proc, int cycle, int ft, int what_to_do);
 
 
 void			cp_process(t_map *map, t_process *proc, int player, int adress);

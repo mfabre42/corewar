@@ -6,7 +6,7 @@
 #    By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/10 15:31:11 by mafabre           #+#    #+#              #
-#    Updated: 2017/05/05 15:54:38 by acoupleu         ###   ########.fr        #
+#    Updated: 2017/05/08 14:31:32 by aleveque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ FUNCTIONS			=	srcs/functions/func_add.c srcs/functions/func_aff.c srcs/functions
 						srcs/functions/func_live.c srcs/functions/func_lld.c srcs/functions/func_lldi.c	\
 						srcs/functions/func_load.c srcs/functions/func_or.c srcs/functions/func_st.c	\
 						srcs/functions/func_sti.c srcs/functions/func_sub.c srcs/functions/func_xor.c	\
-						srcs/functions/func_zjmp.c
+						srcs/functions/func_zjmp.c srcs/functions/fail_func.c
 
 OBJS				=	$(SRCS:srcs/%.c=obj/%.o)
 OBJS_FUNC			=	$(FUNCTIONS:srcs/functions/%.c=obj/%.o)
