@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/20 14:35:05 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/08 14:56:23 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/09 16:14:03 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,9 +52,10 @@ typedef struct	s_map
 {
 	int					check;
 	int					cycle;
+	int					cycle_to_die;
+	int					next_ctd;
 	unsigned int		nb_live;
 	int					nb_player;
-	int					nb_process;
 	t_player			*player;
 	unsigned char		*arena;
 }				t_map;
@@ -95,7 +96,7 @@ void			jump_if_zero(t_map *map, t_process *proc);
 void			fail_func(t_process *proc, int pc, int carry);
 void			do_funk(t_process *proc, int cycle, int ft, int what_to_do);
 
-
+void			cycle_to_die(t_map *map);
 void			cp_process(t_map *map, t_process *proc, int player, int adress);
 t_player		init_process(t_map *map, int player, int start);
 void			place_in_arena(t_map *map, int dest, int nbr);

@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 20:49:40 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/04 19:24:52 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/09 16:00:35 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ void	get_name_comment(t_convert *tab, t_params *param, t_map *map, int i)
 	}
 	tmp.process_nbr = 1;
 	tmp.process = NULL;
+	tmp.in_life = 1;
 	map->nb_player = param->np;
-	map->nb_process = param->np;
 	map->player[param->n - 1] = tmp;
 	printf("%s\n", tmp.name);
 	printf("%s\n", tmp.comm);

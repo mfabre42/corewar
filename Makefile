@@ -6,7 +6,7 @@
 #    By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/10 15:31:11 by mafabre           #+#    #+#              #
-#    Updated: 2017/05/08 15:10:34 by aleveque         ###   ########.fr        #
+#    Updated: 2017/05/09 16:13:52 by acoupleu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ INCLUDES			=	-I $(LIBFT_PATH) -I $(LIBFTPRINTF_PATH)/includes -I ./includes
 SRCS				=	srcs/main.c srcs/save_params.c srcs/save_file.c srcs/init_arena.c \
 						srcs/calc_ocp.c srcs/hex_to_int.c srcs/is_register.c \
 						srcs/place_in_arena.c srcs/init_process.c \
-						srcs/cp_process.c srcs/corewar.c
+						srcs/cp_process.c srcs/corewar.c srcs/cycle_to_die.c
 
 FUNCTIONS			=	srcs/functions/func_add.c srcs/functions/func_aff.c srcs/functions/func_and.c	\
 						srcs/functions/func_fork.c srcs/functions/func_ldi.c srcs/functions/func_lfork.c	\

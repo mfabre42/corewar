@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 18:23:26 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/08 14:43:13 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/09 16:10:14 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,5 +109,11 @@ void	play_game(t_map *map)
 			player--;
 		}
 		map->cycle++;
+		cycle_to_die(map);
+		if (map->cycle_to_die <= 0)
+		{
+			printf("Cycle to die == 0");
+			break;
+		}
 	}
 }

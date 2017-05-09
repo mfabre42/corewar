@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 19:32:42 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/02 17:25:01 by mafabre          ###   ########.fr       */
+/*   Updated: 2017/05/09 16:13:16 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	check_n_np(int ac, char **av, t_params *param)
 	}
 }
 
-void	init_params(t_params *param)
+void	init_params(t_params *param, t_map *map)
 {
 	param->d = 0;
 	param->n = 0;
@@ -86,6 +86,17 @@ void	init_params(t_params *param)
 	param->p2 = 0;
 	param->p3 = 0;
 	param->p4 = 0;
+	if (!(map->arena = (unsigned char *)malloc(sizeof(unsigned char) * MEM_SIZE)))
+	{
+		printf("fail malloc"); //LOL
+		exit(0);
+	}
+	ft_bzero(map->arena, MEM_SIZE);
+	map->cycle = 0;
+	map->nb_live = 0;
+	map->cycle_to_die = CYCLE_TO_DIE;
+	map->next_ctd = CYCLE_TO_DIE;
+	map->check = 0;
 }
 
 t_params	save_params(int ac, char **av, t_params param, t_map *map)
@@ -93,7 +104,7 @@ t_params	save_params(int ac, char **av, t_params param, t_map *map)
 	int			i;
 
 	i = 1;
-	init_params(&param);
+	init_params(&param, map);
 	check_n_np(ac, av, &param);
 	if (param.np < 0 || param.np > 4)
 		exit(0);
