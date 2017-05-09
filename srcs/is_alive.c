@@ -1,36 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   func_zjmp.c                                        :+:      :+:    :+:   */
+/*   not_alive.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/03 19:26:28 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/09 21:53:09 by acoupleu         ###   ########.fr       */
+/*   Created: 2017/05/09 21:04:01 by acoupleu          #+#    #+#             */
+/*   Updated: 2017/05/09 21:08:27 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-void	jump_if_zero(t_map *map, t_process *proc)
+int		is_alive(t_map *map)
 {
-	int	pos;
-	int	result;
+	int		i;
 
-//	printf("Je suis un kangourou\n");
-	if (proc->do_funk == 1)
+	i = 0;
+	while (i < map->nb_player)
 	{
-		do_funk(proc, 19, 9, 0);
+		if (map->player[i].in_life == 1)
+			return (1);
+		i++;
 	}
-	else
-	{
-		do_funk(proc, 0, 0, 1);
-		pos = proc->start + proc->pc;
-		if (proc->carry == 1)
-		{
-			result = hex_to_int(0x00, 0x00, map->arena[pos + 1],
-				map->arena[pos + 2]);
-			proc->pc = (proc->pc + result) % IDX_MOD;
-		}
-	}
+	return (0);
 }
