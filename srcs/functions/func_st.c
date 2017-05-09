@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 15:34:09 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/08 14:16:48 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/09 17:02:07 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ void	direct_store(t_map *map, t_process *proc)
 		reg_nbr = (int)map->arena[pos + 2];
 		if (!is_register(reg_nbr))
 		{
-			printf("crash process a gerer st"); //LOL
-			exit(0);
+			fail_func(proc, 4, 0);
+			return ;
 		}
 		if (ocp.param2 == 'R')
 		{

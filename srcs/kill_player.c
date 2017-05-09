@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   kill_process.c                                     :+:      :+:    :+:   */
+/*   kill_player.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: anonymou <anonymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 12:13:28 by anonymou          #+#    #+#             */
-/*   Updated: 2017/05/04 16:32:35 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/09 17:04:53 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	kill_process(t_map *map, t_process *process, int n_player)
+void	kill_player(t_map *map, int n_player)
 {
 	t_player	player;
 	t_process	*tmp1;
