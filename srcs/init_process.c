@@ -6,7 +6,7 @@
 /*   By: aleveque <aleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 15:22:14 by aleveque          #+#    #+#             */
-/*   Updated: 2017/05/04 19:26:43 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/09 17:19:48 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 t_player	init_process(t_map *map, int player, int start)
 {
-	t_player tmp;
-	t_process *proc;
+	t_player	tmp;
+	t_process	*proc;
 
 	printf("player : %d\n", player);//ici aussi
 	tmp = map->player[player];

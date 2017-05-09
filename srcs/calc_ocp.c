@@ -6,13 +6,13 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/27 19:04:28 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/04 17:05:20 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/09 17:13:17 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-t_ocp			init_ocp(void)
+t_ocp	init_ocp(void)
 {
 	t_ocp	ocp;
 
@@ -22,7 +22,7 @@ t_ocp			init_ocp(void)
 	return (ocp);
 }
 
-int			ocp_param1(t_ocp *result, int ocp)
+int		ocp_param1(t_ocp *result, int ocp)
 {
 	if (ocp - 192 >= 0)
 	{
@@ -42,7 +42,7 @@ int			ocp_param1(t_ocp *result, int ocp)
 	return (ocp);
 }
 
-int			ocp_param2(t_ocp *result, int ocp)
+int		ocp_param2(t_ocp *result, int ocp)
 {
 	if (ocp - 48 >= 0)
 	{
@@ -62,7 +62,7 @@ int			ocp_param2(t_ocp *result, int ocp)
 	return (ocp);
 }
 
-void		ocp_param3(t_ocp *result, int ocp)
+void	ocp_param3(t_ocp *result, int ocp)
 {
 	if (ocp - 12 >= 0)
 	{
@@ -81,7 +81,7 @@ void		ocp_param3(t_ocp *result, int ocp)
 	}
 }
 
-t_ocp			ocp_master(int	ocp)
+t_ocp	ocp_master(int ocp)
 {
 	t_ocp result;
 

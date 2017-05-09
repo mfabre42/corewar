@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 17:42:39 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/08 13:43:47 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/09 17:16:21 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ void	addition(t_map *map, t_process *proc)
 		if (!is_register((int)map->arena[pos + 1]) ||
 			!is_register((int)map->arena[pos + 2]) ||
 			!is_register((int)map->arena[pos + 3]))
-			{
-				fail_func(proc, 4, 1);
-				return ;
-			}
+		{
+			fail_func(proc, 4, 1);
+			return ;
+		}
 		proc->reg[map->arena[pos + 3] - 1] =
 		proc->reg[map->arena[pos + 2] - 1] +
 		proc->reg[map->arena[pos + 1] - 1];

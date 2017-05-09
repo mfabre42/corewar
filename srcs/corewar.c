@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 18:23:26 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/09 16:19:18 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/09 17:17:24 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	(*init_tab(int ft))(t_map *, t_process*)
 {
-	int	i;
-	static t_proto_func func_table[14] = {
+	int					i;
+	static t_proto_func	func_table[14] = {
 		{1, &live},
 		{2, &direct_load},
 		{3, &direct_store},
