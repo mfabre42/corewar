@@ -1,22 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   kill_player.c                                      :+:      :+:    :+:   */
+/*   func_errors.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anonymou <anonymou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aleveque <aleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/03 12:13:28 by anonymou          #+#    #+#             */
-/*   Updated: 2017/05/09 17:55:20 by aleveque         ###   ########.fr       */
+/*   Created: 2017/05/09 19:49:54 by aleveque          #+#    #+#             */
+/*   Updated: 2017/05/09 19:50:53 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-void	kill_player(t_map *map, int n_player)
+void	error_malloc(void)
 {
-	t_player	player;
-
-	player = map->player[n_player];
-	ft_lstdel(&player.process);
-	map->player[n_player].in_life = 0;
+	ft_printf("Erreur malloc !\n");
+	exit(0);
 }

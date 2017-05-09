@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 19:32:42 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/09 16:13:16 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/09 20:50:20 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	save_dump(char *av, t_params *param)
 		else
 			exit(0);
 	}
-	param->d = ft_atoi(av);
+	param->dump = ft_atoi(av);
 }
 
 void	save_number(char *av, t_params *param)
@@ -54,7 +54,7 @@ void	check_n_np(int ac, char **av, t_params *param)
 	while (i < ac)
 	{
 		if (ft_strstr(av[i], ".cor") != NULL)
-			param->np++;
+			param->nb_player++;
 		if (i < ac - 1 && ft_strcmp(av[i], "-n") == 0)
 		{
 			i++;
@@ -79,9 +79,9 @@ void	check_n_np(int ac, char **av, t_params *param)
 
 void	init_params(t_params *param, t_map *map)
 {
-	param->d = 0;
+	param->dump = 0;
 	param->n = 0;
-	param->np = 0;
+	param->nb_player = 0;
 	param->p1 = 0;
 	param->p2 = 0;
 	param->p3 = 0;
@@ -99,16 +99,20 @@ void	init_params(t_params *param, t_map *map)
 	map->check = 0;
 }
 
-t_params	save_params(int ac, char **av, t_params param, t_map *map)
+void		save_params(int ac, char **av, t_map *map)
 {
+	t_params	param;
 	int			i;
 
 	i = 1;
 	init_params(&param, map);
 	check_n_np(ac, av, &param);
-	if (param.np < 0 || param.np > 4)
+	if (param.nb_player <= 0 || param.nb_player > 4)
+	{
+		printf("mauvais nbr de joueur\n");
 		exit(0);
-	i = 1;
+	}
+	init_player(&param, map);
 	while (i < ac)
 	{
 		param.n = 0;
@@ -123,5 +127,4 @@ t_params	save_params(int ac, char **av, t_params param, t_map *map)
 			save_file(av[i], &param, map);
 		i++;
 	}
-	return (param);
 }

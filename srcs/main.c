@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 17:05:36 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/09 15:48:22 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/09 20:27:58 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 int		main(int ac, char **av)
 {
-	t_params	param;
 	t_map		map;
 
 	int i = 0;
-	param = save_params(ac, av, param, &map);
+	printf("yo\n");
+	save_params(ac, av, &map);
 	while (i < MEM_SIZE)
 	{
 		if (i % 64 == 0 && i != 0)
