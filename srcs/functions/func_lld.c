@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:39:11 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/10 15:40:17 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/10 18:22:00 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,29 +26,29 @@ void	ldirect_load(t_map *map, t_process *proc)
 	{
 		do_funk(proc, 0, 0, 1);
 		pos = proc->start + proc->pc;
-		ocp = ocp_master((int)map->arena[pos + 1]);
+		ocp = ocp_master((int)map->arena[(pos + 1) % MEM_SIZE]);
 		if (ocp.param1 == 'D')
 		{
-			if (!is_register((int)map->arena[pos + 6]))
+			if (!is_register((int)map->arena[(pos + 6) % MEM_SIZE]))
 			{
 				fail_func(proc, 7, 1);
 				return ;
 			}
-			reg_nbr = (int)map->arena[pos + 6];
-			proc->reg[reg_nbr - 1] = map->arena[pos + hex_to_int(map->arena[pos + 2],
-				map->arena[pos + 3], map->arena[pos + 4], map->arena[pos + 5])];
+			reg_nbr = (int)map->arena[(pos + 6) % MEM_SIZE];
+			proc->reg[reg_nbr - 1] = map->arena[(pos + hex_to_int(map->arena[(pos + 2) % MEM_SIZE],
+				map->arena[(pos + 3) % MEM_SIZE], map->arena[(pos + 4) % MEM_SIZE], map->arena[(pos + 5) % MEM_SIZE])) % MEM_SIZE];
 				proc->pc = proc->pc + 7;
 		}
 		else if (ocp.param1 == 'I')
 		{
-			if (!is_register((int)map->arena[pos + 4]))
+			if (!is_register((int)map->arena[(pos + 4) % MEM_SIZE]))
 			{
 				fail_func(proc, 5, 1);
 				return ;
 			}
-			reg_nbr = (int)map->arena[pos + 4];
-			proc->reg[reg_nbr - 1] = map->arena[pos + hex_to_int(0x00,
-				0x00, map->arena[pos + 2], map->arena[pos + 3])];
+			reg_nbr = (int)map->arena[(pos + 4) % MEM_SIZE];
+			proc->reg[reg_nbr - 1] = map->arena[(pos + hex_to_int(0x00,
+				0x00, map->arena[(pos + 2) % MEM_SIZE], map->arena[(pos + 3) % MEM_SIZE])) % MEM_SIZE];
 			proc->pc = proc->pc + 5;
 		}
 		proc->carry = 1;

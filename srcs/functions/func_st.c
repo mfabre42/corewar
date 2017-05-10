@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 15:34:09 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/10 15:40:05 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/10 18:28:10 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void	direct_store(t_map *map, t_process *proc)
 	{
 		do_funk(proc, 0, 0, 1);
 		pos = proc->start + proc->pc;
-		ocp = ocp_master((int)map->arena[pos + 1]);
-		reg_nbr = (int)map->arena[pos + 2];
+		ocp = ocp_master((int)map->arena[(pos + 1) % MEM_SIZE]);
+		reg_nbr = (int)map->arena[(pos + 2) % MEM_SIZE];
 		if (!is_register(reg_nbr))
 		{
 			fail_func(proc, 4, 0);
@@ -37,19 +37,19 @@ void	direct_store(t_map *map, t_process *proc)
 		}
 		if (ocp.param2 == 'R')
 		{
-			if (!is_register(hex_to_int(0x00, 0x00, 0x00, map->arena[pos + 3])))
+			if (!is_register(hex_to_int(0x00, 0x00, 0x00, map->arena[(pos + 3) % MEM_SIZE])))
 			{
 				fail_func(proc, 4, 0);
 				return ;
 			}
-			proc->reg[(int)map->arena[pos + 3] - 1] =  proc->reg[reg_nbr - 1];
+			proc->reg[(int)map->arena[(pos + 3) % MEM_SIZE] - 1] =  proc->reg[reg_nbr - 1];
 			proc->pc = proc->pc + 4;
 		}
 		else
 		{
-			result = hex_to_int(0x00, 0x00, map->arena[pos + 3], map->arena[pos + 4]);
+			result = hex_to_int(0x00, 0x00, map->arena[(pos + 3) % MEM_SIZE], map->arena[(pos + 4) % MEM_SIZE]);
 			proc->pc = proc->pc + 5;
 		}
-		place_in_arena(map, pos + (result % IDX_MOD), proc->reg[reg_nbr - 1]);
+		place_in_arena(map, (pos + (result % IDX_MOD)) % MEM_SIZE, proc->reg[reg_nbr - 1]);
 	}
 }

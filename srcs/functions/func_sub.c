@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 18:03:03 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/10 15:39:58 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/10 18:29:30 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,18 @@ void	substraction(t_map *map, t_process *proc)
 	{
 		do_funk(proc, 0, 0, 1);
 		pos = proc->start + proc->pc;
-		if (!is_register((int)map->arena[pos + 1]) ||
-			!is_register((int)map->arena[pos + 2]) ||
-			!is_register((int)map->arena[pos + 3]))
+		if (!is_register((int)map->arena[(pos + 1) % MEM_SIZE]) ||
+			!is_register((int)map->arena[(pos + 2) % MEM_SIZE]) ||
+			!is_register((int)map->arena[(pos + 3) % MEM_SIZE]))
 			{
 				fail_func(proc, 4, 1);
 				return ;
 			}
 		else
 		{
-			proc->reg[map->arena[pos + 3] - 1] =
-			proc->reg[map->arena[pos + 2] - 1] -
-			proc->reg[map->arena[pos + 1] - 1];
+			proc->reg[map->arena[(pos + 3) % MEM_SIZE] - 1] =
+			proc->reg[map->arena[(pos + 2) % MEM_SIZE] - 1] -
+			proc->reg[map->arena[(pos + 1) % MEM_SIZE] - 1];
 			proc->carry = 1;
 			proc->pc = proc->pc + 4;
 		}

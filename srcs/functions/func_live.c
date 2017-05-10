@@ -6,7 +6,7 @@
 /*   By: aleveque <aleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/27 16:03:13 by aleveque          #+#    #+#             */
-/*   Updated: 2017/05/10 15:40:20 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/10 18:20:13 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ void	live(t_map *map, t_process *proc)
 	{
 		do_funk(proc, 0, 0, 1);
 		pos = proc->start + proc->pc;
-		player = hex_to_int(map->arena[pos + 1], map->arena[pos + 2],
-			map->arena[pos + 3], map->arena[pos + 4]);
+		player = hex_to_int(map->arena[(pos + 1) % MEM_SIZE], map->arena[(pos + 2) % MEM_SIZE],
+			map->arena[(pos + 3) % MEM_SIZE], map->arena[(pos + 4) % MEM_SIZE]);
 		if (player >= 1 && player <= map->nb_player)
 		{
 			map->nb_live++;

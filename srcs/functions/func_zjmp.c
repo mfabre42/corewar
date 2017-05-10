@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 19:26:28 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/10 16:57:42 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/10 18:29:52 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ void	jump_if_zero(t_map *map, t_process *proc)
 		pos = proc->start + proc->pc;
 		if (proc->carry == 1)
 		{
-			result = hex_to_int(0x00, 0x00, map->arena[pos + 1],
-				map->arena[pos + 2]);
+			result = hex_to_int(0x00, 0x00, map->arena[(pos + 1) % MEM_SIZE],
+				map->arena[(pos + 2) % MEM_SIZE]);
 			proc->pc = (proc->pc + result) % IDX_MOD;
 		}
 	}
