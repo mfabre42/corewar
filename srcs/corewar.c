@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 18:23:26 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/10 15:01:31 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/10 16:59:06 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,6 @@ void	(*init_tab(int ft))(t_map *, t_process*)
 			return (func_table[i].func);
 		i++;
 	}
-	printf("caca");
-	// func_table[10].func(map, tmp);
 	return (func_table[ft].func);
 }
 
@@ -48,7 +46,6 @@ void	do_func(t_map *map, t_process *tmp, int ft, int player)
 {
 	t_proto_func *tab;
 
-	// tab = init_tab();
 	if (ft >= 1 && ft <= 16)
 	{
 		if (ft == 12)
@@ -56,15 +53,10 @@ void	do_func(t_map *map, t_process *tmp, int ft, int player)
 		else if (ft == 15)
 			lfork(map, tmp, player);
 		else
-		{
 			(init_tab(ft))(map, tmp);
-		}
 	}
 	else
-	{
-		printf("bébé kangourou\n");
 		tmp->pc++;
-	}
 }
 
 void	ft_cycle(t_process *tmp, t_map *map, int player)

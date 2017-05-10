@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 19:26:28 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/10 15:39:51 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/10 16:57:42 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	jump_if_zero(t_map *map, t_process *proc)
 	int	pos;
 	int	result;
 
-//	printf("Je suis un kangourou\n");
 	if (proc->do_funk == 1)
 	{
 		do_funk(proc, 18, 9, 0);
