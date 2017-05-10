@@ -6,7 +6,7 @@
 /*   By: aleveque <aleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 19:57:24 by aleveque          #+#    #+#             */
-/*   Updated: 2017/05/08 14:31:00 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/10 15:39:55 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	func_xor(t_map *map, t_process *proc)
 
 	if (proc->do_funk == 1)
 	{
-		do_funk(proc, 5, 8, 0);
+		do_funk(proc, 4, 8, 0);
 	}
 	else
 	{

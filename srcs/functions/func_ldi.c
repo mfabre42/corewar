@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 15:34:48 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/08 14:01:53 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/10 15:40:26 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	indirect_load(t_map *map, t_process *proc)
 
 	if (proc->do_funk == 1)
 	{
-		do_funk(proc, 24, 10, 0);
+		do_funk(proc, 23, 10, 0);
 	}
 	else
 	{

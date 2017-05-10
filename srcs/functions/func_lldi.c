@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:42:36 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/08 14:30:02 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/10 15:40:15 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	lindirect_load(t_map *map, t_process *proc)
 
 	if (proc->do_funk == 1)
 	{
-		do_funk(proc, 49, 14, 0);
+		do_funk(proc, 48, 14, 0);
 	}
 	else
 	{

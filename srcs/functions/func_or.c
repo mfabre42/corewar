@@ -6,7 +6,7 @@
 /*   By: aleveque <aleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 19:54:02 by aleveque          #+#    #+#             */
-/*   Updated: 2017/05/08 14:31:03 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/10 15:40:08 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	func_or(t_map *map, t_process *proc)
 
 	if (proc->do_funk == 1)
 	{
-		do_funk(proc, 5, 7, 0);
+		do_funk(proc, 4, 7, 0);
 	}
 	else
 	{

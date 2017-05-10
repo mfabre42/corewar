@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 19:32:42 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/09 20:50:20 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/10 16:35:57 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void	init_params(t_params *param, t_map *map)
 		exit(0);
 	}
 	ft_bzero(map->arena, MEM_SIZE);
-	map->cycle = 0;
+	map->cycle = 1;
 	map->nb_live = 0;
 	map->cycle_to_die = CYCLE_TO_DIE;
 	map->next_ctd = CYCLE_TO_DIE;

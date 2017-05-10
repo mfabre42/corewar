@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 18:51:41 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/08 13:58:11 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/10 15:40:23 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	lfork(t_map *map, t_process *proc, int player)
 
 	if (proc->do_funk == 1)
 	{
-		do_funk(proc, 999, 15, 0);
+		do_funk(proc, 998, 15, 0);
 	}
 	else
 	{

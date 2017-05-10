@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/27 18:15:10 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/09 21:53:13 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/10 16:35:40 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,12 @@ void	indirect_store(t_map *map, t_process *proc)
 
 	if (proc->do_funk == 1)
 	{
-		do_funk(proc, 24, 11, 1);
-		proc->cycle = 24;
-		proc->do_funk = 0;
+		do_funk(proc, 23, 11, 0);
 	}
 	else
 	{
-		// printf("pc : %d\n", proc->pc);
+		printf("Le joueur, a fait un sti cycle:%d\n"
+		,  map->cycle);
 		do_funk(proc, 0, 0, 1);
 		pos = proc->start + proc->pc;
 		ocp = ocp_master((int)map->arena[pos + 1]);

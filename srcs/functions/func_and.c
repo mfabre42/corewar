@@ -6,7 +6,7 @@
 /*   By: aleveque <aleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:53:14 by aleveque          #+#    #+#             */
-/*   Updated: 2017/05/09 21:53:19 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/10 15:48:13 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,13 @@ void	func_and(t_map *map, t_process *proc)
 
 	if (proc->do_funk == 1)
 	{
-		do_funk(proc, 5, 6, 0);
+		do_funk(proc, 4, 6, 0);
 	}
 	else
 	{
-		do_funk(proc, 0, 0, 0);
+		printf("Le joueur, a fait un and cycle:%d\n"
+		,  map->cycle);
+		do_funk(proc, 0, 0, 1);
 		pc = 2;
 		pos = proc->start + proc->pc;
 		ocp = ocp_master((int)map->arena[pos + 1]);
