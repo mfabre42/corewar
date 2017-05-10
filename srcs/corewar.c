@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 18:23:26 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/09 21:02:14 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/10 15:01:31 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,10 +100,10 @@ void	play_game(t_map *map)
 		while (player >= 0)
 		{
 			tmp = map->player[player].process;
-				printf("player:%d ,point: %p\n",player, tmp);
+				// printf("player:%d ,point: %p\n",player, tmp);
 			while (tmp != NULL)
 			{
-				printf("player : %d, cycle : %d, pc : %d, start : %d\n", player, map->cycle, tmp->pc, tmp->start);
+				// printf("player : %d, cycle : %d, pc : %d, start : %d\n", player, map->cycle, tmp->pc, tmp->start);
 				ft_cycle(tmp, map, player);
 				tmp = tmp->next;
 			}
@@ -111,7 +111,7 @@ void	play_game(t_map *map)
 		}
 		map->cycle++;
 		cycle_to_die(map);
-		if (map->cycle_to_die <= 0)
+		if (map->cycle_to_die <= 0 || is_alive(map) == 0)
 		{
 			printf("Cycle to die == 0");
 			break;

@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/09 15:34:11 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/09 20:57:23 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/09 21:42:47 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	cycle_to_die(t_map *map)
 {
 	if (map->cycle == map->next_ctd)
 	{
-		check_last_live(map);
+		// check_last_live(map);
 		if (map->nb_live >= NBR_LIVE - 1 || map->check == MAX_CHECKS - 1)
 		{
 			printf("Nb live = %d\n", map->nb_live);
