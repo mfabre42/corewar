@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/27 18:15:10 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/10 18:29:17 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/11 17:29:44 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,7 @@ void	indirect_store(t_map *map, t_process *proc)
 	}
 	else
 	{
-		printf("Le joueur, a fait un sti cycle:%d\n"
-		,  map->cycle);
+		// printf("Le joueur, a fait un sti cycle:%d\n", map->cycle);
 		do_funk(proc, 0, 0, 1);
 		pos = proc->start + proc->pc;
 		ocp = ocp_master((int)map->arena[(pos + 1) % MEM_SIZE]);
@@ -78,7 +77,7 @@ void	indirect_store(t_map *map, t_process *proc)
 			result += proc->reg[(int)map->arena[(pos + 5) % MEM_SIZE] - 1];
 			proc->pc = proc->pc + 6;
 		}
-		place_in_arena(map, (pos + (result % IDX_MOD)) % MEM_SIZE, proc->reg[reg_nbr - 1]);
+		place_in_arena(map, (pos + result % IDX_MOD) % MEM_SIZE, proc->reg[reg_nbr - 1]);
 	}
 	// printf("pc : %d\n", proc->pc);
 }

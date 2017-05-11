@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 18:23:26 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/10 16:59:06 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/11 17:47:00 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ void	play_game(t_map *map)
 	int			player;
 	t_process	*tmp;
 
-	while (1)
+	while (map->cycle < 1131)
 	{
 		player = map->nb_player - 1;
 		while (player >= 0)
