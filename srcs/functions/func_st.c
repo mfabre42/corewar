@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 15:34:09 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/11 17:38:09 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/12 15:15:54 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,14 @@ void	direct_store(t_map *map, t_process *proc)
 			}
 			proc->reg[(int)map->arena[(pos + 3) % MEM_SIZE] - 1] =  proc->reg[reg_nbr - 1];
 			proc->pc = proc->pc + 4;
+
 		}
 		else
 		{
 			result = hex_to_int(0x00, 0x00, map->arena[(pos + 3) % MEM_SIZE], map->arena[(pos + 4) % MEM_SIZE]);
-			place_in_arena(map, (pos + result) % IDX_MOD, proc->reg[reg_nbr - 1]);
+			place_in_arena(map, proc->start + (pos - proc->start + result) % IDX_MOD, proc->reg[reg_nbr - 1]);
 			proc->pc = proc->pc + 5;
 		}
-		printf("resultat direct store: %d avec le registre n: %d\n", (pos + result) % IDX_MOD, reg_nbr - 1);
+		// printf("resultat direct store: %d avec le registre n: %d\n", proc->start + (pos - proc->start + result) % IDX_MOD, reg_nbr - 1);
 	}
 }

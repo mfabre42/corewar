@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/27 18:15:10 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/11 17:29:44 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/11 19:12:40 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	indirect_store(t_map *map, t_process *proc)
 			result += proc->reg[(int)map->arena[(pos + 5) % MEM_SIZE] - 1];
 			proc->pc = proc->pc + 6;
 		}
-		place_in_arena(map, (pos + result % IDX_MOD) % MEM_SIZE, proc->reg[reg_nbr - 1]);
+		place_in_arena(map, proc->start + (pos - proc->start + result % IDX_MOD) % MEM_SIZE, proc->reg[reg_nbr - 1]);
 	}
 	// printf("pc : %d\n", proc->pc);
 }
