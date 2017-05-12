@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 15:34:09 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/12 16:48:49 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/12 23:24:13 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,22 @@ void	direct_store(t_map *map, t_process *proc)
 		}
 		else
 		{
-			result = hex_to_int(0x00, 0x00, map->arena[(pos + 3) % MEM_SIZE], map->arena[(pos + 4) % MEM_SIZE]);
-			place_in_arena(map, proc->start + (pos - proc->start + result) % MEM_SIZE , proc->reg[reg_nbr - 1]);
-			// printf("resultat direct store: %d avec le registre n: %d\n", proc->start + (pos - proc->start + result) % MEM_SIZE, reg_nbr - 1);
+			//Soit pos soit proc->pc
+			result = (proc->pc + hex_to_int(0x00, 0x00,map->arena[(pos + 3) % MEM_SIZE], map->arena[(pos + 4) % MEM_SIZE])) % MEM_SIZE;
+			printf("emplacement d'arene : %x %x %x %x %x, Pos: %d, Valeur du registre: %d, ocp.param2: %c, a l'adresse: %d + %d = %d, au tour: %d\n",
+			map->arena[(pos) % MEM_SIZE],
+			map->arena[(pos + 1) % MEM_SIZE],
+			map->arena[(pos + 2) % MEM_SIZE],
+			map->arena[(pos + 3) % MEM_SIZE],
+			map->arena[(pos + 4) % MEM_SIZE],
+			pos,
+			proc->reg[reg_nbr - 1],
+			ocp.param2,
+			proc->pc,
+			hex_to_int(0x00, 0x00,map->arena[(pos + 3) % MEM_SIZE], map->arena[(pos + 4) % MEM_SIZE]),
+			result % MEM_SIZE,
+			map->cycle);
+			place_in_arena(map, result % MEM_SIZE, proc->reg[reg_nbr - 1]);
 			proc->pc = proc->pc + 5;
 		}
 	}
