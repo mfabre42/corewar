@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 19:35:01 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/03 15:26:23 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/12 15:57:53 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void		save_file(char *file, t_params *param, t_map *map)
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
 		ft_printf("exit\n");
+	//Check nom des joueurs (c'est mal codé comme dab)
 	tab = (t_convert *)malloc(sizeof(t_convert) * CHAMP_MAX_SIZE);
 	while ((ret = read(fd, convert.c_char, BUF_SIZE)) > 0)
 	{

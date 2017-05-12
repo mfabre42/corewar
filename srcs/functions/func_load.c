@@ -6,7 +6,7 @@
 /*   By: aleveque <aleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 18:31:28 by aleveque          #+#    #+#             */
-/*   Updated: 2017/05/12 15:20:15 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/12 15:43:15 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,18 @@ void	direct_load(t_map *map, t_process *proc)
 				return ;
 			}
 			reg_nbr = (int)map->arena[(pos + 6) % MEM_SIZE];
-			proc->reg[reg_nbr - 1] = map->arena[(pos + (hex_to_int(map->arena[(pos + 2) % MEM_SIZE],
-				map->arena[(pos + 3) % MEM_SIZE], map->arena[(pos + 4) % MEM_SIZE], map->arena[(pos + 5) % MEM_SIZE]) % IDX_MOD)) % MEM_SIZE];
-			printf("\n emplacement d'arene : %d %d %d %d Valeur direct load: %d dans le registre n: %d\n pos: %d\n\n",
-				map->arena[(pos + 2) % MEM_SIZE],
-				map->arena[(pos + 3) % MEM_SIZE],
-				map->arena[(pos + 4) % MEM_SIZE],
-				map->arena[(pos + 5) % MEM_SIZE],
-				map->arena[(pos + (hex_to_int(map->arena[(pos + 2) % MEM_SIZE], map->arena[(pos + 3) % MEM_SIZE],
-				map->arena[(pos + 4) % MEM_SIZE], map->arena[(pos + 5) % MEM_SIZE]) % IDX_MOD)) % MEM_SIZE],
-				reg_nbr - 1,
-				pos);
+			proc->reg[reg_nbr - 1] = hex_to_int(map->arena[(pos + 2) % MEM_SIZE],
+			map->arena[(pos + 3) % MEM_SIZE], map->arena[(pos + 4) % MEM_SIZE],
+			map->arena[(pos + 5) % MEM_SIZE]) % IDX_MOD;
+			// printf("\n emplacement d'arene : %d %d %d %d Valeur direct load: %d dans le registre n: %d\n pos: %d\n\n",
+			// map->arena[(pos + 2) % MEM_SIZE],
+			// map->arena[(pos + 3) % MEM_SIZE],
+			// map->arena[(pos + 4) % MEM_SIZE],
+			// map->arena[(pos + 5) % MEM_SIZE],
+			// hex_to_int(map->arena[(pos + 2) % MEM_SIZE], map->arena[(pos + 3) % MEM_SIZE],
+			// map->arena[(pos + 4) % MEM_SIZE], map->arena[(pos + 5) % MEM_SIZE]) % IDX_MOD % MEM_SIZE,
+			// reg_nbr - 1,
+			// pos);
 			proc->pc = proc->pc + 7;
 		}
 		else if (ocp.param1 == 'I')
@@ -56,10 +57,11 @@ void	direct_load(t_map *map, t_process *proc)
 				return ;
 			}
 			reg_nbr = (int)map->arena[(pos + 4) % MEM_SIZE];
-			proc->reg[reg_nbr - 1] = map->arena[(pos + (hex_to_int(0x00,
-				0x00, map->arena[(pos + 2) % MEM_SIZE], map->arena[(pos + 3) % MEM_SIZE]) % IDX_MOD)) % MEM_SIZE];
-			printf("\nValeur direct lsoad: %d dans le registre n: %d\n\n", map->arena[(pos + (hex_to_int(0x00,
-				0x00, map->arena[(pos + 2) % MEM_SIZE], map->arena[(pos + 3) % MEM_SIZE]) % IDX_MOD)) % MEM_SIZE], reg_nbr - 1);
+			proc->reg[reg_nbr - 1] = hex_to_int(0x00, 0x00,
+				map->arena[(pos + 2) % MEM_SIZE],
+				map->arena[(pos + 3) % MEM_SIZE]) % IDX_MOD;
+			// printf("\nValeur direct lsoad: %d dans le registre n: %d\n\n", map->arena[(pos + (hex_to_int(0x00,
+				// 0x00, map->arena[(pos + 2) % MEM_SIZE], map->arena[(pos + 3) % MEM_SIZE]) % IDX_MOD)) % MEM_SIZE], reg_nbr - 1);
 			proc->pc = proc->pc + 5;
 		}
 		proc->carry = 1;
