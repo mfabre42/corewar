@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/27 18:15:10 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/16 18:13:56 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/16 19:13:35 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,11 +76,11 @@ void	indirect_store(t_map *map, t_process *proc)
 			}
 			result = (short)hex_to_int(0x00, 0x00, map->arena[(pos + 3) % MEM_SIZE], map->arena[(pos + 4) % MEM_SIZE]);
 			result += proc->reg[(int)map->arena[(pos + 5) % MEM_SIZE] - 1];
-			printf("short = %d, val registre = %d, result = %d, pos = %d, dest = %d\n", (short)hex_to_int(0x00, 0x00, map->arena[(pos + 3) % MEM_SIZE], map->arena[(pos + 4) % MEM_SIZE]),
-			proc->reg[(int)map->arena[(pos + 5) % MEM_SIZE] - 1],
-			result,
-			pos,
-			(pos + result) % MEM_SIZE);
+			// printf("short = %d, val registre = %d, result = %d, pos = %d, dest = %d\n", (short)hex_to_int(0x00, 0x00, map->arena[(pos + 3) % MEM_SIZE], map->arena[(pos + 4) % MEM_SIZE]),
+			// proc->reg[(int)map->arena[(pos + 5) % MEM_SIZE] - 1],
+			// result,
+			// pos,
+			// (pos + result) % MEM_SIZE);
 			proc->pc = proc->pc + 6;
 		}
 		place_in_arena(map, (pos + result) % MEM_SIZE, proc->reg[reg_nbr - 1]);

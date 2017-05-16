@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 18:23:26 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/15 17:39:03 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/16 19:14:20 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ void	play_game(t_map *map, int i)
 		}
 		map->cycle++;
 		cycle_to_die(map);
+		// printf("\n\n");
 		if (map->cycle_to_die <= 0 || is_alive(map) == 0)
 		{
 			printf("Cycle to die == 0");

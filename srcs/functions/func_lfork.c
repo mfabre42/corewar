@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 18:51:41 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/15 21:09:55 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/16 19:16:06 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ void	lfork(t_map *map, t_process *proc, int player)
 	{
 		do_funk(proc, 0, 0, 1);
 		pos = proc->start + proc->pc;
-		dest = (pos + (short)(hex_to_int(0x00, 0x00, map->arena[(pos + 1) % MEM_SIZE],
-			map->arena[(pos + 2) % MEM_SIZE])) % MEM_SIZE);
+		dest = pos + (short)(hex_to_int(0x00, 0x00, map->arena[(pos + 1) % MEM_SIZE],
+			map->arena[(pos + 2) % MEM_SIZE])) % MEM_SIZE;
 		printf("longfork at :%d, to %d\n", map->cycle, dest - pos);
 		cp_process(map, proc, player, dest);
 		proc->pc = proc->pc + 3;
