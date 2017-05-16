@@ -6,7 +6,7 @@
 /*   By: aleveque <aleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:53:14 by aleveque          #+#    #+#             */
-/*   Updated: 2017/05/15 22:09:02 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/16 15:54:18 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,6 @@ void	func_and(t_map *map, t_process *proc)
 		}
 		proc->reg[(int)map->arena[(pos + pc) % MEM_SIZE] - 1] = param1;
 		proc->pc += pc + 1;
-		proc->carry = 1;
+		proc->carry = !param1;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/27 23:07:14 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/12 16:40:04 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/16 18:25:54 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void			place_in_arena(t_map *map, int dest, int nbr)
 {
 	t_convert conv;
 
+	dest = dest + 65536;
 	// int i = 0;
 	// while (i < MEM_SIZE)
 	// {

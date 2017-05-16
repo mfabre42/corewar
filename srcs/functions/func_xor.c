@@ -6,7 +6,7 @@
 /*   By: aleveque <aleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 19:57:24 by aleveque          #+#    #+#             */
-/*   Updated: 2017/05/15 22:31:59 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/16 17:58:05 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	func_xor(t_map *map, t_process *proc)
 		}
 		proc->reg[(int)map->arena[(pos + pc) % MEM_SIZE] - 1] = param1;
 		proc->pc += pc + 1;
-		proc->carry = 1;
-		printf("Je met param1 %d dans le registre %d", param1, (int)map->arena[(pos + pc) % MEM_SIZE]);
+		proc->carry = !param1;
+		printf("/!\\XOR/!\\Carry %d, start: %d on: %d\n", proc->carry, proc->start, map->arena[proc->start + proc->pc]);
 	}
 }

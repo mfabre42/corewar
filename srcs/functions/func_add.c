@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 17:42:39 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/15 22:20:11 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/16 17:02:46 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,9 @@ void	addition(t_map *map, t_process *proc)
 		printf("registre %d vaut %d\n",
 		map->arena[(pos + 3) % MEM_SIZE],
 		proc->reg[map->arena[(pos + 3) % MEM_SIZE] - 1]);
-		proc->carry = 1;
-		proc->pc = proc->pc + 5 % MEM_SIZE;
+		if (proc->reg[map->arena[(pos + 4) % MEM_SIZE] - 1] == 0)
+			proc->carry = 1;
+		proc->pc = proc->pc + 5;
+		printf("proc->pc = %d\n", proc->pc + proc->start);
 	}
 }
