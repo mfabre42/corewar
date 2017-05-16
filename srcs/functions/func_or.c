@@ -6,7 +6,7 @@
 /*   By: aleveque <aleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 19:54:02 by aleveque          #+#    #+#             */
-/*   Updated: 2017/05/10 22:32:00 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/15 21:20:15 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	func_or(t_map *map, t_process *proc)
 		}
 		else if (ocp.param1 == 'I')
 		{
-			param1 = hex_to_int(0x00, 0x00, map->arena[(pos + 2) % MEM_SIZE], map->arena[(pos + 3) % MEM_SIZE]);
+			param1 = (short)hex_to_int(0x00, 0x00, map->arena[(pos + 2) % MEM_SIZE], map->arena[(pos + 3) % MEM_SIZE]);
 			pc += 2;
 		}
 		else if (ocp.param1 == 'D')
@@ -62,7 +62,7 @@ void	func_or(t_map *map, t_process *proc)
 		}
 		else if (ocp.param2 == 'I')
 		{
-			param1 = param1 | hex_to_int(0x00, 0x00, map->arena[(pos + pc) % MEM_SIZE], map->arena[(pos + pc + 1) % MEM_SIZE]);
+			param1 = param1 | (short)hex_to_int(0x00, 0x00, map->arena[(pos + pc) % MEM_SIZE], map->arena[(pos + pc + 1) % MEM_SIZE]);
 			pc += 2;
 		}
 		else if (ocp.param2 == 'D')

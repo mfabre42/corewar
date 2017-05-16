@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:39:11 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/10 18:22:00 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/15 21:10:58 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	ldirect_load(t_map *map, t_process *proc)
 				return ;
 			}
 			reg_nbr = (int)map->arena[(pos + 4) % MEM_SIZE];
-			proc->reg[reg_nbr - 1] = map->arena[(pos + hex_to_int(0x00,
+			proc->reg[reg_nbr - 1] = map->arena[(pos + (short)hex_to_int(0x00,
 				0x00, map->arena[(pos + 2) % MEM_SIZE], map->arena[(pos + 3) % MEM_SIZE])) % MEM_SIZE];
 			proc->pc = proc->pc + 5;
 		}

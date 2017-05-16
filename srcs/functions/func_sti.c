@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/27 18:15:10 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/12 16:05:07 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/15 22:13:38 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	indirect_store(t_map *map, t_process *proc)
 	}
 	else
 	{
-		// printf("Le joueur, a fait un sti cycle:%d\n", map->cycle);
+		printf("Le joueur, a fait un sti cycle:%d\n", map->cycle);
 		do_funk(proc, 0, 0, 1);
 		pos = proc->start + proc->pc;
 		ocp = ocp_master((int)map->arena[(pos + 1) % MEM_SIZE]);
@@ -43,7 +43,7 @@ void	indirect_store(t_map *map, t_process *proc)
 				return ;
 			}
 			result = proc->reg[(int)map->arena[(pos + 3) % MEM_SIZE] - 1];
-			result += hex_to_int(0x00, 0x00, map->arena[(pos + 4) % MEM_SIZE],
+			result += (short)hex_to_int(0x00, 0x00, map->arena[(pos + 4) % MEM_SIZE],
 				map->arena[(pos + 5) % MEM_SIZE]);
 			proc->pc = proc->pc + 6;
 		}
@@ -62,8 +62,8 @@ void	indirect_store(t_map *map, t_process *proc)
 		else if ((ocp.param2 == 'D' || ocp.param2 == 'I') && ocp.param3 == 'D')
 		{
 
-			result = hex_to_int(0x00, 0x00, map->arena[(pos + 3) % MEM_SIZE], map->arena[(pos + 4) % MEM_SIZE]);
-			result += hex_to_int(0x00, 0x00, map->arena[(pos + 5) % MEM_SIZE], map->arena[(pos + 6) % MEM_SIZE]);
+			result = (short)hex_to_int(0x00, 0x00, map->arena[(pos + 3) % MEM_SIZE], map->arena[(pos + 4) % MEM_SIZE]);
+			result += (short)hex_to_int(0x00, 0x00, map->arena[(pos + 5) % MEM_SIZE], map->arena[(pos + 6) % MEM_SIZE]);
 			proc->pc = proc->pc + 7;
 		}
 		else if ((ocp.param2 == 'D' || ocp.param2 == 'I') && ocp.param3 == 'R')
@@ -73,7 +73,7 @@ void	indirect_store(t_map *map, t_process *proc)
 				fail_func(proc, 6, 0);
 				return ;
 			}
-			result = hex_to_int(0x00, 0x00, map->arena[(pos + 3) % MEM_SIZE], map->arena[(pos + 4) % MEM_SIZE]);
+			result = (short)hex_to_int(0x00, 0x00, map->arena[(pos + 3) % MEM_SIZE], map->arena[(pos + 4) % MEM_SIZE]);
 			result += proc->reg[(int)map->arena[(pos + 5) % MEM_SIZE] - 1];
 			proc->pc = proc->pc + 6;
 		}

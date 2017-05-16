@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 17:42:39 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/10 18:02:53 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/15 22:20:11 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,20 @@ void	addition(t_map *map, t_process *proc)
 	{
 		do_funk(proc, 0, 0, 1);
 		pos = proc->start + proc->pc;
-		if (!is_register((int)map->arena[(pos + 1) % MEM_SIZE]) ||
-			!is_register((int)map->arena[(pos + 2) % MEM_SIZE]) ||
-			!is_register((int)map->arena[(pos + 3) % MEM_SIZE]))
+		if (!is_register((int)map->arena[(pos + 2) % MEM_SIZE]) ||
+			!is_register((int)map->arena[(pos + 3) % MEM_SIZE]) ||
+			!is_register((int)map->arena[(pos + 4) % MEM_SIZE]))
 		{
-			fail_func(proc, 4, 1);
+			fail_func(proc, 5, 1);
 			return ;
 		}
-		proc->reg[map->arena[(pos + 3) % MEM_SIZE] - 1] =
-		proc->reg[map->arena[(pos + 2) % MEM_SIZE] - 1] +
-		proc->reg[map->arena[(pos + 1) % MEM_SIZE] - 1];
+		proc->reg[map->arena[(pos + 4) % MEM_SIZE] - 1] =
+		proc->reg[map->arena[(pos + 3) % MEM_SIZE] - 1] +
+		proc->reg[map->arena[(pos + 2) % MEM_SIZE] - 1];
+		printf("registre %d vaut %d\n",
+		map->arena[(pos + 3) % MEM_SIZE],
+		proc->reg[map->arena[(pos + 3) % MEM_SIZE] - 1]);
 		proc->carry = 1;
-		proc->pc = proc->pc + 4 % MEM_SIZE;
+		proc->pc = proc->pc + 5 % MEM_SIZE;
 	}
 }

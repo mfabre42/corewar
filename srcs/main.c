@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 17:05:36 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/09 20:27:58 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/15 17:40:10 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		main(int ac, char **av)
 		printf("%02x ", map.arena[i]);
 		i++;
 	}
-	play_game(&map);
+	play_game(&map, ft_atoi(av[2]));
 	// indirect_store(&map, map.player[0].process);
 	printf("\n\n");
 	printf("After :\n");

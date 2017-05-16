@@ -6,7 +6,7 @@
 /*   By: anonymou <anonymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/07 16:50:32 by anonymou          #+#    #+#             */
-/*   Updated: 2017/05/10 18:02:56 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/15 22:14:34 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	do_funk(t_process *proc, int cycle, int ft, int what_to_do)
 
 void	fail_func(t_process *proc, int pc, int carry)
 {
+	printf("Fail func...\n");
 	proc->pc += pc % MEM_SIZE;
 	if (carry == 1)
 	{
