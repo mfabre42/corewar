@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/09 21:04:01 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/17 18:40:39 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/17 20:17:27 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,11 @@ int		check_last_survivor(t_map *map)
 	while (i < map->nb_player)
 	{
 		if (map->player[i].last_live > map->player[warrior].last_live)
+		{
 			warrior = i;
+			printf("last live player[%d]%s = %d\n", i, map->player[i].name, map->player[i].last_live);
+		}
 		i++;
 	}
-	return (i);
+	return (warrior);
 }

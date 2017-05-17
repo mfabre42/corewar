@@ -6,7 +6,7 @@
 /*   By: aleveque <aleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 19:54:02 by aleveque          #+#    #+#             */
-/*   Updated: 2017/05/16 15:55:08 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/17 19:59:23 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,14 @@ void	func_or(t_map *map, t_process *proc)
 			fail_func(proc, pc + 1, 1);
 			return ;
 		}
-		proc->reg[(int)map->arena[(pos + pc) % MEM_SIZE] - 1] = param1;
-		proc->pc += pc + 1;
-		proc->carry = !param1;
+		if ((ocp.param1 == 'R' || ocp.param1 == 'I' || ocp.param1 == 'D') &&
+			(ocp.param2 == 'R' || ocp.param2 == 'I' || ocp.param2 == 'D'))
+		{
+			proc->reg[(int)map->arena[(pos + pc) % MEM_SIZE] - 1] = param1;
+			proc->pc += pc + 1;
+			proc->carry = !param1;
+		}
+		else
+			proc->pc = proc->pc + 5;
 	}
 }

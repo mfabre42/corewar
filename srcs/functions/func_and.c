@@ -6,7 +6,7 @@
 /*   By: aleveque <aleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:53:14 by aleveque          #+#    #+#             */
-/*   Updated: 2017/05/16 15:54:18 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/17 19:54:32 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ void	func_and(t_map *map, t_process *proc)
 	}
 	else
 	{
-		printf("Le joueur, a fait un and cycle:%d\n"
-		,  map->cycle);
+		// printf("Le joueur, a fait un and cycle:%d\n"
+		// ,  map->cycle);
 		do_funk(proc, 0, 0, 1);
 		pc = 2;
 		pos = proc->start + proc->pc;
@@ -78,8 +78,14 @@ void	func_and(t_map *map, t_process *proc)
 			fail_func(proc, pc + 1, 1);
 			return ;
 		}
-		proc->reg[(int)map->arena[(pos + pc) % MEM_SIZE] - 1] = param1;
-		proc->pc += pc + 1;
-		proc->carry = !param1;
+		if ((ocp.param1 == 'R' || ocp.param1 == 'I' || ocp.param1 == 'D') &&
+			(ocp.param2 == 'R' || ocp.param2 == 'I' || ocp.param2 == 'D'))
+		{
+			proc->reg[(int)map->arena[(pos + pc) % MEM_SIZE] - 1] = param1;
+			proc->pc += pc + 1;
+			proc->carry = !param1;
+		}
+		else
+			proc->pc = proc->pc + 5;
 	}
 }

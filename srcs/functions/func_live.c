@@ -6,7 +6,7 @@
 /*   By: aleveque <aleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/27 16:03:13 by aleveque          #+#    #+#             */
-/*   Updated: 2017/05/17 18:40:49 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/17 20:32:12 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,9 @@ void	live(t_map *map, t_process *proc)
 		if (player >= 1 && player <= map->nb_player)
 		{
 			map->nb_live++;
-			// printf("Le joueur %mr - 1].name, player);
-			map->player[player].last_live = map->cycle;
+			// printf("Le joueur %s(%d), a ete rapporter comme etant en vie\n"
+			// ,  map->player[player - 1].name, player);
+			map->player[player - 1].last_live = map->cycle;
 		}
 		proc->pc = proc->pc + 5;
 	}

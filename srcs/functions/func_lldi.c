@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:42:36 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/16 16:06:32 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/17 19:22:46 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,11 @@ void	lindirect_load(t_map *map, t_process *proc)
 			result += (short)hex_to_int(0x00, 0x00, map->arena[(pos + 4) % MEM_SIZE], map->arena[(pos + 5) % MEM_SIZE]);
 			proc->reg[(int)map->arena[(pos + 6) % MEM_SIZE] - 1] = read_in_arena(map, (pos + result) % MEM_SIZE);
 			proc->pc = proc->pc + 7;
+		}
+		else
+		{
+			proc->pc = proc->pc + 5;
+			return ;
 		}
 		if (proc->reg[(int)map->arena[(pos + 6) % MEM_SIZE] - 1] == 0)
 			proc->carry = 1;
