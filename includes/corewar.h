@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/20 14:35:05 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/17 17:05:48 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/17 18:40:27 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,7 @@ void			do_funk(t_process *proc, int cycle, int ft, int what_to_do);
 */
 void			error_malloc(void);
 
+int				check_last_survivor(t_map *map);
 int				is_alive(t_map *map);
 void			init_player(t_params *param, t_map *map);
 void			cycle_to_die(t_map *map);

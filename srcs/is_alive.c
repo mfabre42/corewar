@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/09 21:04:01 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/16 19:58:58 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/17 18:40:39 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,20 @@ int		is_alive(t_map *map)
 		i++;
 	}
 	return (0);
+}
+
+int		check_last_survivor(t_map *map)
+{
+	int		i;
+	int		warrior;
+
+	i = 0;
+	warrior = 0;
+	while (i < map->nb_player)
+	{
+		if (map->player[i].last_live > map->player[warrior].last_live)
+			warrior = i;
+		i++;
+	}
+	return (i);
 }
