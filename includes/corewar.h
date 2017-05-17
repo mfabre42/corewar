@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/20 14:35:05 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/15 22:30:34 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/17 17:05:48 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ typedef struct	s_player
 
 typedef struct	s_map
 {
+	int					dump;
 	int					check;
 	int					cycle;
 	int					cycle_to_die;
@@ -113,7 +114,7 @@ void			save_file(char *file, t_params *param, t_map *map);
 void			save_params(int ac, char **av, t_map *map);
 void			send_in_arena(t_convert *tab, t_params *param, t_map *map);
 int				is_register(unsigned int reg);
-void			play_game(t_map *map, int i);
+void			play_game(t_map *map);
 unsigned int	read_in_arena(t_map *map, int adress);
 
 #endif

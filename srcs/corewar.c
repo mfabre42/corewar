@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 18:23:26 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/16 20:38:47 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/17 17:11:37 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,12 +81,12 @@ void	ft_cycle(t_process *tmp, t_map *map, int player)
 		printf("t'a fait du caca\n");
 }
 
-void	play_game(t_map *map, int i)
+void	play_game(t_map *map)
 {
 	int			player;
 	t_process	*tmp;
 
-	while (map->cycle < i) //1246
+	while (1 && (map->dump == -1 || map->cycle <= map->dump))
 	{
 		player = map->nb_player - 1;
 		while (player >= 0)
@@ -110,4 +110,5 @@ void	play_game(t_map *map, int i)
 			break;
 		}
 	}
+	printf("Cycle end == %d\n", map->cycle);
 }

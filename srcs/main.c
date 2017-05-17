@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 17:05:36 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/16 20:17:58 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/17 17:08:36 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int		main(int ac, char **av)
 	t_map		map;
 
 	save_params(ac, av, &map);
-	play_game(&map, ft_atoi(av[4]));
+	play_game(&map);
 	int i = 0;
 	while (i < MEM_SIZE)
 	{
