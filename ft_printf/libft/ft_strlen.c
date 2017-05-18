@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   kill_player.c                                      :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anonymou <anonymou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aleveque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/03 12:13:28 by anonymou          #+#    #+#             */
-/*   Updated: 2017/05/18 16:49:59 by aleveque         ###   ########.fr       */
+/*   Created: 2016/11/04 18:45:03 by aleveque          #+#    #+#             */
+/*   Updated: 2016/12/06 17:16:12 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "corewar.h"
+#include "libft.h"
 
-void	kill_player(t_map *map, int n_player)
+int		ft_strlen(char *str)
 {
+	int i;
 
-	// printf("KILL player: %d", n_player);
-	if (map->player[n_player].process != NULL)
-		ft_lstdel(&map->player[n_player].process);
-	map->player[n_player].in_life = 0;
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }

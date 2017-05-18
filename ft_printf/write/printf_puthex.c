@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   kill_player.c                                      :+:      :+:    :+:   */
+/*   printf_puthex.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anonymou <anonymou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aleveque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/03 12:13:28 by anonymou          #+#    #+#             */
-/*   Updated: 2017/05/18 16:49:59 by aleveque         ###   ########.fr       */
+/*   Created: 2016/12/07 19:48:04 by aleveque          #+#    #+#             */
+/*   Updated: 2017/01/09 15:41:28 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "corewar.h"
+#include "../ft_printf.h"
 
-void	kill_player(t_map *map, int n_player)
+char	*printf_puthex(unsigned long long nbr)
 {
+	char	*str;
+	int		i;
 
-	// printf("KILL player: %d", n_player);
-	if (map->player[n_player].process != NULL)
-		ft_lstdel(&map->player[n_player].process);
-	map->player[n_player].in_life = 0;
+	i = -1;
+	str = ft_itoa_base(nbr, 16);
+	while (str[++i])
+		str[i] = ft_tolower(str[i]);
+	return (str);
 }

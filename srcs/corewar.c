@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 18:23:26 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/17 18:40:46 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/18 16:47:16 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,6 @@ void	ft_cycle(t_process *tmp, t_map *map, int player)
 	}
 	else if (tmp->cycle > 0)
 		tmp->cycle--;
-	else
-		printf("t'a fait du caca\n");
 }
 
 void	play_game(t_map *map)

@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   kill_player.c                                      :+:      :+:    :+:   */
+/*   printf_putstr.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anonymou <anonymou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aleveque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/03 12:13:28 by anonymou          #+#    #+#             */
-/*   Updated: 2017/05/18 16:49:59 by aleveque         ###   ########.fr       */
+/*   Created: 2016/12/05 17:55:54 by aleveque          #+#    #+#             */
+/*   Updated: 2017/01/08 15:39:56 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "corewar.h"
+#include "../ft_printf.h"
 
-void	kill_player(t_map *map, int n_player)
+char	*printf_putstr(long long nbr)
 {
+	char *str;
 
-	// printf("KILL player: %d", n_player);
-	if (map->player[n_player].process != NULL)
-		ft_lstdel(&map->player[n_player].process);
-	map->player[n_player].in_life = 0;
+	str = (char*)nbr;
+	return (str);
 }

@@ -6,7 +6,7 @@
 #    By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/10 15:31:11 by mafabre           #+#    #+#              #
-#    Updated: 2017/05/15 17:22:22 by acoupleu         ###   ########.fr        #
+#    Updated: 2017/05/18 18:20:26 by aleveque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ LIBFT				=	$(LIB_PATH)libft.a
 LIBFTPRINTF_PATH	=	ft_printf/
 LIBFTPRINTF			=	$(LIBFTPRINTF_PATH)libftprintf.a
 LIB_LINK			=	-L $(LIBFT_PATH) -lft -L $(LIBFTPRINTF_PATH) -lftprintf
-INCLUDES			=	-I $(LIBFT_PATH) -I $(LIBFTPRINTF_PATH)/includes -I ./includes
+INCLUDES			=	-I $(LIBFT_PATH) -I $(LIBFTPRINTF_PATH) -I ./includes
 SRCS				=	srcs/main.c srcs/save_params.c srcs/save_file.c srcs/init_arena.c \
 						srcs/calc_ocp.c srcs/hex_to_int.c srcs/is_register.c \
 						srcs/place_in_arena.c srcs/init_process.c \

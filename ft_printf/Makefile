@@ -3,68 +3,53 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+         #
+#    By: aleveque <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2016/04/10 22:21:01 by mafabre           #+#    #+#              #
-#    Updated: 2017/05/02 12:09:35 by aleveque         ###   ########.fr        #
+#    Created: 2016/12/01 16:19:02 by aleveque          #+#    #+#              #
+#    Updated: 2017/01/17 13:03:56 by aleveque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC				=	gcc
-NAME			=	libftprintf.a
-FLAGS			=	-Wall -Wextra
-# LIB_PATH		=	libft/
-# LIB				=	$(LIB_PATH)libft.a
-# LIB_LINK		=	-L $(LIB_PATH) -lft
-INCLUDES		=	-I ./includes -I ../libft
-SRCS			=	srcs/ft_printf.c										\
-					\
-					srcs/parse_flags.c 		srcs/parse_options.c			\
-					\
-					srcs/print_char.c		srcs/print_wchar.c				\
-					srcs/print_string.c		srcs/print_wstring.c			\
-					srcs/print_decimal.c	srcs/print_unsigned.c			\
-					srcs/print_hex.c srcs/print_hexx.c srcs/print_octal.c	\
-					srcs/print_pointer.c	srcs/print_modulo.c				\
-					srcs/ft_itoa_base.c		srcs/count_print.c				\
-					srcs/tools.c
+FLAG = -Wall -Wextra -Werror
 
-OBJS			=	$(SRCS:srcs/%.c=obj/%.o)
+NAME = libftprintf.a
 
-# COLORS
-C_NO			=	"\033[00m"
-C_OK			=	"\033[34m"
-C_GOOD			=	"\033[32m"
-C_ERROR			=	"\033[31m"
-C_WARN			=	"\033[33m"
+SRC2 = writestr.c printf_putstr.c printf_putchar.c printf_putnbr.c\
+	   ft_putstr_printf.c printf_puthex.c printf_putoct.c printf_puthexa.c\
+	   printf_putpoint.c printf_putwchar.c ft_putwstr.c\
+	   ft_putwchar.c ft_itoa_llu.c optn_minus.c optn_nbr.c optn_oct.c\
+	   optn_plus.c optn_point.c optn_space.c optn_zero.c ft_conv.c ft_conv2.c\
+	   ft_convint.c ft_convint2.c ft_convint3.c ft_printconv.c ft_castperc.c\
+	   ft_printf.c wheel_of_destiny.c printf_option.c ft_charwlen.c
 
-# DBG MESSAGE
-SUCCESS			=	[ $(C_GOOD)OK$(C_NO) ]
-OK				=	[ $(C_OK)OK$(C_NO) ]
+SRCLIB = ft_atoi.c ft_isdigit.c\
+	  ft_strcmp.c\
+	  ft_putchar.c\
+	  ft_strnstr.c ft_strdup.c\
+	  ft_strlen.c\
+	  ft_tolower.c ft_toupper.c\
+	  ft_nbrlen_base.c ft_itoa_base.c ft_strjoin.c
 
+SRCPATH = $(addprefix write/, $(SRC2))
 
-all: obj $(NAME)
+LIBPATH = $(addprefix libft/, $(SRCLIB))
 
-$(NAME): $(OBJS)
-	@ar -rc $(NAME) $(OBJS)
-	@ranlib	$(NAME)
-	@echo "Compiling" $(NAME) "\t\t" $(SUCCESS)
+OBJ2 = $(SRC2:.c=.o)
 
+OBJLIB = $(SRCLIB:.c=.o)
 
-obj:
-	@mkdir -p obj
+LIB = libft/libft.a
 
-obj/%.o: srcs/%.c ./includes/*.h
-	@$(CC) $(FLAGS) $(INCLUDES) -c -o $@ $<
-	@echo "Linking" $< "\t" $(OK)
+$(NAME):
+	gcc -c $(SRCPATH) $(LIBPATH)
+	ar rc $(NAME) $(OBJ2) $(OBJLIB)
+
+all: $(NAME)
 
 clean:
-	@rm -f $(OBJS)
-	@rm -rf obj
-	@echo "Cleaning" $(NAME) "\t\t" $(OK)
+	rm -f $(OBJ2) $(OBJLIB)
 
 fclean: clean
-	@rm -f $(NAME)
-	@echo "Delete" $(NAME) "\t\t\t" $(OK)
+	rm -f $(NAME)
 
 re: fclean all

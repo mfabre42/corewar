@@ -1,22 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   kill_player.c                                      :+:      :+:    :+:   */
+/*   ft_strwlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anonymou <anonymou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aleveque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/03 12:13:28 by anonymou          #+#    #+#             */
-/*   Updated: 2017/05/18 16:49:59 by aleveque         ###   ########.fr       */
+/*   Created: 2017/01/16 15:36:39 by aleveque          #+#    #+#             */
+/*   Updated: 2017/01/16 20:43:09 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "corewar.h"
+#include "../ft_printf.h"
 
-void	kill_player(t_map *map, int n_player)
+int		ft_charwlen(wchar_t carac)
 {
+	int i;
 
-	// printf("KILL player: %d", n_player);
-	if (map->player[n_player].process != NULL)
-		ft_lstdel(&map->player[n_player].process);
-	map->player[n_player].in_life = 0;
+	i = ft_nbrlen_base(carac, 2);
+	if (i <= 7)
+		return (1);
+	else if (i <= 11)
+		return (2);
+	else if (i <= 16)
+		return (3);
+	else if (i <= 21)
+		return (4);
+	return (0);
 }

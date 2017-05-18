@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   kill_player.c                                      :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anonymou <anonymou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aleveque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/03 12:13:28 by anonymou          #+#    #+#             */
-/*   Updated: 2017/05/18 16:49:59 by aleveque         ###   ########.fr       */
+/*   Created: 2016/11/04 18:34:30 by aleveque          #+#    #+#             */
+/*   Updated: 2017/01/08 15:14:43 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "corewar.h"
+#include "libft.h"
 
-void	kill_player(t_map *map, int n_player)
+int		ft_strcmp(char *str1, char *str2)
 {
+	int i;
 
-	// printf("KILL player: %d", n_player);
-	if (map->player[n_player].process != NULL)
-		ft_lstdel(&map->player[n_player].process);
-	map->player[n_player].in_life = 0;
+	i = 0;
+	if (str1[0] == '\0' && str2[0] == '\0')
+		return (0);
+	while (str1[i] == str2[i] && (str1[i] && str2[i]))
+		i++;
+	return (((unsigned char)str1[i] - (unsigned char)str2[i]));
 }

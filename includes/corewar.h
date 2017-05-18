@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/20 14:35:05 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/17 18:40:27 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/18 18:43:04 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 # define BUF_SIZE 4
 
-# include "../srcs/op.h"
-# include "../ft_printf/includes/ft_printf.h"
 # include "../libft/libft.h"
+# include "../srcs/op.h"
+# include "../ft_printf/ft_printf.h"
 # include <fcntl.h>
 
 typedef union	u_convert
@@ -99,6 +99,7 @@ void			do_funk(t_process *proc, int cycle, int ft, int what_to_do);
 ** Fonctions error
 */
 void			error_malloc(void);
+void			error(int nb);
 
 int				check_last_survivor(t_map *map);
 int				is_alive(t_map *map);
