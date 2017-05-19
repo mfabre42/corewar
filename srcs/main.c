@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 17:05:36 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/18 19:08:16 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/19 17:31:23 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int		main(int ac, char **av)
 	save_params(ac, av, &map);
 	play_game(&map);
 	int i = 0;
+	
 	if (map.dump != -1)
 	{
 		while (i < MEM_SIZE)

@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 19:32:42 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/18 18:42:23 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/19 17:30:47 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	check_n_np(int ac, char **av, t_params *param)
 		}
 		if (ft_strstr(av[i], ".cor") == NULL && ft_strcmp(av[i], "-n") != 0 &&
 		ft_strcmp(av[i], "-d") != 0 && ft_strcmp(av[i - 1], "-n") != 0 &&
-		ft_strcmp(av[i - 1], "-d") != 0)
+		ft_strcmp(av[i - 1], "-d") != 0 && ft_strcmp(av[i], "-m"))
 			error(3);
 		i++;
 	}
@@ -101,6 +101,7 @@ void	init_params(t_params *param, t_map *map)
 	map->next_ctd = CYCLE_TO_DIE;
 	map->check = 0;
 	map->dump = -1;
+	map->mute = 0;
 }
 
 void		save_params(int ac, char **av, t_map *map)
@@ -121,6 +122,8 @@ void		save_params(int ac, char **av, t_map *map)
 			save_dump(av[++i], &param, map);
 		if (i == ac - 1 && ft_strcmp(av[i], "-d") == 0)
 			save_dump("-1", &param, map);
+		if (ft_strcmp(av[i], "-m") == 0)
+			map->mute = 1;
 		if (i < ac - 1 && ft_strcmp(av[i], "-n") == 0)
 		{
 			save_number(av[++i], &param);
