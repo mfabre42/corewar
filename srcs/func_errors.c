@@ -6,7 +6,7 @@
 /*   By: aleveque <aleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/09 19:49:54 by aleveque          #+#    #+#             */
-/*   Updated: 2017/05/19 17:30:17 by anonymous        ###   ########.fr       */
+/*   Updated: 2017/05/22 15:35:13 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,5 @@ void	error(int nb)
 		ft_printf("Error dump number\n");
 	else
 		ft_printf("error\n");
-	exit (0);
+	exit(0);
 }

@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 19:32:42 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/19 17:30:47 by anonymous        ###   ########.fr       */
+/*   Updated: 2017/05/22 16:14:10 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ void	save_number(char *av, t_params *param)
 		param->n = ft_atoi(av);
 	else
 		error(2);
-	// printf("%d\n", param->n);
 }
 
 void	check_n_np(int ac, char **av, t_params *param)
@@ -92,7 +91,8 @@ void	init_params(t_params *param, t_map *map)
 	param->p2 = 0;
 	param->p3 = 0;
 	param->p4 = 0;
-	if (!(map->arena = (unsigned char *)malloc(sizeof(unsigned char) * MEM_SIZE)))
+	if (!(map->arena = (unsigned char *)malloc(sizeof(unsigned char)
+		* MEM_SIZE)))
 		error_malloc();
 	ft_bzero(map->arena, MEM_SIZE);
 	map->cycle = 1;
@@ -104,18 +104,16 @@ void	init_params(t_params *param, t_map *map)
 	map->mute = 0;
 }
 
-void		save_params(int ac, char **av, t_map *map)
+void	save_params(int ac, char **av, t_map *map, int i)
 {
 	t_params	param;
-	int			i;
 
-	i = 1;
 	init_params(&param, map);
 	check_n_np(ac, av, &param);
 	if (param.nb_player <= 0 || param.nb_player > 4)
 		error(1);
 	init_player(&param, map);
-	while (i < ac)
+	while (++i < ac)
 	{
 		param.n = 0;
 		if (i < ac - 1 && ft_strcmp(av[i], "-d") == 0)
@@ -133,7 +131,5 @@ void		save_params(int ac, char **av, t_map *map)
 			save_number("-1", &param);
 		if (ft_strstr(av[i], ".cor") != NULL)
 			save_file(av[i], &param, map);
-		i++;
 	}
-	// printf("dump: %d\n", map->dump);
 }

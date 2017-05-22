@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 20:49:40 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/18 16:48:38 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/22 15:40:36 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,11 @@ void	init_player(t_params *param, t_map *map)
 		error_malloc();
 	while (i < param->nb_player)
 	{
-		if (!(map->player[i].name = (char *)malloc(sizeof(char) * PROG_NAME_LENGTH + 1)))
+		if (!(map->player[i].name = (char *)malloc(sizeof(char) *
+		PROG_NAME_LENGTH + 1)))
 			error_malloc();
-		if (!(map->player[i].comm = (char *)malloc(sizeof(char) * COMMENT_LENGTH + 1)))
+		if (!(map->player[i].comm = (char *)malloc(sizeof(char) *
+		COMMENT_LENGTH + 1)))
 			error_malloc();
 		map->player[i].process = NULL;
 		map->player[i].in_life = 1;
@@ -32,6 +34,7 @@ void	init_player(t_params *param, t_map *map)
 	}
 	map->nb_player = param->nb_player;
 }
+
 void	get_n(t_params *param)
 {
 	if (param->p1 != 1)
@@ -92,10 +95,10 @@ void	check_magic_number(t_convert *tab)
 {
 	if (hex_to_int(tab[0].c_char[0], tab[0].c_char[1], tab[0].c_char[2],
 			tab[0].c_char[3]) != 15369203)
-			{
-				// printf("wrong magic number exit\n"); // magic number check
-				exit(0);
-			}
+	{
+		ft_printf("wrong magic number exit\n"); // magic number check
+		exit(0);
+	}
 }
 
 void	send_in_arena(t_convert *tab, t_params *param, t_map *map)
@@ -108,9 +111,11 @@ void	send_in_arena(t_convert *tab, t_params *param, t_map *map)
 	i = MEM_SIZE * (param->n - 1) / param->nb_player;
 	get_name_comment(tab, param, map);
 	check_magic_number(tab);
-	j = COMMENT_LENGTH/4 + PROG_NAME_LENGTH/4 + 4;
-	map->player[param->n - 1] = init_process(map, param->n - 1, MEM_SIZE * (param->n - 1) / param->nb_player);
-	while (i < MEM_SIZE && j < COMMENT_LENGTH/4 + PROG_NAME_LENGTH/4 + CHAMP_MAX_SIZE/4 + 4)
+	j = COMMENT_LENGTH / 4 + PROG_NAME_LENGTH / 4 + 4;
+	map->player[param->n - 1] = init_process(map, param->n - 1, MEM_SIZE *
+		(param->n - 1) / param->nb_player);
+	while (i < MEM_SIZE && j < COMMENT_LENGTH / 4 + PROG_NAME_LENGTH / 4 +
+		CHAMP_MAX_SIZE / 4 + 4)
 	{
 		map->arena[i++] = tab[j].c_char[0];
 		map->arena[i++] = tab[j].c_char[1];

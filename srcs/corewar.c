@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 18:23:26 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/18 16:47:16 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/22 15:33:47 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,11 @@ void	(*init_tab(int ft))(t_map *, t_process*)
 		{16, &aff_char}
 	};
 
-	i = 0;
-	while (i < 14)
+	i = -1;
+	while (++i < 14)
 	{
 		if (func_table[i].num_func == ft)
 			return (func_table[i].func);
-		i++;
 	}
 	return (func_table[ft].func);
 }
@@ -72,7 +71,7 @@ void	ft_cycle(t_process *tmp, t_map *map, int player)
 	}
 	if (tmp->cycle == 0)
 	{
-		// printf("ft : %d\n", ft);
+	//	printf("ft : %d\n", ft);
 		do_func(map, tmp, ft, player);
 	}
 	else if (tmp->cycle > 0)
@@ -90,10 +89,10 @@ void	play_game(t_map *map)
 		while (player >= 0)
 		{
 			tmp = map->player[player].process;
-				// printf("player:%d ,point: %p\n",player, tmp);
+			//	printf("player:%d ,point: %p\n",player, tmp);
 			while (tmp != NULL)
 			{
-				// printf("player : %d, cycle : %d, pc : %d, start : %d\n", player, map->cycle, tmp->pc, tmp->start);
+			//		printf("player : %d, cycle : %d, pc : %d, start : %d\n", player, map->cycle, tmp->pc, tmp->start);
 				ft_cycle(tmp, map, player);
 				tmp = tmp->next;
 			}
@@ -103,6 +102,6 @@ void	play_game(t_map *map)
 		cycle_to_die(map);
 		// printf("\n\n");
 		if (map->cycle_to_die <= 0 || is_alive(map) == 0)
-			break;
+			break ;
 	}
 }

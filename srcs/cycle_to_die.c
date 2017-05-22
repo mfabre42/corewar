@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/09 15:34:11 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/18 16:47:33 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/22 15:34:34 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,9 @@ void	check_last_live(t_map *map)
 	while (i < map->nb_player)
 	{
 	//	printf("last_live: %d, next_ctd: %d, cycle_to_die: %d, cycle: %d\n", map->player[i].last_live, map->next_ctd, map->cycle_to_die, map->cycle);
-
 		if (map->player[i].last_live < map->next_ctd - map->cycle_to_die)
 		{
 			// printf("last_live: %d, next_ctd: %d, cycle_to_die: %d, player: %d\n", map->player[i].last_live, map->next_ctd, map->cycle_to_die, i);
-
 			kill_player(map, i);
 		}
 		i++;

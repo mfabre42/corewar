@@ -6,7 +6,7 @@
 /*   By: anonymou <anonymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 12:13:28 by anonymou          #+#    #+#             */
-/*   Updated: 2017/05/18 16:49:59 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/22 15:39:44 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 void	kill_player(t_map *map, int n_player)
 {
-
-	// printf("KILL player: %d", n_player);
+//	printf("KILL player: %d", n_player);
 	if (map->player[n_player].process != NULL)
 		ft_lstdel(&map->player[n_player].process);
 	map->player[n_player].in_life = 0;
