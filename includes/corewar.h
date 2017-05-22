@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/20 14:35:05 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/22 16:00:21 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/22 19:59:40 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,7 @@ void			do_funk(t_process *proc, int cycle, int ft, int what_to_do);
 */
 void			error_malloc(void);
 void			error(int nb);
+void			print_usage(void);
 
 int				check_last_survivor(t_map *map);
 int				is_alive(t_map *map);

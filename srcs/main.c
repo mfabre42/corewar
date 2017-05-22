@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 17:05:36 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/22 18:36:23 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/22 19:59:17 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,14 @@ void	notif_winner(t_map *map)
 
 int		main(int ac, char **av)
 {
+	int			i;
 	t_map		map;
 
+	if (ac == 1)
+		print_usage();
+	i = 0;
 	save_params(ac, av, &map, 0);
 	play_game(&map);
-	int i = 0;
-
 	if (map.dump != -1)
 	{
 		while (i < MEM_SIZE)
