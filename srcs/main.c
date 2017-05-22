@@ -6,11 +6,26 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 17:05:36 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/22 16:00:26 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/22 18:36:23 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
+
+void	free_map(t_map *map)
+{
+	int i;
+
+	i = 0;
+	while (i < map->nb_player)
+	{
+		free(map->player[i].name);
+		free(map->player[i].comm);
+		i++;
+	}
+	free(map->player);
+	free(map->arena);
+}
 
 void	notif_winner(t_map *map)
 {
@@ -43,5 +58,6 @@ int		main(int ac, char **av)
 	}
 	if (map.cycle_to_die < 0 || is_alive(&map) == 0)
 		notif_winner(&map);
+	free_map(&map);
 	return (0);
 }

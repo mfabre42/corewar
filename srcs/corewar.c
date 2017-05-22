@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 18:23:26 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/22 15:33:47 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/22 18:01:02 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,6 @@ void	(*init_tab(int ft))(t_map *, t_process*)
 
 void	do_func(t_map *map, t_process *tmp, int ft, int player)
 {
-	t_proto_func *tab;
-
 	if (ft >= 1 && ft <= 16)
 	{
 		if (ft == 12)
@@ -61,7 +59,7 @@ void	do_func(t_map *map, t_process *tmp, int ft, int player)
 void	ft_cycle(t_process *tmp, t_map *map, int player)
 {
 	int ft;
-
+	
 	if (tmp->ft >= 1 && tmp->ft <= 16)
 		ft = tmp->ft;
 	else
@@ -71,7 +69,7 @@ void	ft_cycle(t_process *tmp, t_map *map, int player)
 	}
 	if (tmp->cycle == 0)
 	{
-	//	printf("ft : %d\n", ft);
+		// printf("ft : %d\n", ft);
 		do_func(map, tmp, ft, player);
 	}
 	else if (tmp->cycle > 0)
