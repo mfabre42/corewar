@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 19:35:01 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/22 19:28:53 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/22 21:01:11 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ void		save_file(char *file, t_params *param, t_map *map)
 		tab[i++] = convert;
 		ft_bzero(convert.c_char, 4);
 	}
+	// printf("tab size = %d malloc = %d\n", i, (PROG_NAME_LENGTH / 4
+	// 	+ COMMENT_LENGTH / 4 + CHAMP_MAX_SIZE / 4));
 	close(fd);
 	send_in_arena(tab, param, map);
 	free(tab);
