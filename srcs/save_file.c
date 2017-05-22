@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 19:35:01 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/22 15:40:07 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/22 19:12:09 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,18 @@ void		save_file(char *file, t_params *param, t_map *map)
 	i = 0;
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
-	{
-		ft_printf("Error open\n");
-		exit(0);
-	}
+		error(5);
 	//Check nom des joueurs (c'est mal codé comme dab)
-	if (!(tab = (t_convert *)malloc(sizeof(t_convert) * CHAMP_MAX_SIZE)))
+	if (!(tab = (t_convert *)malloc(sizeof(t_convert) * (PROG_NAME_LENGTH / 4
+		+ COMMENT_LENGTH / 4 + CHAMP_MAX_SIZE / 4))))
 		error_malloc();
 	while ((ret = read(fd, convert.c_char, BUF_SIZE)) > 0)
 	{
 		tab[i++] = convert;
 		ft_bzero(convert.c_char, 4);
 	}
+	printf("tab size = %d malloc = %d\n", i, (PROG_NAME_LENGTH / 4
+		+ COMMENT_LENGTH / 4 + CHAMP_MAX_SIZE / 4));
 	close(fd);
 	send_in_arena(tab, param, map);
 	free(tab);

@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 20:49:40 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/22 15:40:36 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/22 19:26:25 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	get_name_comment(t_convert *tab, t_params *param, t_map *map)
 	i = 0;
 	j = 1;
 	tmp = map->player[param->n - 1];
-	while (j < PROG_NAME_LENGTH / 4 + 3)
+	while (j < PROG_NAME_LENGTH / 4 + 3 && i < 125)
 	{
 		tmp.name[i++] = tab[j].c_char[0];
 		tmp.name[i++] = tab[j].c_char[1];
@@ -76,8 +76,9 @@ void	get_name_comment(t_convert *tab, t_params *param, t_map *map)
 		tmp.name[i++] = tab[j++].c_char[3];
 	}
 	tmp.name[i] = '\0';
+	j += 2;
 	i = 0;
-	while (j < COMMENT_LENGTH / 4 + PROG_NAME_LENGTH / 4 + 4)
+	while (j < COMMENT_LENGTH / 4 + PROG_NAME_LENGTH / 4 + 4 && i < 2045)
 	{
 		tmp.comm[i++] = tab[j].c_char[0];
 		tmp.comm[i++] = tab[j].c_char[1];
@@ -114,8 +115,8 @@ void	send_in_arena(t_convert *tab, t_params *param, t_map *map)
 	j = COMMENT_LENGTH / 4 + PROG_NAME_LENGTH / 4 + 4;
 	map->player[param->n - 1] = init_process(map, param->n - 1, MEM_SIZE *
 		(param->n - 1) / param->nb_player);
-	while (i < MEM_SIZE && j < COMMENT_LENGTH / 4 + PROG_NAME_LENGTH / 4 +
-		CHAMP_MAX_SIZE / 4 + 4)
+	while (i < MEM_SIZE - 3 && j < COMMENT_LENGTH / 4 + PROG_NAME_LENGTH / 4 +
+		CHAMP_MAX_SIZE / 4)
 	{
 		map->arena[i++] = tab[j].c_char[0];
 		map->arena[i++] = tab[j].c_char[1];
