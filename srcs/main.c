@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 17:05:36 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/22 18:36:23 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/22 19:48:21 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,13 @@
 void	free_map(t_map *map)
 {
 	int i;
+	t_process *tmp;
 
 	i = 0;
 	while (i < map->nb_player)
 	{
+		if (map->player[i].process != NULL)
+			ft_lstdel(&map->player[i].process);
 		free(map->player[i].name);
 		free(map->player[i].comm);
 		i++;
