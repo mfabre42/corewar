@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/20 14:35:05 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/23 23:26:10 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/23 23:53:18 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 # define COREWAR_H
 
 # define BUF_SIZE 4
+# define POS bin->pos
+# define PC bin->pc
+# define OCP bin->ocp
+# define REG_NBR bin->reg_nbr
 
 # include "../libft/libft.h"
 # include "../srcs/op.h"
@@ -78,6 +82,7 @@ typedef struct	s_bin
 	int		pos;
 	t_ocp	ocp;
 	int		pc;
+	int		reg_nbr
 }				t_bin;
 /*
 ** Fonctions corewar
