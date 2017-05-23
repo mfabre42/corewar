@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 19:32:42 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/23 02:07:37 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/23 15:18:59 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,12 +121,12 @@ void	save_params(int ac, char **av, t_map *map, int i)
 			save_dump("-1", &param, map);
 		if (ft_strcmp(av[i], "-m") == 0)
 			map->mute = 1;
-		if (i < ac - 1 && ft_strcmp(av[i], "-n") == 0)
+		if (i < ac - 2 && ft_strcmp(av[i], "-n") == 0)
 		{
 			save_number(av[++i], &param);
 			i++;
 		}
-		if (i == ac - 1 && ft_strcmp(av[i], "-n") == 0)
+		if (i == ac - 2 && ft_strcmp(av[i], "-n") == 0)
 			save_number("-1", &param);
 		if (ft_strstr(av[i], ".cor") != NULL)
 			save_file(av[i], &param, map);

@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 20:49:40 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/22 19:29:22 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/23 16:30:09 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	init_player(t_params *param, t_map *map)
 			error_malloc();
 		map->player[i].process = NULL;
 		map->player[i].in_life = 1;
-		map->player[i].last_live = 0;
+		map->player[i].last_live = 1;
 		i++;
 	}
 	map->nb_player = param->nb_player;

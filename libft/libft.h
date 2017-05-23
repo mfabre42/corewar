@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 22:13:34 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/23 00:26:22 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/23 15:31:31 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct	s_process
 	int						cycle;
 	int						ft;
 	int						do_funk;
+	int						last_live;
 	struct s_process		*next;
 }				t_process;
 

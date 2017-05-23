@@ -6,7 +6,7 @@
 /*   By: aleveque <aleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 15:22:14 by aleveque          #+#    #+#             */
-/*   Updated: 2017/05/18 16:49:09 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/23 15:05:28 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ t_player	init_process(t_map *map, int player, int start)
 
 	// printf("player : %d\n", player);//ici aussi
 	tmp = map->player[player];
-	proc = ft_lstnew(start);
+	if ((proc = ft_lstnew(start)) == NULL)
+		error_malloc();
 	proc->reg[0] = (unsigned int)player + 1;
 	// printf("start : %d\n", proc->start);
 	ft_lstadd(&tmp.process, proc);
