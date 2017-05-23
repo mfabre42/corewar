@@ -6,7 +6,7 @@
 /*   By: anonymou <anonymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 12:13:28 by anonymou          #+#    #+#             */
-/*   Updated: 2017/05/23 16:25:45 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/23 18:40:58 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	kill_process(t_map *map, int i, t_process *proc)
 	t_process *tmp3;
 
 	tmp1 = map->player[i].process;
+	printf("Kill player: %d, proc_id: %d tmp1: %p, proc: %p, tmp2: %p, tmp3: %p, last_live: %d\n", i, proc->id, tmp1, proc, tmp2, tmp3, proc->last_live);
 	if (tmp1 == proc)
 	{
 		tmp2 = tmp1->next;
@@ -40,7 +41,6 @@ void	kill_process(t_map *map, int i, t_process *proc)
 			tmp2 = tmp1;
 			tmp1 = tmp1->next;
 		}
-		// printf("Kill player: tmp1: %p, proc: %p, tmp2: %p, tmp3: %p\n", tmp1, proc, tmp2, tmp3);
 		if (tmp1 != NULL)
 		{
 			tmp3 = tmp1->next;

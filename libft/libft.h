@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 22:13:34 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/23 15:31:31 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/23 18:35:35 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ char			*ft_itoa(int n);
 void			ft_lstadd(t_process **alst, t_process *new);
 void			ft_lstaddend(t_process **lst, t_process *new);
 void			ft_lstdel(t_process **alst);
-t_process		*ft_lstnew(int start);
+t_process		*ft_lstnew(int start, int cycle);
 void			ft_lstdelone(t_process **alst);
 void			*ft_memalloc(size_t size);
 void			*ft_memccpy(void *dest, const void *src, int c, size_t n);

@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 16:28:45 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/04 23:41:53 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/23 18:34:13 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	cp_process(t_map *map, t_process *proc, int player, int adress)
 	int			i;
 
 	i = 0;
-	new_proc = ft_lstnew(adress);
+	new_proc = ft_lstnew(adress, map->cycle);
 	while (i < 16)
 	{
 		new_proc->reg[i] = proc->reg[i];
