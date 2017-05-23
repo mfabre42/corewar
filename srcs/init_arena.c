@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 20:49:40 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/23 16:30:09 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/23 18:06:21 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ void	send_in_arena(t_convert *tab, t_params *param, t_map *map)
 	map->player[param->n - 1] = init_process(map, param->n - 1, MEM_SIZE *
 		(param->n - 1) / param->nb_player);
 	while (i < MEM_SIZE - 3 && j < COMMENT_LENGTH / 4 + PROG_NAME_LENGTH / 4 +
-		CHAMP_MAX_SIZE / 4)
+		CHAMP_MAX_SIZE / 4 + 4)
 	{
 		map->arena[i++] = tab[j].c_char[0];
 		map->arena[i++] = tab[j].c_char[1];
