@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 19:35:01 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/23 16:26:29 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/23 17:40:27 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ void		save_file(char *file, t_params *param, t_map *map)
 		error(5);
 	//Check nom des joueurs (c'est mal codé comme dab)
 	if (!(tab = (t_convert *)ft_memalloc(sizeof(t_convert) * (PROG_NAME_LENGTH / 4
-		+ COMMENT_LENGTH / 4 + CHAMP_MAX_SIZE / 4 + 800))))
+		+ COMMENT_LENGTH / 4 + CHAMP_MAX_SIZE / 4))))
 		error_malloc();
-	printf("taille tab = %d\n", PROG_NAME_LENGTH / 4
-		+ COMMENT_LENGTH / 4 + CHAMP_MAX_SIZE / 4);
+	// printf("taille tab = %d\n", PROG_NAME_LENGTH / 4
+	// 	+ COMMENT_LENGTH / 4 + CHAMP_MAX_SIZE / 4);
 	while ((ret = read(fd, convert.c_char, BUF_SIZE)) > 0)
 	{
 		tab[i++] = convert;
