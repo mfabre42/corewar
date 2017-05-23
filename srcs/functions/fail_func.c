@@ -6,7 +6,7 @@
 /*   By: anonymou <anonymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/07 16:50:32 by anonymou          #+#    #+#             */
-/*   Updated: 2017/05/23 23:36:23 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/23 23:48:58 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,6 @@ t_bin	init_bin(t_map *map, t_process *proc)
 	bin.pos = proc->start + proc->pc;
 	bin.ocp = ocp_master((int)map->arena[(bin.pos + 1) % MEM_SIZE]);
 	bin.pc = 0;
+	bin.reg_nbr = 0;
 	return bin;
 }

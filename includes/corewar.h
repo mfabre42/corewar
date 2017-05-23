@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/20 14:35:05 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/23 23:53:18 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/24 00:19:51 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define COREWAR_H
 
 # define BUF_SIZE 4
+# define ARENA map->arena
 # define POS bin->pos
 # define PC bin->pc
 # define OCP bin->ocp
@@ -82,7 +83,7 @@ typedef struct	s_bin
 	int		pos;
 	t_ocp	ocp;
 	int		pc;
-	int		reg_nbr
+	int		reg_nbr;
 }				t_bin;
 /*
 ** Fonctions corewar
@@ -114,6 +115,7 @@ void			error_malloc(void);
 void			error(int nb);
 void			print_usage(void);
 
+t_bin			init_bin(t_map *map, t_process *proc);
 int				check_last_survivor(t_map *map);
 int				is_alive(t_map *map);
 void			init_player(t_params *param, t_map *map);

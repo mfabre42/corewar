@@ -6,81 +6,78 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/27 18:15:10 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/23 21:09:40 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/24 00:20:15 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
+int		indirect_store2(t_map *map, t_process *proc, t_bin *bin, int *result)
+{
+	if (OCP.param2 == 'R' && OCP.param3 == 'D')
+	{
+		if (!is_register((int)map->arena[(POS + 3) % MEM_SIZE]))
+		{
+			fail_func(proc, 6, 0);
+			return 0;
+		}
+		*result = proc->reg[(int)map->arena[(POS + 3) % MEM_SIZE] - 1];
+		*result += (short)hex_to_int(0x00, 0x00, map->arena[(POS + 4) %
+			MEM_SIZE], map->arena[(POS + 5) % MEM_SIZE]);
+		proc->pc = proc->pc + 6;
+	}
+	else if (OCP.param2 == 'R' && OCP.param3 == 'R')
+	{
+		if (!is_register((int)map->arena[(POS + 3) % MEM_SIZE])
+			|| !is_register((int)map->arena[(POS + 4) % MEM_SIZE]))
+		{
+			fail_func(proc, 5, 0);
+			return 0;
+		}
+		*result = proc->reg[(int)map->arena[(POS + 3) % MEM_SIZE] - 1];
+		*result += proc->reg[(int)map->arena[(POS + 4) % MEM_SIZE] - 1];
+		proc->pc = proc->pc + 5;
+	}
+	return 1;
+}
+
 void	indirect_store(t_map *map, t_process *proc)
 {
-	int		reg_nbr;
-	int		pos;
 	int		result;
-	t_ocp	ocp;
+	t_bin	*bin;
 
 	if (proc->do_funk == 1)
-	{
 		do_funk(proc, 23, 11, 0);
-	}
 	else
 	{
-		// printf("Le joueur, a fait un sti cycle:%d\n", map->cycle);
 		do_funk(proc, 0, 0, 1);
-		pos = proc->start + proc->pc;
-		// printf("PC avant: %d a l'adresse %02x\n", proc->pc, map->arena[pos]);
-		ocp = ocp_master((int)map->arena[(pos + 1) % MEM_SIZE]);
-		if (!is_register((int)map->arena[(pos + 2) % MEM_SIZE]))
+		*bin = init_bin(map, proc);
+		POS = proc->start + proc->pc;
+		OCP = ocp_master((int)map->arena[(POS + 1) % MEM_SIZE]);
+		if (!is_register((int)map->arena[(POS + 2) % MEM_SIZE]))
 		{
 			fail_func(proc, 5, 0);
 			return ;
 		}
-		reg_nbr = (int)map->arena[(pos + 2) % MEM_SIZE];
-		if (ocp.param2 == 'R' && ocp.param3 == 'D')
-		{
-			if (!is_register((int)map->arena[(pos + 3) % MEM_SIZE]))
-			{
-				fail_func(proc, 6, 0);
+		REG_NBR = (int)map->arena[(POS + 2) % MEM_SIZE];
+		if (OCP.param2 == 'R' && (OCP.param3 == 'D' || OCP.param3 == 'R'))
+			if (indirect_store2(map, proc, bin, &result) == 0)
 				return ;
-			}
-			result = proc->reg[(int)map->arena[(pos + 3) % MEM_SIZE] - 1];
-			result += (short)hex_to_int(0x00, 0x00, map->arena[(pos + 4) % MEM_SIZE],
-				map->arena[(pos + 5) % MEM_SIZE]);
-			proc->pc = proc->pc + 6;
-		}
-		else if (ocp.param2 == 'R' && ocp.param3 == 'R')
+		else if ((OCP.param2 == 'D' || OCP.param2 == 'I') && OCP.param3 == 'D')
 		{
-			if (!is_register((int)map->arena[(pos + 3) % MEM_SIZE])
-				|| !is_register((int)map->arena[(pos + 4) % MEM_SIZE]))
-			{
-				fail_func(proc, 5, 0);
-				return ;
-			}
-			result = proc->reg[(int)map->arena[(pos + 3) % MEM_SIZE] - 1];
-			result += proc->reg[(int)map->arena[(pos + 4) % MEM_SIZE] - 1];
-			proc->pc = proc->pc + 5;
-		}
-		else if ((ocp.param2 == 'D' || ocp.param2 == 'I') && ocp.param3 == 'D')
-		{
-
-			result = (short)hex_to_int(0x00, 0x00, map->arena[(pos + 3) % MEM_SIZE], map->arena[(pos + 4) % MEM_SIZE]);
-			result += (short)hex_to_int(0x00, 0x00, map->arena[(pos + 5) % MEM_SIZE], map->arena[(pos + 6) % MEM_SIZE]);
+			result = (short)hex_to_int(0x00, 0x00, map->arena[(POS + 3) % MEM_SIZE], map->arena[(POS + 4) % MEM_SIZE]);
+			result += (short)hex_to_int(0x00, 0x00, map->arena[(POS + 5) % MEM_SIZE], map->arena[(POS + 6) % MEM_SIZE]);
 			proc->pc = proc->pc + 7;
 		}
-		else if ((ocp.param2 == 'D' || ocp.param2 == 'I') && ocp.param3 == 'R')
+		else if ((OCP.param2 == 'D' || OCP.param2 == 'I') && OCP.param3 == 'R')
 		{
-			if (!is_register((int)map->arena[(pos + 5) % MEM_SIZE]))
+			if (!is_register((int)map->arena[(POS + 5) % MEM_SIZE]))
 			{
 				fail_func(proc, 6, 0);
 				return ;
 			}
-			result = (short)hex_to_int(0x00, 0x00, map->arena[(pos + 3) % MEM_SIZE], map->arena[(pos + 4) % MEM_SIZE]);
-			result += proc->reg[(int)map->arena[(pos + 5) % MEM_SIZE] - 1];
-			// printf("short = %d, val registre = %d, result = %d, pos = %d, dest = %d\n", (short)hex_to_int(0x00, 0x00, map->arena[(pos + 3) % MEM_SIZE], map->arena[(pos + 4) % MEM_SIZE]),
-			// proc->reg[(int)map->arena[(pos + 5) % MEM_SIZE] - 1],
-			// result,
-			// pos,
-			// (pos + result) % MEM_SIZE);
+			result = (short)hex_to_int(0x00, 0x00, map->arena[(POS + 3) % MEM_SIZE], map->arena[(POS + 4) % MEM_SIZE]);
+			result += proc->reg[(int)map->arena[(POS + 5) % MEM_SIZE] - 1];
 			proc->pc = proc->pc + 6;
 		}
 		else
@@ -88,9 +85,6 @@ void	indirect_store(t_map *map, t_process *proc)
 			proc->pc = proc->pc + 5;
 			return ;
 		}
-		if (map->cycle > 13000)
-			printf("c");
-		place_in_arena(map, (pos + result) % MEM_SIZE, proc->reg[reg_nbr - 1]);
+		place_in_arena(map, (POS + result) % MEM_SIZE, proc->reg[REG_NBR - 1]);
 	}
-	// printf("pc : %d\n", proc->pc);
 }
