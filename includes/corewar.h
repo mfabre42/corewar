@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/20 14:35:05 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/24 01:26:43 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/24 01:31:21 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define COREWAR_H
 
 # define BUF_SIZE 4
-# define ARENA ARENA
+# define ARENA map->arena
 # define POS bin->pos
 # define PC bin->pc
 # define OCP bin->ocp
