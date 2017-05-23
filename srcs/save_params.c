@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 19:32:42 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/24 00:36:12 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/24 01:26:43 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void	init_params(t_params *param, t_map *map)
 	param->p2 = 0;
 	param->p3 = 0;
 	param->p4 = 0;
-	if (!(map->arena = (unsigned char *)ft_memalloc(sizeof(unsigned char)
+	if (!(ARENA = (unsigned char *)ft_memalloc(sizeof(unsigned char)
 		* (MEM_SIZE + 1))))
 		error_malloc();
 	map->cycle = 1;

@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:43:55 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/24 01:18:29 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/24 01:26:43 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,12 @@ void	aff_char(t_map *map, t_process *proc)
 	{
 		do_funk(proc, 0, 0, 1);
 		pos = proc->start + proc->pc;
-		ocp = ocp_master((int)map->arena[(pos + 1) % MEM_SIZE]);
+		ocp = ocp_master((int)ARENA[(pos + 1) % MEM_SIZE]);
 		if (ocp.param1 == 'R')
 		{
-			if (!is_reg((int)map->arena[(pos + 2) % MEM_SIZE], proc, 3))
+			if (!is_reg((int)ARENA[(pos + 2) % MEM_SIZE], proc, 3))
 				return ;
-			ft_putchar((proc->reg[(int)map->arena[(pos + 2) % MEM_SIZE] - 1])
+			ft_putchar((proc->reg[(int)ARENA[(pos + 2) % MEM_SIZE] - 1])
 			% 256);
 		}
 		proc->pc = proc->pc + 3;

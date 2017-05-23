@@ -27,9 +27,9 @@ void	jump_if_zero(t_map *map, t_process *proc)
 		pos = proc->start + proc->pc;
 		if (proc->carry == 1)
 		{
-			result = (short)hex_to_int(0x00, 0x00, map->arena[(pos + 1) %
+			result = (short)hex_to_int(0x00, 0x00, ARENA[(pos + 1) %
 				MEM_SIZE],
-				map->arena[(pos + 2) % MEM_SIZE]);
+				ARENA[(pos + 2) % MEM_SIZE]);
 			proc->pc = proc->pc + result % IDX_MOD;
 		}
 		else

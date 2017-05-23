@@ -67,7 +67,7 @@ void	ft_cycle(t_process *tmp, t_map *map, int player)
 	else
 	{
 		ft = (int)
-		map->arena[
+		ARENA[
 		(tmp->start
 		+ tmp->pc)
 		% MEM_SIZE];

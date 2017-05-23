@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:39:11 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/24 00:47:13 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/24 01:26:43 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,23 +26,23 @@ void	ldirect_load(t_map *map, t_process *proc)
 	{
 		do_funk(proc, 0, 0, 1);
 		pos = proc->start + proc->pc;
-		ocp = ocp_master((int)map->arena[(pos + 1) % MEM_SIZE]);
+		ocp = ocp_master((int)ARENA[(pos + 1) % MEM_SIZE]);
 		if (ocp.param1 == 'D')
 		{
-			if (!is_reg((int)map->arena[(pos + 6) % MEM_SIZE], proc, 7))
+			if (!is_reg((int)ARENA[(pos + 6) % MEM_SIZE], proc, 7))
 				return ;
-			reg_nbr = (int)map->arena[(pos + 6) % MEM_SIZE];
-			proc->reg[reg_nbr - 1] = map->arena[(pos + hex_to_int(map->arena[(pos + 2) % MEM_SIZE],
-				map->arena[(pos + 3) % MEM_SIZE], map->arena[(pos + 4) % MEM_SIZE], map->arena[(pos + 5) % MEM_SIZE])) % MEM_SIZE];
+			reg_nbr = (int)ARENA[(pos + 6) % MEM_SIZE];
+			proc->reg[reg_nbr - 1] = ARENA[(pos + hex_to_int(ARENA[(pos + 2) % MEM_SIZE],
+				ARENA[(pos + 3) % MEM_SIZE], ARENA[(pos + 4) % MEM_SIZE], ARENA[(pos + 5) % MEM_SIZE])) % MEM_SIZE];
 				proc->pc = proc->pc + 7;
 		}
 		else if (ocp.param1 == 'I')
 		{
-			if (!is_reg((int)map->arena[(pos + 4) % MEM_SIZE], proc, 5))
+			if (!is_reg((int)ARENA[(pos + 4) % MEM_SIZE], proc, 5))
 				return ;
-			reg_nbr = (int)map->arena[(pos + 4) % MEM_SIZE];
-			proc->reg[reg_nbr - 1] = map->arena[(pos + (short)hex_to_int(0x00,
-				0x00, map->arena[(pos + 2) % MEM_SIZE], map->arena[(pos + 3) % MEM_SIZE])) % MEM_SIZE];
+			reg_nbr = (int)ARENA[(pos + 4) % MEM_SIZE];
+			proc->reg[reg_nbr - 1] = ARENA[(pos + (short)hex_to_int(0x00,
+				0x00, ARENA[(pos + 2) % MEM_SIZE], ARENA[(pos + 3) % MEM_SIZE])) % MEM_SIZE];
 			proc->pc = proc->pc + 5;
 		}
 		else

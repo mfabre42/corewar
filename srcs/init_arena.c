@@ -115,10 +115,10 @@ void	send_in_arena(t_convert *tab, t_params *param, t_map *map)
 	while (i < MEM_SIZE - 3 && j < COMMENT_LENGTH / 4 + PROG_NAME_LENGTH / 4 +
 		CHAMP_MAX_SIZE / 4 + 4)
 	{
-		map->arena[i++] = tab[j].c_char[0];
-		map->arena[i++] = tab[j].c_char[1];
-		map->arena[i++] = tab[j].c_char[2];
-		map->arena[i++] = tab[j].c_char[3];
+		ARENA[i++] = tab[j].c_char[0];
+		ARENA[i++] = tab[j].c_char[1];
+		ARENA[i++] = tab[j].c_char[2];
+		ARENA[i++] = tab[j].c_char[3];
 		j++;
 	}
 }

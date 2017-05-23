@@ -25,8 +25,8 @@ void	lfork(t_map *map, t_process *proc, int player)
 	{
 		do_funk(proc, 0, 0, 1);
 		pos = proc->start + proc->pc;
-		dest = pos + (short)(hex_to_int(0x00, 0x00, map->arena[(pos + 1) % MEM_SIZE],
-			map->arena[(pos + 2) % MEM_SIZE])) % MEM_SIZE;
+		dest = pos + (short)(hex_to_int(0x00, 0x00, ARENA[(pos + 1) % MEM_SIZE],
+			ARENA[(pos + 2) % MEM_SIZE])) % MEM_SIZE;
 		// printf("longfork at :%d, to %d\n", map->cycle, dest - pos);
 		cp_process(map, proc, player, dest);
 		proc->pc = proc->pc + 3;

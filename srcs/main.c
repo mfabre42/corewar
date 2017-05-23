@@ -27,7 +27,7 @@ void	free_map(t_map *map)
 		i++;
 	}
 	free(map->player);
-	free(map->arena);
+	free(ARENA);
 }
 
 void	notif_winner(t_map *map)

@@ -23,9 +23,9 @@ void	live(t_map *map, t_process *proc)
 	{
 		do_funk(proc, 0, 0, 1);
 		pos = proc->start + proc->pc;
-		player = hex_to_int(map->arena[(pos + 1) % MEM_SIZE],
-		map->arena[(pos + 2) % MEM_SIZE],
-			map->arena[(pos + 3) % MEM_SIZE], map->arena[(pos + 4) % MEM_SIZE]);
+		player = hex_to_int(ARENA[(pos + 1) % MEM_SIZE],
+		ARENA[(pos + 2) % MEM_SIZE],
+			ARENA[(pos + 3) % MEM_SIZE], ARENA[(pos + 4) % MEM_SIZE]);
 		if (player >= 1 && player <= map->nb_player)
 		{
 			if (map->mute == 0)

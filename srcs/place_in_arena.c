@@ -18,19 +18,19 @@ void			place_in_arena(t_map *map, int dest, int nbr)
 
 	dest = dest + 65536;
 	conv.c_int = nbr;
-	map->arena[dest % MEM_SIZE] = conv.c_char[3];
-	map->arena[(dest + 1) % MEM_SIZE] = conv.c_char[2];
-	map->arena[(dest + 2) % MEM_SIZE] = conv.c_char[1];
-	map->arena[(dest + 3) % MEM_SIZE] = conv.c_char[0];
+	ARENA[dest % MEM_SIZE] = conv.c_char[3];
+	ARENA[(dest + 1) % MEM_SIZE] = conv.c_char[2];
+	ARENA[(dest + 2) % MEM_SIZE] = conv.c_char[1];
+	ARENA[(dest + 3) % MEM_SIZE] = conv.c_char[0];
 }
 
 unsigned int	read_in_arena(t_map *map, int adress)
 {
 	t_convert conv;
 
-	conv.c_char[3] = map->arena[adress];
-	conv.c_char[2] = map->arena[adress + 1];
-	conv.c_char[1] = map->arena[adress + 2];
-	conv.c_char[0] = map->arena[adress + 3];
+	conv.c_char[3] = ARENA[adress];
+	conv.c_char[2] = ARENA[adress + 1];
+	conv.c_char[1] = ARENA[adress + 2];
+	conv.c_char[0] = ARENA[adress + 3];
 	return (conv.c_int);
 }
