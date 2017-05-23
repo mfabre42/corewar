@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/20 14:35:05 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/22 19:59:40 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/23 16:01:11 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,7 @@ void			cycle_to_die(t_map *map);
 void			cp_process(t_map *map, t_process *proc, int player, int adress);
 t_player		init_process(t_map *map, int player, int start);
 void			kill_player(t_map *map, int n_player);
+void			kill_process(t_map *map, int n_player, t_process *proc);
 void			place_in_arena(t_map *map, int dest, int nbr);
 unsigned int	hex_to_int(unsigned char a, unsigned char b,
 					unsigned char c, unsigned char d);

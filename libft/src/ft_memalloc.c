@@ -6,9 +6,10 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/17 20:10:23 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/23 15:49:31 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/23 16:38:34 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "../libft.h"
 
@@ -23,7 +24,7 @@ void	*ft_memalloc(size_t size)
 		return (NULL);
 	while (i < size)
 	{
-		mem[i] = 0;
+		mem[i] = '\0';
 		i++;
 	}
 	return (mem);
