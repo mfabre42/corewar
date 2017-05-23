@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 20:49:40 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/23 18:06:21 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/23 22:29:22 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,10 +86,7 @@ void	get_name_comment(t_convert *tab, t_params *param, t_map *map)
 		tmp.comm[i++] = tab[j++].c_char[3];
 	}
 	tmp.comm[i] = '\0';
-	// printf("%d\ni\n", param->n - 1);
 	map->player[param->n - 1] = tmp;
-	// printf("%s\n", tmp.name);
-	// printf("%s\n", tmp.comm);
 }
 
 void	check_magic_number(t_convert *tab)
@@ -97,7 +94,7 @@ void	check_magic_number(t_convert *tab)
 	if (hex_to_int(tab[0].c_char[0], tab[0].c_char[1], tab[0].c_char[2],
 			tab[0].c_char[3]) != 15369203)
 	{
-		ft_printf("wrong magic number exit\n"); // magic number check
+		ft_printf("wrong magic number exit\n");
 		exit(0);
 	}
 }

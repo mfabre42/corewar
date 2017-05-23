@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 17:05:36 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/23 02:20:48 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/23 22:27:33 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	free_map(t_map *map)
 {
-	int i;
-	t_process *tmp;
+	int			i;
+	t_process	*tmp;
 
 	i = 0;
 	while (i < map->nb_player)
@@ -52,6 +52,7 @@ int		main(int ac, char **av)
 	play_game(&map);
 	if (map.dump != -1)
 	{
+		printf("\n");
 		while (i < MEM_SIZE)
 		{
 			if (i % 64 == 0 && i != 0)

@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/27 23:07:14 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/16 18:25:54 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/23 22:27:00 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,34 +17,11 @@ void			place_in_arena(t_map *map, int dest, int nbr)
 	t_convert conv;
 
 	dest = dest + 65536;
-	// int i = 0;
-	// while (i < MEM_SIZE)
-	// {
-	// 	if (i % 64 == 0 && i != 0)
-	// 	{
-	// 		printf("\n");
-	// 		// break;
-	// 	}
-	// 	printf("%02x ", map->arena[i]);
-	// 	i++;
-	// }
 	conv.c_int = nbr;
 	map->arena[dest % MEM_SIZE] = conv.c_char[3];
 	map->arena[(dest + 1) % MEM_SIZE] = conv.c_char[2];
 	map->arena[(dest + 2) % MEM_SIZE] = conv.c_char[1];
 	map->arena[(dest + 3) % MEM_SIZE] = conv.c_char[0];
-	// printf("After Direct Store\n\n");
-	// i = 0;
-	// while (i < MEM_SIZE)
-	// {
-	// 	if (i % 64 == 0 && i != 0)
-	// 	{
-	// 		printf("\n");
-	// 		// break;
-	// 	}
-	// 	printf("%02x ", map->arena[i]);
-	// 	i++;
-	// }
 }
 
 unsigned int	read_in_arena(t_map *map, int adress)

@@ -6,7 +6,7 @@
 /*   By: aleveque <aleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 12:40:09 by aleveque          #+#    #+#             */
-/*   Updated: 2017/05/23 18:53:04 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/23 20:56:00 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ t_process		*ft_lstnew(int start, int cycle)
 	t_process		*new;
 	unsigned int	*reg;
 
-	printf("proc id: %d\n", id);
+	// printf("proc id: %d\n", id);
 	if (!(new = (t_process*)malloc(sizeof(t_process))))
 		return (NULL);
 	if ((reg = init_reg()) == NULL)
