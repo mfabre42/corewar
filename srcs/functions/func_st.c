@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 15:34:09 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/24 01:33:10 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/24 01:44:08 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ static int	direct_store2(t_map *map, t_process *proc, t_bin *bin, int *result)
 		proc->reg[(int)ARENA[(POS + 3) % MEM_SIZE] - 1] =
 		proc->reg[REG_NBR - 1];
 		proc->pc = proc->pc + 4;
-
 	}
 	else
 	{
@@ -34,7 +33,7 @@ static int	direct_store2(t_map *map, t_process *proc, t_bin *bin, int *result)
 	return (1);
 }
 
-void	direct_store(t_map *map, t_process *proc)
+void		direct_store(t_map *map, t_process *proc)
 {
 	t_bin	bin;
 	int		result;
@@ -49,6 +48,6 @@ void	direct_store(t_map *map, t_process *proc)
 		if (!is_reg(PREG_NBR, proc, 4))
 			return ;
 		if (direct_store2(map, proc, &bin, &result) == 0)
-			return;
+			return ;
 	}
 }
