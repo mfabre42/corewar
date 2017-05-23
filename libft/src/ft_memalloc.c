@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/17 20:10:23 by mafabre           #+#    #+#             */
-/*   Updated: 2016/03/21 18:18:08 by mafabre          ###   ########.fr       */
+/*   Updated: 2017/05/23 02:17:15 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	*ft_memalloc(size_t size)
 		return (NULL);
 	while (i < size)
 	{
-		mem[i] = '\0';
+		mem[i] = 'O';
 		i++;
 	}
 	return (mem);

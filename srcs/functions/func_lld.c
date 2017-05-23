@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:39:11 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/17 19:56:51 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/23 01:18:58 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ void	ldirect_load(t_map *map, t_process *proc)
 			proc->pc = proc->pc + 5;
 			return ;
 		}
-		if (proc->reg[reg_nbr - 1] == 0)
-			proc->carry = 1;
+		proc->carry = !proc->reg[reg_nbr - 1];
 	}
 }

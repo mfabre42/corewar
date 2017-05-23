@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:43:55 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/22 23:22:15 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/22 23:55:52 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ void	aff_char(t_map *map, t_process *proc)
 	{
 		do_funk(proc, 0, 0, 1);
 		pos = proc->start + proc->pc;
-		if ((pos + 1) % MEM_SIZE < 0)
-		printf("map->arena[(pos + 1) %% MEM_SIZE] = %02x, pos : %d, cycle : %d, start: %d, pc: %d\n", map->arena[(pos + 1) % MEM_SIZE], (pos + 1) % MEM_SIZE, map->cycle, proc->start, proc->pc);
+		// if ((pos + 1) % MEM_SIZE < 0)
+		// printf("map->arena[(pos + 1) %% MEM_SIZE] = %02x, pos : %d, cycle : %d, start: %d, pc: %d\n", map->arena[(pos + 1) % MEM_SIZE], (pos + 1) % MEM_SIZE, map->cycle, proc->start, proc->pc);
 		ocp = ocp_master((int)map->arena[(pos + 1) % MEM_SIZE]);
 		if (ocp.param1 == 'R')
 		{

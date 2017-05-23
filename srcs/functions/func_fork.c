@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 16:19:37 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/22 23:26:41 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/23 01:37:29 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@ void	forkniquer(t_map *map, t_process *proc, int player)
 		pos = proc->start + proc->pc;
 		dest = pos + (short)(hex_to_int(0x00, 0x00, map->arena[(pos + 1) % MEM_SIZE],
 			map->arena[(pos + 2) % MEM_SIZE])) % IDX_MOD;
-		if (dest < 0)
-		printf("fork at :%d, to %d\n", map->cycle, dest);
+		// printf("fork at : %d pos = %d proc id = %d, to %d\n", map->cycle, pos, proc->id, dest);
 		cp_process(map, proc, player, dest);
 		proc->pc = proc->pc + 3;
 	}

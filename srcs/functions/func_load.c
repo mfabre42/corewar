@@ -6,7 +6,7 @@
 /*   By: aleveque <aleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 18:31:28 by aleveque          #+#    #+#             */
-/*   Updated: 2017/05/17 19:23:15 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/23 01:10:29 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,7 @@ void	direct_load(t_map *map, t_process *proc)
 			proc->pc = proc->pc + 5;
 			return ;
 		}
-		if (proc->reg[reg_nbr - 1] == 0)
-			proc->carry = 1;
+		proc->carry = !proc->reg[reg_nbr - 1];
 		// printf("registre: %d = %d carry vaut: %d au cycle %d\n", reg_nbr - 1, proc->reg[reg_nbr - 1], proc->carry, map->cycle);
 	}
 }

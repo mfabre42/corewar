@@ -6,7 +6,7 @@
 /*   By: aleveque <aleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 12:40:09 by aleveque          #+#    #+#             */
-/*   Updated: 2017/05/05 16:40:28 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/23 00:26:01 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ unsigned int	*init_reg(void)
 
 t_process		*ft_lstnew(int start)
 {
+	static unsigned int		id;
 	t_process		*new;
 	unsigned int	*reg;
 
@@ -40,6 +41,7 @@ t_process		*ft_lstnew(int start)
 		return (NULL);
 	if ((reg = init_reg()) == NULL)
 		return (NULL);
+	new->id = id;
 	new->reg = reg;
 	new->pc = 0;
 	new->start = start;
@@ -48,5 +50,6 @@ t_process		*ft_lstnew(int start)
 	new->ft = 0;
 	new->do_funk = 1;
 	new->next = NULL;
+	id++;
 	return (new);
 }

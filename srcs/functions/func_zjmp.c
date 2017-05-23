@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 19:26:28 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/16 19:13:22 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/23 01:37:23 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	jump_if_zero(t_map *map, t_process *proc)
 			result = (short)hex_to_int(0x00, 0x00, map->arena[(pos + 1) % MEM_SIZE],
 				map->arena[(pos + 2) % MEM_SIZE]);
 			proc->pc = proc->pc + result % IDX_MOD;
-			// printf("Maintenant, tu jump au numero: %d, pc: %d, start: %d au cycle %d\n", proc->pc + proc->start, proc->pc, proc->start, map->cycle);
+			// printf("Maintenant, tu %d jump au numero: %d, pc: %d, start: %d au cycle %d\n", proc->id, proc->pc + proc->start, proc->pc, proc->start, map->cycle);
 		}
 		else
 			proc->pc += 3;

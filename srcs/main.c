@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 17:05:36 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/22 22:07:41 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/23 02:20:48 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,6 @@ int		main(int ac, char **av)
 	int			i;
 	t_map		map;
 
-	if (!(map.arena = (unsigned char *)malloc(sizeof(unsigned char)
-		* (MEM_SIZE + 1))))
-		error_malloc();
-	ft_bzero(map.arena, MEM_SIZE + 1);
 	if (ac == 1)
 		print_usage();
 	i = 0;

@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 18:23:26 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/22 22:26:28 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/23 02:12:38 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ void	ft_cycle(t_process *tmp, t_map *map, int player)
 	else
 	{
 		ft = (int)map->arena[(tmp->start + tmp->pc) % MEM_SIZE];
-		// printf("ft : %d\n", ft);
 	}
 	if (tmp->cycle == 0)
 	{
@@ -92,7 +91,7 @@ void	play_game(t_map *map)
 			//	printf("player:%d ,point: %p\n",player, tmp);
 			while (tmp != NULL)
 			{
-			//		printf("player : %d, cycle : %d, pc : %d, start : %d\n", player, map->cycle, tmp->pc, tmp->start);
+			//	printf("player : %d, cycle : %d, pc : %d, start : %d\n", player, map->cycle, tmp->pc, tmp->start);
 				ft_cycle(tmp, map, player);
 				tmp = tmp->next;
 			}
