@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 18:23:26 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/23 02:12:38 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/23 16:21:59 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,11 @@ void	ft_cycle(t_process *tmp, t_map *map, int player)
 		ft = tmp->ft;
 	else
 	{
-		ft = (int)map->arena[(tmp->start + tmp->pc) % MEM_SIZE];
+		ft = (int)
+		map->arena[
+		(tmp->start
+		+ tmp->pc)
+		% MEM_SIZE];
 	}
 	if (tmp->cycle == 0)
 	{
