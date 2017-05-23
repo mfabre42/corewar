@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:46:38 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/23 10:49:20 by mafabre          ###   ########.fr       */
+/*   Updated: 2017/05/23 16:45:55 by mfabre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ char		*add_space(char *line, int i)
 
 char		*epur(char *str, int a, int i, char *buffer)
 {
-	if ((str != NULL) && (str[0] == '\0'))
+	if ((str != NULL) && (str[0] == '\0' || str[0] == '.'))
 		return (str);
 	if ((buffer = (char *)malloc(sizeof(char) * strlen(str))) == NULL)
 		return (NULL);
