@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/27 18:15:10 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/24 01:32:30 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/24 01:36:49 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,21 @@
 
 int		indirect_store3(t_map *map, t_process *proc, t_bin *bin, int *result)
 {
-	if ((POCP.param2 == 'D' || POCP.param2 == 'I') && POCP.param3 == 'D')
+	if ((OCP.param2 == 'D' || OCP.param2 == 'I') && OCP.param3 == 'D')
 	{
-		result = (short)hex_to_int(0x00, 0x00, ARENA[(PPOS + 3) % MEM_SIZE],
-			ARENA[(PPOS + 4) % MEM_SIZE]);
-		result += (short)hex_to_int(0x00, 0x00, ARENA[(PPOS + 5) % MEM_SIZE],
-			ARENA[(PPOS + 6) % MEM_SIZE]);
+		*result = (short)hex_to_int(0x00, 0x00, ARENA[(POS + 3) % MEM_SIZE],
+			ARENA[(POS + 4) % MEM_SIZE]);
+		*result += (short)hex_to_int(0x00, 0x00, ARENA[(POS + 5) % MEM_SIZE],
+			ARENA[(POS + 6) % MEM_SIZE]);
 		proc->pc = proc->pc + 7;
 	}
-	else if ((POCP.param2 == 'D' || POCP.param2 == 'I') && POCP.param3 == 'R')
+	else if ((OCP.param2 == 'D' || OCP.param2 == 'I') && OCP.param3 == 'R')
 	{
-		if (!is_reg((int)ARENA[(PPOS + 5) % MEM_SIZE], proc, 6))
+		if (!is_reg((int)ARENA[(POS + 5) % MEM_SIZE], proc, 6))
 			return (0);
-		result = (short)hex_to_int(0x00, 0x00, ARENA[(PPOS + 3) % MEM_SIZE],
-			ARENA[(PPOS + 4) % MEM_SIZE]);
-		result += proc->reg[(int)ARENA[(PPOS + 5) % MEM_SIZE] - 1];
+		*result = (short)hex_to_int(0x00, 0x00, ARENA[(POS + 3) % MEM_SIZE],
+			ARENA[(POS + 4) % MEM_SIZE]);
+		*result += proc->reg[(int)ARENA[(POS + 5) % MEM_SIZE] - 1];
 		proc->pc = proc->pc + 6;
 	}
 	else
