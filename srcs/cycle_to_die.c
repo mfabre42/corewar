@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/09 15:34:11 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/23 16:01:36 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/23 22:30:56 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	check_last_live(t_map *map)
 {
-	int	i;
-	t_process *tmp;
-	t_process *tmp2;
+	int			i;
+	t_process	*tmp;
+	t_process	*tmp2;
 
 	i = 0;
 	while (i < map->nb_player)

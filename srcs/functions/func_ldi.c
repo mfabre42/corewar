@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 15:34:48 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/18 16:47:52 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/23 21:06:57 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ void	indirect_load(t_map *map, t_process *proc)
 			result = proc->reg[(int)map->arena[(pos + 2) % MEM_SIZE] - 1];
 			result += proc->reg[(int)map->arena[(pos + 3) % MEM_SIZE] - 1];
 			proc->reg[(int)map->arena[(pos + 4) % MEM_SIZE] - 1] = read_in_arena(map, (pos + (result % IDX_MOD)) % MEM_SIZE);
+			// printf("param1 = %d\n", proc->reg[(int)map->arena[(pos + 4) % MEM_SIZE] - 1]);
 			proc->pc = proc->pc + 5;
 		}
 		else if (ocp.param1 == 'R' && ocp.param2 == 'D')
@@ -52,6 +53,7 @@ void	indirect_load(t_map *map, t_process *proc)
 			result = proc->reg[(int)map->arena[(pos + 2) % MEM_SIZE] - 1];
 			result += (short)hex_to_int(0x00, 0x00, map->arena[(pos + 3) % MEM_SIZE], map->arena[(pos + 4) % MEM_SIZE]);
 			proc->reg[(int)map->arena[(pos + 5) % MEM_SIZE] - 1] = read_in_arena(map, (pos + (result % IDX_MOD)) % MEM_SIZE);
+			// printf("param1 = %d\n", proc->reg[(int)map->arena[(pos + 5) % MEM_SIZE] - 1]);
 			proc->pc = proc->pc + 6;
 		}
 		else if ((ocp.param1 == 'D' || ocp.param1 == 'I') && ocp.param2 == 'R')
@@ -72,6 +74,7 @@ void	indirect_load(t_map *map, t_process *proc)
 			// (int)map->arena[(pos + 5) % MEM_SIZE] - 1,
 			// proc->reg[(int)map->arena[(pos + 5) % MEM_SIZE] - 1]
 			// );
+			// printf("param1 = %d\n", proc->reg[(int)map->arena[(pos + 5) % MEM_SIZE] - 1]);
 			proc->pc = proc->pc + 6;
 		}
 		else if ((ocp.param1 == 'D' || ocp.param1 == 'I') && ocp.param2 == 'D')
@@ -84,6 +87,7 @@ void	indirect_load(t_map *map, t_process *proc)
 			result = (short)hex_to_int(0x00, 0x00, map->arena[(pos + 2) % MEM_SIZE], map->arena[(pos + 3) % MEM_SIZE]);
 			result += (short)hex_to_int(0x00, 0x00, map->arena[(pos + 4) % MEM_SIZE], map->arena[(pos + 5) % MEM_SIZE]);
 			proc->reg[(int)map->arena[(pos + 6) % MEM_SIZE] - 1] = read_in_arena(map, (pos + (result % IDX_MOD)) % MEM_SIZE);
+			// printf("param1 = %d\n", proc->reg[(int)map->arena[(pos + 6) % MEM_SIZE] - 1]);
 			proc->pc = proc->pc + 7;
 		}
 	}

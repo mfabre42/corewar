@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/20 14:35:05 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/23 16:01:11 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/23 23:23:23 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ typedef struct	s_player
 
 typedef struct	s_map
 {
+	int					pos;
 	int					mute;
 	int					dump;
 	int					check;
@@ -73,6 +74,12 @@ typedef struct	s_proto_func
 	void			(*func)(t_map*, t_process*);
 }				t_proto_func;
 
+typedef struct	s_bin
+{
+	int		pos;
+	t_ocp	ocp;
+	int		pc;
+}				t_bin;
 /*
 ** Fonctions corewar
 */

@@ -6,7 +6,7 @@
 /*   By: aleveque <aleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 18:31:28 by aleveque          #+#    #+#             */
-/*   Updated: 2017/05/23 01:10:29 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/23 20:33:41 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	direct_load(t_map *map, t_process *proc)
 				map->arena[(pos + 2) % MEM_SIZE],
 				map->arena[(pos + 3) % MEM_SIZE]);
 			// printf("\nLoad: Valeur direct load: %d dans le registre n: %d\n\n", hex_to_int(0x00,
-				// 0x00, map->arena[(pos + 2) % MEM_SIZE], map->arena[(pos + 3) % MEM_SIZE]) % IDX_MOD, reg_nbr - 1);
+			// 	0x00, map->arena[(pos + 2) % MEM_SIZE], map->arena[(pos + 3) % MEM_SIZE]) % IDX_MOD, reg_nbr - 1);
 			proc->pc = proc->pc + 5;
 		}
 		else

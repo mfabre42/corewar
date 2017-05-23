@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 19:26:28 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/23 01:37:23 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/23 20:48:07 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ void	jump_if_zero(t_map *map, t_process *proc)
 	{
 		do_funk(proc, 0, 0, 1);
 		pos = proc->start + proc->pc;
-		// printf("Tu jump pas parce que tu n'as pas de jambe qui te carry %d au cycle: %d pos:%d\n", proc->carry, map->cycle, pos);
+		// if (map->cycle >= 4800 && map->cycle <= 4815)
+		// 	printf("Tu jump pas parce que tu n'as pas de jambe qui te carry %d au cycle: %d pos:%d\n", proc->carry, map->cycle, pos);
 		if (proc->carry == 1)
 		{
 			result = (short)hex_to_int(0x00, 0x00, map->arena[(pos + 1) % MEM_SIZE],
