@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 19:32:42 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/23 23:09:47 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/24 00:16:33 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,6 @@ void	init_params(t_params *param, t_map *map)
 	map->check = 0;
 	map->dump = -1;
 	map->mute = 0;
-	map->pos = 0;
 }
 
 void	save_params(int ac, char **av, t_map *map, int i)
