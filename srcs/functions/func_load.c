@@ -6,7 +6,7 @@
 /*   By: aleveque <aleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 18:31:28 by aleveque          #+#    #+#             */
-/*   Updated: 2017/05/24 01:26:43 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/24 01:44:06 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,6 @@ void	direct_load(t_map *map, t_process *proc)
 		do_funk(proc, 0, 0, 1);
 		pos = proc->start + proc->pc;
 		ocp = ocp_master((int)ARENA[(pos + 1) % MEM_SIZE]);
-		// printf("ocp = %d\n", (int)ARENA[(pos + 1) % MEM_SIZE]);
-		// printf("Load: emplacement d'arene : %02x %02x %02x %02x %02x %02x %02x, start: %d\n",
-		// ARENA[(pos - 1) % MEM_SIZE],
-		// ARENA[(pos) % MEM_SIZE],
-		// ARENA[(pos + 1) % MEM_SIZE],
-		// ARENA[(pos + 2) % MEM_SIZE],
-		// ARENA[(pos + 3) % MEM_SIZE],
-		// ARENA[(pos + 4) % MEM_SIZE],
-		// ARENA[(pos + 5) % MEM_SIZE],
-		// proc->start);
 		if (ocp.param1 == 'D')
 		{
 			if (!is_reg((int)ARENA[(pos + 6) % MEM_SIZE], proc, 7))
@@ -44,19 +34,6 @@ void	direct_load(t_map *map, t_process *proc)
 			reg_nbr = (int)ARENA[(pos + 6) % MEM_SIZE];
 			proc->reg[reg_nbr - 1] = hex_to_int(ARENA[(pos + 2) % MEM_SIZE], ARENA[(pos + 3) % MEM_SIZE],
 			ARENA[(pos + 4) % MEM_SIZE], ARENA[(pos + 5) % MEM_SIZE]);
-			// printf("Load: emplacement d'arene : %02x %02x %02x %02x %02x %02x %02x Valeur direct load: %d dans le registre n: %d pos: %d au tour: %d\n",
-			// ARENA[(pos) % MEM_SIZE],
-			// ARENA[(pos + 1) % MEM_SIZE],
-			// ARENA[(pos + 2) % MEM_SIZE],
-			// ARENA[(pos + 3) % MEM_SIZE],
-			// ARENA[(pos + 4) % MEM_SIZE],
-			// ARENA[(pos + 5) % MEM_SIZE],
-			// ARENA[(pos + 6) % MEM_SIZE],
-			// hex_to_int(ARENA[(pos + 2) % MEM_SIZE], ARENA[(pos + 3) % MEM_SIZE],
-			// ARENA[(pos + 4) % MEM_SIZE], ARENA[(pos + 5) % MEM_SIZE]),
-			// reg_nbr - 1,
-			// pos,
-			// map->cycle);
 			proc->pc = proc->pc + 7;
 		}
 		else if (ocp.param1 == 'I')
@@ -67,8 +44,6 @@ void	direct_load(t_map *map, t_process *proc)
 			proc->reg[reg_nbr - 1] = (short)hex_to_int(0x00, 0x00,
 				ARENA[(pos + 2) % MEM_SIZE],
 				ARENA[(pos + 3) % MEM_SIZE]);
-			// printf("\nLoad: Valeur direct load: %d dans le registre n: %d\n\n", hex_to_int(0x00,
-			// 	0x00, ARENA[(pos + 2) % MEM_SIZE], ARENA[(pos + 3) % MEM_SIZE]) % IDX_MOD, reg_nbr - 1);
 			proc->pc = proc->pc + 5;
 		}
 		else
@@ -77,6 +52,5 @@ void	direct_load(t_map *map, t_process *proc)
 			return ;
 		}
 		proc->carry = !proc->reg[reg_nbr - 1];
-		// printf("registre: %d = %d carry vaut: %d au cycle %d\n", reg_nbr - 1, proc->reg[reg_nbr - 1], proc->carry, map->cycle);
 	}
 }
