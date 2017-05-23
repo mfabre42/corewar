@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/20 14:35:05 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/23 23:23:23 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/23 23:26:10 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ typedef struct	s_player
 
 typedef struct	s_map
 {
-	int					pos;
 	int					mute;
 	int					dump;
 	int					check;

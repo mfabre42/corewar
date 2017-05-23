@@ -6,7 +6,7 @@
 /*   By: anonymou <anonymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/07 16:50:32 by anonymou          #+#    #+#             */
-/*   Updated: 2017/05/23 18:13:52 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/23 23:36:23 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,14 @@ void	fail_func(t_process *proc, int pc, int carry)
 	{
 		proc->carry = 0;
 	}
+}
+
+t_bin	init_bin(t_map *map, t_process *proc)
+{
+	t_bin	bin;
+
+	bin.pos = proc->start + proc->pc;
+	bin.ocp = ocp_master((int)map->arena[(bin.pos + 1) % MEM_SIZE]);
+	bin.pc = 0;
+	return bin;
 }
