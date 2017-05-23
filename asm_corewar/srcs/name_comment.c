@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/12 16:06:16 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/23 02:04:30 by mafabre          ###   ########.fr       */
+/*   Updated: 2017/05/23 20:40:34 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void		save_name_comment(t_file *file)
 			file->has_comm += 1;
 		}
 		else
-			exit_error("caractere non reconnu avant le nom et/ou commentire."
+			exit_error("caractere non reconnu avant le nom et/ou commentaire."
 			, file);
 		file->line++;
 	}
