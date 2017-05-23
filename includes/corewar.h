@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/20 14:35:05 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/24 00:35:58 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/24 01:12:01 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,10 @@
 # define PC bin->pc
 # define OCP bin->ocp
 # define REG_NBR bin->reg_nbr
+# define PPOS bin.pos
+# define PPC bin.pc
+# define POCP bin.ocp
+# define PREG_NBR bin.reg_nbr
 
 # include "../libft/libft.h"
 # include "../srcs/op.h"
@@ -105,7 +109,6 @@ void			indirect_store(t_map *map, t_process *proc);
 void			substraction(t_map *map, t_process *proc);
 void			func_xor(t_map *map, t_process *proc);
 void			jump_if_zero(t_map *map, t_process *proc);
-void			fail_func(t_process *proc, int pc, int carry);
 void			do_funk(t_process *proc, int cycle, int ft, int what_to_do);
 
 /*
@@ -114,6 +117,7 @@ void			do_funk(t_process *proc, int cycle, int ft, int what_to_do);
 void			error_malloc(void);
 void			error(int nb);
 void			print_usage(void);
+int				is_reg(unsigned int reg, t_process *proc, int pc);
 
 t_bin			init_bin(t_map *map, t_process *proc);
 int				check_last_survivor(t_map *map);
@@ -131,7 +135,6 @@ t_ocp			ocp_master(int	ocp);
 void			save_file(char *file, t_params *param, t_map *map);
 void			save_params(int ac, char **av, t_map *map, int i);
 void			send_in_arena(t_convert *tab, t_params *param, t_map *map);
-int				is_register(unsigned int reg);
 void			play_game(t_map *map);
 unsigned int	read_in_arena(t_map *map, int adress);
 

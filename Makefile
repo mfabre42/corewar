@@ -6,7 +6,7 @@
 #    By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/10 15:31:11 by mafabre           #+#    #+#              #
-#    Updated: 2017/05/18 18:20:26 by aleveque         ###   ########.fr        #
+#    Updated: 2017/05/24 00:37:34 by acoupleu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,9 +21,8 @@ LIBFTPRINTF			=	$(LIBFTPRINTF_PATH)libftprintf.a
 LIB_LINK			=	-L $(LIBFT_PATH) -lft -L $(LIBFTPRINTF_PATH) -lftprintf
 INCLUDES			=	-I $(LIBFT_PATH) -I $(LIBFTPRINTF_PATH) -I ./includes
 SRCS				=	srcs/main.c srcs/save_params.c srcs/save_file.c srcs/init_arena.c \
-						srcs/calc_ocp.c srcs/hex_to_int.c srcs/is_register.c \
-						srcs/place_in_arena.c srcs/init_process.c \
-						srcs/cp_process.c srcs/corewar.c srcs/cycle_to_die.c \
+						srcs/calc_ocp.c srcs/hex_to_int.c srcs/place_in_arena.c \
+						srcs/init_process.c srcs/cp_process.c srcs/corewar.c srcs/cycle_to_die.c \
 						srcs/kill_player.c srcs/func_errors.c srcs/is_alive.c
 
 FUNCTIONS			=	srcs/functions/func_add.c srcs/functions/func_aff.c srcs/functions/func_and.c	\

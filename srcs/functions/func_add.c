@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 17:42:39 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/23 23:41:16 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/24 00:43:52 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,10 @@ void	addition(t_map *map, t_process *proc)
 	{
 		do_funk(proc, 0, 0, 1);
 		pos = proc->start + proc->pc;
-		if (!is_register((int)map->arena[(pos + 2) % MEM_SIZE]) ||
-			!is_register((int)map->arena[(pos + 3) % MEM_SIZE]) ||
-			!is_register((int)map->arena[(pos + 4) % MEM_SIZE]))
-		{
-			fail_func(proc, 5, 1);
+		if (!is_reg((int)map->arena[(pos + 2) % MEM_SIZE], proc, 5) ||
+			!is_reg((int)map->arena[(pos + 3) % MEM_SIZE], proc, 5) ||
+			!is_reg((int)map->arena[(pos + 4) % MEM_SIZE], proc, 5))
 			return ;
-		}
 		proc->reg[map->arena[(pos + 4) % MEM_SIZE] - 1] =
 		proc->reg[map->arena[(pos + 2) % MEM_SIZE] - 1] +
 		proc->reg[map->arena[(pos + 3) % MEM_SIZE] - 1];

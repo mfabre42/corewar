@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 15:34:48 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/23 21:06:57 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/24 00:46:30 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,10 @@ void	indirect_load(t_map *map, t_process *proc)
 		ocp = ocp_master((int)map->arena[(pos + 1) % MEM_SIZE]);
 		if (ocp.param1 == 'R' && ocp.param2 == 'R')
 		{
-			if (!is_register((int)map->arena[(pos + 2) % MEM_SIZE])
-			|| !is_register((int)map->arena[(pos + 3) % MEM_SIZE])
-			|| !is_register((int)map->arena[(pos + 4) % MEM_SIZE]))
-			{
-				fail_func(proc, 5, 0);
+			if (!is_reg((int)map->arena[(pos + 2) % MEM_SIZE], proc, 5)
+			|| !is_reg((int)map->arena[(pos + 3) % MEM_SIZE], proc, 5)
+			|| !is_reg((int)map->arena[(pos + 4) % MEM_SIZE], proc, 5))
 				return ;
-			}
 			result = proc->reg[(int)map->arena[(pos + 2) % MEM_SIZE] - 1];
 			result += proc->reg[(int)map->arena[(pos + 3) % MEM_SIZE] - 1];
 			proc->reg[(int)map->arena[(pos + 4) % MEM_SIZE] - 1] = read_in_arena(map, (pos + (result % IDX_MOD)) % MEM_SIZE);
@@ -44,12 +41,9 @@ void	indirect_load(t_map *map, t_process *proc)
 		}
 		else if (ocp.param1 == 'R' && ocp.param2 == 'D')
 		{
-			if (!is_register((int)map->arena[(pos + 2) % MEM_SIZE])
-			|| !is_register((int)map->arena[(pos + 5) % MEM_SIZE]))
-			{
-				fail_func(proc, 6, 0);
+			if (!is_reg((int)map->arena[(pos + 2) % MEM_SIZE], proc, 6)
+			|| !is_reg((int)map->arena[(pos + 5) % MEM_SIZE], proc, 6))
 				return ;
-			}
 			result = proc->reg[(int)map->arena[(pos + 2) % MEM_SIZE] - 1];
 			result += (short)hex_to_int(0x00, 0x00, map->arena[(pos + 3) % MEM_SIZE], map->arena[(pos + 4) % MEM_SIZE]);
 			proc->reg[(int)map->arena[(pos + 5) % MEM_SIZE] - 1] = read_in_arena(map, (pos + (result % IDX_MOD)) % MEM_SIZE);
@@ -58,12 +52,9 @@ void	indirect_load(t_map *map, t_process *proc)
 		}
 		else if ((ocp.param1 == 'D' || ocp.param1 == 'I') && ocp.param2 == 'R')
 		{
-			if (!is_register((int)map->arena[(pos + 4) % MEM_SIZE])
-			|| !is_register((int)map->arena[(pos + 5) % MEM_SIZE]))
-			{
-				fail_func(proc, 6, 0);
+			if (!is_reg((int)map->arena[(pos + 4) % MEM_SIZE], proc, 6)
+			|| !is_reg((int)map->arena[(pos + 5) % MEM_SIZE], proc, 6))
 				return ;
-			}
 			result = (short)hex_to_int(0x00, 0x00, map->arena[(pos + 2) % MEM_SIZE], map->arena[(pos + 3) % MEM_SIZE]);
 			result += proc->reg[(int)map->arena[(pos + 4) % MEM_SIZE] - 1];
 			proc->reg[(int)map->arena[(pos + 5) % MEM_SIZE] - 1] = read_in_arena(map, (pos + (result % IDX_MOD)) % MEM_SIZE);
@@ -79,11 +70,8 @@ void	indirect_load(t_map *map, t_process *proc)
 		}
 		else if ((ocp.param1 == 'D' || ocp.param1 == 'I') && ocp.param2 == 'D')
 		{
-			if (!is_register((int)map->arena[(pos + 6) % MEM_SIZE]))
-			{
-				fail_func(proc, 7, 0);
+			if (!is_reg((int)map->arena[(pos + 6) % MEM_SIZE], proc, 7))
 				return ;
-			}
 			result = (short)hex_to_int(0x00, 0x00, map->arena[(pos + 2) % MEM_SIZE], map->arena[(pos + 3) % MEM_SIZE]);
 			result += (short)hex_to_int(0x00, 0x00, map->arena[(pos + 4) % MEM_SIZE], map->arena[(pos + 5) % MEM_SIZE]);
 			proc->reg[(int)map->arena[(pos + 6) % MEM_SIZE] - 1] = read_in_arena(map, (pos + (result % IDX_MOD)) % MEM_SIZE);

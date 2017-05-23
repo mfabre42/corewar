@@ -6,7 +6,7 @@
 /*   By: anonymou <anonymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/07 16:50:32 by anonymou          #+#    #+#             */
-/*   Updated: 2017/05/24 00:35:30 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/24 01:05:04 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,22 +27,13 @@ void	do_funk(t_process *proc, int cycle, int ft, int what_to_do)
 	}
 }
 
-void	fail_func(t_process *proc, int pc, int carry)
-{
-	proc->pc += pc % MEM_SIZE;
-	if (carry == 1)
-	{
-		proc->carry = 0;
-	}
-}
-
-int	is_register(unsigned int reg)
+int		is_reg(unsigned int reg, t_process *proc, int pc)
 {
 	if (reg >= 1 && reg <= REG_NUMBER)
 		return (1);
+	proc->pc += pc;
 	return (0);
 }
-
 
 t_bin	init_bin(t_map *map, t_process *proc)
 {

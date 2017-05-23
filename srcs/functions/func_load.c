@@ -6,7 +6,7 @@
 /*   By: aleveque <aleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 18:31:28 by aleveque          #+#    #+#             */
-/*   Updated: 2017/05/23 20:33:41 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/24 00:48:48 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,8 @@ void	direct_load(t_map *map, t_process *proc)
 		// proc->start);
 		if (ocp.param1 == 'D')
 		{
-			if (!is_register((int)map->arena[(pos + 6) % MEM_SIZE]))
-			{
-				fail_func(proc, 7, 1);
+			if (!is_reg((int)map->arena[(pos + 6) % MEM_SIZE], proc, 7))
 				return ;
-			}
 			reg_nbr = (int)map->arena[(pos + 6) % MEM_SIZE];
 			proc->reg[reg_nbr - 1] = hex_to_int(map->arena[(pos + 2) % MEM_SIZE], map->arena[(pos + 3) % MEM_SIZE],
 			map->arena[(pos + 4) % MEM_SIZE], map->arena[(pos + 5) % MEM_SIZE]);
@@ -64,11 +61,8 @@ void	direct_load(t_map *map, t_process *proc)
 		}
 		else if (ocp.param1 == 'I')
 		{
-			if (!is_register((int)map->arena[(pos + 4) % MEM_SIZE]))
-			{
-				fail_func(proc, 5, 1);
+			if (!is_reg((int)map->arena[(pos + 4) % MEM_SIZE], proc, 5))
 				return ;
-			}
 			reg_nbr = (int)map->arena[(pos + 4) % MEM_SIZE];
 			proc->reg[reg_nbr - 1] = (short)hex_to_int(0x00, 0x00,
 				map->arena[(pos + 2) % MEM_SIZE],
