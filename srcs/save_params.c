@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 19:32:42 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/24 01:26:43 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/24 04:00:40 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,20 @@ void	save_number(char *av, t_params *param)
 		error(2);
 }
 
+void	if_check_np (char **av, t_params *param, int *i)
+{
+	*i++;
+	if (ft_strcmp(av[*i], "1") == 0)
+		param->p1 += 1;
+	else if (ft_strcmp(av[*i], "2") == 0)
+		param->p2 += 1;
+	else if (ft_strcmp(av[*i], "3") == 0)
+		param->p3 += 1;
+	else if (ft_strcmp(av[*i], "4") == 0)
+		param->p4 += 1;
+}
+
+
 void	check_n_np(int ac, char **av, t_params *param)
 {
 	int i;
@@ -58,20 +72,11 @@ void	check_n_np(int ac, char **av, t_params *param)
 		if (ft_strstr(av[i], ".cor") != NULL)
 			param->nb_player++;
 		if (i < ac - 1 && ft_strcmp(av[i], "-n") == 0)
-		{
-			i++;
-			if (ft_strcmp(av[i], "1") == 0)
-				param->p1 += 1;
-			else if (ft_strcmp(av[i], "2") == 0)
-				param->p2 += 1;
-			else if (ft_strcmp(av[i], "3") == 0)
-				param->p3 += 1;
-			else if (ft_strcmp(av[i], "4") == 0)
-				param->p4 += 1;
-		}
+			if_check_np(av, param, &i);
 		if (ft_strstr(av[i], ".cor") == NULL && ft_strcmp(av[i], "-n") != 0 &&
 		ft_strcmp(av[i], "-d") != 0 && ft_strcmp(av[i - 1], "-n") != 0 &&
-		ft_strcmp(av[i - 1], "-d") != 0 && ft_strcmp(av[i], "-m"))
+		ft_strcmp(av[i - 1], "-d") != 0 && ft_strcmp(av[i], "-m") != 0 &&
+		ft_strcmp(av[i], "-a") != 0)
 			error(3);
 		i++;
 	}
@@ -91,6 +96,7 @@ void	init_params(t_params *param, t_map *map)
 	param->p2 = 0;
 	param->p3 = 0;
 	param->p4 = 0;
+	param->i = 0;
 	if (!(ARENA = (unsigned char *)ft_memalloc(sizeof(unsigned char)
 		* (MEM_SIZE + 1))))
 		error_malloc();
@@ -101,9 +107,31 @@ void	init_params(t_params *param, t_map *map)
 	map->check = 0;
 	map->dump = -1;
 	map->mute = 0;
+	map->mute_aff = 0;
 }
 
-void	save_params(int ac, char **av, t_map *map, int i)
+void	if_save_params(int ac, char **av, t_map *map, t_params *param)
+{
+	if (param->i < ac - 1 && ft_strcmp(av[param->i], "-d") == 0)
+		save_dump(av[++param->i], param, map);
+	if (param->i == ac - 1 && ft_strcmp(av[param->i], "-d") == 0)
+		save_dump("-1", param, map);
+	if (ft_strcmp(av[param->i], "-m") == 0)
+		map->mute = 1;
+	if (ft_strcmp(av[param->i], "-a") == 0)
+		map->mute_aff = 1;
+	if (param->i < ac - 2 && ft_strcmp(av[param->i], "-n") == 0)
+	{
+		save_number(av[++param->i], param);
+		param->i++;
+	}
+	if (param->i >= ac - 2 && ft_strcmp(av[param->i], "-n") == 0)
+		save_number("-1", param);
+	if (ft_strstr(av[param->i], ".cor") != NULL)
+		save_file(av[param->i], param, map);
+}
+
+void	save_params(int ac, char **av, t_map *map)
 {
 	t_params	param;
 
@@ -112,23 +140,9 @@ void	save_params(int ac, char **av, t_map *map, int i)
 	if (param.nb_player <= 0 || param.nb_player > 4)
 		error(1);
 	init_player(&param, map);
-	while (++i < ac)
+	while (++param.i < ac)
 	{
 		param.n = 0;
-		if (i < ac - 1 && ft_strcmp(av[i], "-d") == 0)
-			save_dump(av[++i], &param, map);
-		if (i == ac - 1 && ft_strcmp(av[i], "-d") == 0)
-			save_dump("-1", &param, map);
-		if (ft_strcmp(av[i], "-m") == 0)
-			map->mute = 1;
-		if (i < ac - 2 && ft_strcmp(av[i], "-n") == 0)
-		{
-			save_number(av[++i], &param);
-			i++;
-		}
-		if (i == ac - 2 && ft_strcmp(av[i], "-n") == 0)
-			save_number("-1", &param);
-		if (ft_strstr(av[i], ".cor") != NULL)
-			save_file(av[i], &param, map);
+		if_save_params(ac, av, map, &param);
 	}
 }

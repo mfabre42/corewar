@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:43:55 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/24 01:26:43 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/24 04:00:07 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,9 @@ void	aff_char(t_map *map, t_process *proc)
 		{
 			if (!is_reg((int)ARENA[(pos + 2) % MEM_SIZE], proc, 3))
 				return ;
-			ft_putchar((proc->reg[(int)ARENA[(pos + 2) % MEM_SIZE] - 1])
-			% 256);
+			if (map->mute_aff == 1)
+				ft_putchar((proc->reg[(int)ARENA[(pos + 2) % MEM_SIZE] - 1])
+					% 256);
 		}
 		proc->pc = proc->pc + 3;
 	}
