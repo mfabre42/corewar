@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 18:23:26 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/23 16:21:59 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/24 02:14:30 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,6 @@ void	(*init_tab(int ft))(t_map *, t_process*)
 
 void	do_func(t_map *map, t_process *tmp, int ft, int player)
 {
-	// if (map->cycle == 21490 || map->cycle == 21489 || map->cycle == 21491)
-	// 	printf("ft = %d\n", ft);
 	if (ft >= 1 && ft <= 16)
 	{
 		if (ft == 12)
@@ -74,7 +72,6 @@ void	ft_cycle(t_process *tmp, t_map *map, int player)
 	}
 	if (tmp->cycle == 0)
 	{
-		// printf("ft : %d\n", ft);
 		do_func(map, tmp, ft, player);
 	}
 	else if (tmp->cycle > 0)
@@ -92,10 +89,8 @@ void	play_game(t_map *map)
 		while (player >= 0)
 		{
 			tmp = map->player[player].process;
-			//	printf("player:%d ,point: %p\n",player, tmp);
 			while (tmp != NULL)
 			{
-			//	printf("player : %d, cycle : %d, pc : %d, start : %d\n", player, map->cycle, tmp->pc, tmp->start);
 				ft_cycle(tmp, map, player);
 				tmp = tmp->next;
 			}
@@ -103,7 +98,6 @@ void	play_game(t_map *map)
 		}
 		map->cycle++;
 		cycle_to_die(map);
-		// printf("\n\n");
 		if (map->cycle_to_die <= 0 || is_alive(map) == 0)
 			break ;
 	}
