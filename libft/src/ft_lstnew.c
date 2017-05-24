@@ -6,7 +6,7 @@
 /*   By: aleveque <aleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 12:40:09 by aleveque          #+#    #+#             */
-/*   Updated: 2017/05/23 20:56:00 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/24 02:27:47 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,13 @@ unsigned int	*init_reg(void)
 
 t_process		*ft_lstnew(int start, int cycle)
 {
-	static unsigned int		id;
-	t_process		*new;
-	unsigned int	*reg;
+	t_process				*new;
+	unsigned int			*reg;
 
-	// printf("proc id: %d\n", id);
 	if (!(new = (t_process*)malloc(sizeof(t_process))))
 		return (NULL);
 	if ((reg = init_reg()) == NULL)
 		return (NULL);
-	new->id = id;
 	new->reg = reg;
 	new->pc = 0;
 	new->start = start;
@@ -52,6 +49,5 @@ t_process		*ft_lstnew(int start, int cycle)
 	new->do_funk = 1;
 	new->last_live = cycle;
 	new->next = NULL;
-	id++;
 	return (new);
 }
