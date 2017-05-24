@@ -6,13 +6,14 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/27 18:15:10 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/24 01:36:49 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/24 02:01:52 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-int		indirect_store3(t_map *map, t_process *proc, t_bin *bin, int *result)
+static int	indirect_store3(t_map *map, t_process *proc,
+	t_bin *bin, int *result)
 {
 	if ((OCP.param2 == 'D' || OCP.param2 == 'I') && OCP.param3 == 'D')
 	{
@@ -39,7 +40,8 @@ int		indirect_store3(t_map *map, t_process *proc, t_bin *bin, int *result)
 	return (1);
 }
 
-int		indirect_store2(t_map *map, t_process *proc, t_bin *bin, int *result)
+static int	indirect_store2(t_map *map, t_process *proc,
+	t_bin *bin, int *result)
 {
 	if (OCP.param2 == 'R' && OCP.param3 == 'D')
 	{
@@ -62,7 +64,7 @@ int		indirect_store2(t_map *map, t_process *proc, t_bin *bin, int *result)
 	return (1);
 }
 
-void	indirect_store(t_map *map, t_process *proc)
+void		indirect_store(t_map *map, t_process *proc)
 {
 	int		result;
 	t_bin	bin;
