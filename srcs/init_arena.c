@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 20:49:40 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/23 22:29:22 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/24 02:17:45 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,13 +59,11 @@ void	get_n(t_params *param)
 	}
 }
 
-void	get_name_comment(t_convert *tab, t_params *param, t_map *map)
+void	get_name_comment(t_convert *tab, t_params *param, t_map *map, int i)
 {
 	t_player	tmp;
 	int			j;
-	int			i;
 
-	i = 0;
 	j = 1;
 	tmp = map->player[param->n - 1];
 	while (j < PROG_NAME_LENGTH / 4 + 3 && i < 125)
@@ -107,7 +105,7 @@ void	send_in_arena(t_convert *tab, t_params *param, t_map *map)
 	if (param->n == 0)
 		get_n(param);
 	i = MEM_SIZE * (param->n - 1) / param->nb_player;
-	get_name_comment(tab, param, map);
+	get_name_comment(tab, param, map, 0);
 	check_magic_number(tab);
 	j = COMMENT_LENGTH / 4 + PROG_NAME_LENGTH / 4 + 4;
 	map->player[param->n - 1] = init_process(map, param->n - 1, MEM_SIZE *
