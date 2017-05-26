@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/20 14:35:05 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/24 03:59:29 by anonymous        ###   ########.fr       */
+/*   Updated: 2017/05/26 19:12:22 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # define BUF_SIZE 4
 # define ARENA map->arena
+# define ARENA_CLAIM map->arena_claim
 # define POS bin->pos
 # define PC bin->pc
 # define OCP bin->ocp
@@ -28,6 +29,7 @@
 # include "../srcs/op.h"
 # include "../ft_printf/ft_printf.h"
 # include <fcntl.h>
+# include <curses.h>
 
 typedef union	u_convert
 {
@@ -52,6 +54,7 @@ typedef struct	s_player
 	char				*name;
 	char				*comm;
 	t_process			*process;
+	int					number;
 	int					in_life;
 	int					last_live;
 }				t_player;
@@ -60,6 +63,7 @@ typedef struct	s_map
 {
 	int					mute;
 	int					mute_aff;
+	int					visu;
 	int					dump;
 	int					check;
 	int					cycle;
@@ -69,6 +73,7 @@ typedef struct	s_map
 	int					nb_player;
 	t_player			*player;
 	unsigned char		*arena;
+	unsigned int		*arena_claim;
 }				t_map;
 
 typedef struct	s_ocp
@@ -91,10 +96,23 @@ typedef struct	s_bin
 	int		pc;
 	int		reg_nbr;
 }				t_bin;
+
+typedef struct	s_visu
+{
+	WINDOW			*haut;
+	WINDOW			*bas;
+	WINDOW			*player1;
+	WINDOW			*player2;
+	WINDOW			*player3;
+	WINDOW			*player4;
+	char			**namejoueur;
+	int				row;
+	int				col;
+}				t_visu;
+
 /*
 ** Fonctions corewar
 */
-void			indirect_store(t_map *map, t_process *proc);
 void			addition(t_map *map, t_process *proc);
 void			aff_char(t_map *map, t_process *proc);
 void			func_and(t_map *map, t_process *proc);
@@ -106,8 +124,8 @@ void			ldirect_load(t_map *map, t_process *proc);
 void			lindirect_load(t_map *map, t_process *proc);
 void			direct_load(t_map *map, t_process *proc);
 void			func_or(t_map *map, t_process *proc);
-void			direct_store(t_map *map, t_process *proc);
-void			indirect_store(t_map *map, t_process *proc);
+void			direct_store(t_map *map, t_process *proc, int player);
+void			indirect_store(t_map *map, t_process *proc, int player);
 void			substraction(t_map *map, t_process *proc);
 void			func_xor(t_map *map, t_process *proc);
 void			jump_if_zero(t_map *map, t_process *proc);
@@ -130,7 +148,7 @@ void			cp_process(t_map *map, t_process *proc, int player, int adress);
 t_player		init_process(t_map *map, int player, int start);
 void			kill_player(t_map *map, int n_player);
 void			kill_process(t_map *map, int n_player, t_process *proc);
-void			place_in_arena(t_map *map, int dest, int nbr);
+void			place_in_arena(t_map *map, int dest, int nbr, int player);
 unsigned int	hex_to_int(unsigned char a, unsigned char b,
 					unsigned char c, unsigned char d);
 t_ocp			ocp_master(int	ocp);
@@ -139,5 +157,17 @@ void			save_params(int ac, char **av, t_map *map);
 void			send_in_arena(t_convert *tab, t_params *param, t_map *map);
 void			play_game(t_map *map);
 unsigned int	read_in_arena(t_map *map, int adress);
+
+void			check_n_np(int ac, char **av, t_params *param);
+
+/*
+** Visualisateur
+*/
+void			print_visu(t_map *map, t_visu *visu);
+void			finish_ncurse(t_map *map);
+t_visu			init_visu(t_map *map);
+void			check_resize(t_visu *visu);
+void			info_map(t_map *map);
+void			info_joueur(t_visu *visu, t_map *map);
 
 #endif

@@ -6,13 +6,13 @@
 #    By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/10 15:31:11 by mafabre           #+#    #+#              #
-#    Updated: 2017/05/24 00:37:34 by acoupleu         ###   ########.fr        #
+#    Updated: 2017/05/26 07:00:54 by acoupleu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC					=	gcc
 NAME				=	corewar
-FLAGS				=	-g
+FLAGS				=	-g -lncurses
 LIB					=	$(LIBFT) $(LIBFTPRINTF)
 LIBFT_PATH			=	libft/
 LIBFT				=	$(LIB_PATH)libft.a
@@ -32,8 +32,11 @@ FUNCTIONS			=	srcs/functions/func_add.c srcs/functions/func_aff.c srcs/functions
 						srcs/functions/func_sti.c srcs/functions/func_sub.c srcs/functions/func_xor.c	\
 						srcs/functions/func_zjmp.c srcs/functions/fail_func.c
 
+VISUALISATEUR		=	srcs/visu/visu.c srcs/visu/init_visu.c srcs/visu/info_visu.c
+
 OBJS				=	$(SRCS:srcs/%.c=obj/%.o)
 OBJS_FUNC			=	$(FUNCTIONS:srcs/functions/%.c=obj/%.o)
+OBJS_VISU			=	$(VISUALISATEUR:srcs/visu/%.c=obj/%.o)
 
 # COLORS
 C_NO			=	"\033[00m"
@@ -49,8 +52,8 @@ OK				=	[ $(C_OK)OK$(C_NO) ]
 
 all: obj $(LIB) $(NAME)
 
-$(NAME): $(OBJS) $(OBJS_FUNC)
-	$(CC) $(FLAGS) -o $@ $(OBJS) $(OBJS_FUNC) $(LIB_LINK)
+$(NAME): $(OBJS) $(OBJS_FUNC) $(OBJS_VISU)
+	$(CC) $(FLAGS) -o $@ $(OBJS) $(OBJS_FUNC) $(OBJS_VISU) $(LIB_LINK)
 	@echo "Compiling" $(NAME) "\t\t" $(SUCCESS)
 
 $(LIB):
@@ -66,6 +69,10 @@ obj/%.o: srcs/%.c
 	@echo "Linking" $< "\t" $(OK)
 
 obj/%.o: srcs/functions/%.c
+	@$(CC) $(FLAGS) $(INCLUDES) -I ../includes/corewar.h -c -o $@ $<
+	@echo "Linking" $< "\t" $(OK)
+
+obj/%.o: srcs/visu/%.c
 	@$(CC) $(FLAGS) $(INCLUDES) -I ../includes/corewar.h -c -o $@ $<
 	@echo "Linking" $< "\t" $(OK)
 

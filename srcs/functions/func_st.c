@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/03 15:34:09 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/24 01:44:08 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/26 19:03:58 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,12 @@ static int	direct_store2(t_map *map, t_process *proc, t_bin *bin, int *result)
 		proc->reg[(int)ARENA[(POS + 3) % MEM_SIZE] - 1] =
 		proc->reg[REG_NBR - 1];
 		proc->pc = proc->pc + 4;
-	}
-	else
-	{
-		*result = POS + (short)hex_to_int(0x00, 0x00,
-			ARENA[(POS + 3) % MEM_SIZE], ARENA[(POS + 4) % MEM_SIZE]) % IDX_MOD;
-		place_in_arena(map, *result, proc->reg[REG_NBR - 1]);
-		proc->pc = proc->pc + 5;
+		return (0);
 	}
 	return (1);
 }
 
-void		direct_store(t_map *map, t_process *proc)
+void		direct_store(t_map *map, t_process *proc, int player)
 {
 	t_bin	bin;
 	int		result;
@@ -49,5 +43,10 @@ void		direct_store(t_map *map, t_process *proc)
 			return ;
 		if (direct_store2(map, proc, &bin, &result) == 0)
 			return ;
+		result = PPOS + (short)hex_to_int(0x00, 0x00,
+			ARENA[(PPOS + 3) % MEM_SIZE],
+			ARENA[(PPOS + 4) % MEM_SIZE]) % IDX_MOD;
+		place_in_arena(map, result, proc->reg[PREG_NBR - 1], player + 1);
+		proc->pc = proc->pc + 5;
 	}
 }

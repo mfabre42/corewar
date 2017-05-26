@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/27 18:15:10 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/24 02:01:52 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/26 19:48:53 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,15 @@ static int	indirect_store2(t_map *map, t_process *proc,
 	return (1);
 }
 
-void		indirect_store(t_map *map, t_process *proc)
+void		indirect_store(t_map *map, t_process *proc, int player)
 {
 	int		result;
 	t_bin	bin;
 
 	if (proc->do_funk == 1)
+	{
 		do_funk(proc, 23, 11, 0);
+	}
 	else
 	{
 		do_funk(proc, 0, 0, 1);
@@ -89,6 +91,6 @@ void		indirect_store(t_map *map, t_process *proc)
 				return ;
 		}
 		place_in_arena(map, (PPOS + result) % MEM_SIZE,
-		proc->reg[PREG_NBR - 1]);
+		proc->reg[PREG_NBR - 1], player + 1);
 	}
 }

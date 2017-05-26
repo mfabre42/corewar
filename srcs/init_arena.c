@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 20:49:40 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/24 02:17:45 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/26 07:51:57 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	init_player(t_params *param, t_map *map)
 		map->player[i].process = NULL;
 		map->player[i].in_life = 1;
 		map->player[i].last_live = 1;
+		map->player[i].number = 0;
 		i++;
 	}
 	map->nb_player = param->nb_player;
@@ -104,6 +105,7 @@ void	send_in_arena(t_convert *tab, t_params *param, t_map *map)
 
 	if (param->n == 0)
 		get_n(param);
+	map->player[param->n - 1].number = param->n;
 	i = MEM_SIZE * (param->n - 1) / param->nb_player;
 	get_name_comment(tab, param, map, 0);
 	check_magic_number(tab);
@@ -113,9 +115,13 @@ void	send_in_arena(t_convert *tab, t_params *param, t_map *map)
 	while (i < MEM_SIZE - 3 && j < COMMENT_LENGTH / 4 + PROG_NAME_LENGTH / 4 +
 		CHAMP_MAX_SIZE / 4 + 4)
 	{
+		ARENA_CLAIM[i] = map->player[param->n - 1].number;
 		ARENA[i++] = tab[j].c_char[0];
+		ARENA_CLAIM[i] = map->player[param->n - 1].number;
 		ARENA[i++] = tab[j].c_char[1];
+		ARENA_CLAIM[i] = map->player[param->n - 1].number;
 		ARENA[i++] = tab[j].c_char[2];
+		ARENA_CLAIM[i] = map->player[param->n - 1].number;
 		ARENA[i++] = tab[j].c_char[3];
 		j++;
 	}

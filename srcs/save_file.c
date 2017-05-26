@@ -6,13 +6,51 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 19:35:01 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/23 22:26:29 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/26 06:21:26 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-void		save_file(char *file, t_params *param, t_map *map)
+void	if_check_np(char **av, t_params *param, int *i)
+{
+	(*i)++;
+	if (ft_strcmp(av[*i], "1") == 0)
+		param->p1 += 1;
+	else if (ft_strcmp(av[*i], "2") == 0)
+		param->p2 += 1;
+	else if (ft_strcmp(av[*i], "3") == 0)
+		param->p3 += 1;
+	else if (ft_strcmp(av[*i], "4") == 0)
+		param->p4 += 1;
+}
+
+void	check_n_np(int ac, char **av, t_params *param)
+{
+	int	i;
+
+	i = 1;
+	while (i < ac)
+	{
+		if (ft_strstr(av[i], ".cor") != NULL)
+			param->nb_player++;
+		if (i < ac - 1 && ft_strcmp(av[i], "-n") == 0)
+			if_check_np(av, param, &i);
+		if (ft_strstr(av[i], ".cor") == NULL && ft_strcmp(av[i], "-n") != 0 &&
+		ft_strcmp(av[i], "-d") != 0 && ft_strcmp(av[i - 1], "-n") != 0 &&
+		ft_strcmp(av[i - 1], "-d") != 0 && ft_strcmp(av[i], "-m") != 0 &&
+		ft_strcmp(av[i], "-a") != 0 && ft_strcmp(av[i], "-v") != 0)
+			error(3);
+		i++;
+	}
+	if ((param->p1 > 1 || param->p2 > 1 || param->p3 > 1 || param->p4 > 1) ||
+	(param->nb_player == 1 && (param->p2 + param->p3 + param->p4) >= 1) ||
+	(param->nb_player == 2 && (param->p3 + param->p4) >= 1) ||
+	(param->nb_player == 3 && param->p4 >= 1))
+		error(2);
+}
+
+void	save_file(char *file, t_params *param, t_map *map)
 {
 	t_convert	convert;
 	int			fd;

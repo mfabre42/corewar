@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 19:32:42 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/24 04:00:40 by anonymous        ###   ########.fr       */
+/*   Updated: 2017/05/26 19:02:59 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,45 +48,6 @@ void	save_number(char *av, t_params *param)
 		error(2);
 }
 
-void	if_check_np (char **av, t_params *param, int *i)
-{
-	*i++;
-	if (ft_strcmp(av[*i], "1") == 0)
-		param->p1 += 1;
-	else if (ft_strcmp(av[*i], "2") == 0)
-		param->p2 += 1;
-	else if (ft_strcmp(av[*i], "3") == 0)
-		param->p3 += 1;
-	else if (ft_strcmp(av[*i], "4") == 0)
-		param->p4 += 1;
-}
-
-
-void	check_n_np(int ac, char **av, t_params *param)
-{
-	int i;
-
-	i = 1;
-	while (i < ac)
-	{
-		if (ft_strstr(av[i], ".cor") != NULL)
-			param->nb_player++;
-		if (i < ac - 1 && ft_strcmp(av[i], "-n") == 0)
-			if_check_np(av, param, &i);
-		if (ft_strstr(av[i], ".cor") == NULL && ft_strcmp(av[i], "-n") != 0 &&
-		ft_strcmp(av[i], "-d") != 0 && ft_strcmp(av[i - 1], "-n") != 0 &&
-		ft_strcmp(av[i - 1], "-d") != 0 && ft_strcmp(av[i], "-m") != 0 &&
-		ft_strcmp(av[i], "-a") != 0)
-			error(3);
-		i++;
-	}
-	if ((param->p1 > 1 || param->p2 > 1 || param->p3 > 1 || param->p4 > 1) ||
-	(param->nb_player == 1 && (param->p2 + param->p3 + param->p4) >= 1) ||
-	(param->nb_player == 2 && (param->p3 + param->p4) >= 1) ||
-	(param->nb_player == 3 && param->p4 >= 1))
-		error(2);
-}
-
 void	init_params(t_params *param, t_map *map)
 {
 	param->dump = 0;
@@ -100,6 +61,9 @@ void	init_params(t_params *param, t_map *map)
 	if (!(ARENA = (unsigned char *)ft_memalloc(sizeof(unsigned char)
 		* (MEM_SIZE + 1))))
 		error_malloc();
+	if (!(ARENA_CLAIM = (unsigned int *)ft_memalloc(sizeof(unsigned int)
+		* (MEM_SIZE + 1))))
+		error_malloc();
 	map->cycle = 1;
 	map->nb_live = 0;
 	map->cycle_to_die = CYCLE_TO_DIE;
@@ -108,6 +72,7 @@ void	init_params(t_params *param, t_map *map)
 	map->dump = -1;
 	map->mute = 0;
 	map->mute_aff = 0;
+	map->visu = 0;
 }
 
 void	if_save_params(int ac, char **av, t_map *map, t_params *param)
@@ -120,6 +85,8 @@ void	if_save_params(int ac, char **av, t_map *map, t_params *param)
 		map->mute = 1;
 	if (ft_strcmp(av[param->i], "-a") == 0)
 		map->mute_aff = 1;
+	if (ft_strcmp(av[param->i], "-v") == 0)
+		map->visu = 1;
 	if (param->i < ac - 2 && ft_strcmp(av[param->i], "-n") == 0)
 	{
 		save_number(av[++param->i], param);

@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 17:05:36 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/24 03:44:26 by anonymous        ###   ########.fr       */
+/*   Updated: 2017/05/26 17:29:36 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	free_map(t_map *map)
 		i++;
 	}
 	free(map->player);
+	free(ARENA_CLAIM);
 	free(ARENA);
 }
 
@@ -40,28 +41,37 @@ void	notif_winner(t_map *map)
 	map->player[winner].name);
 }
 
-int		main(int ac, char **av)
+void	print_map(t_map *map)
 {
-	int			i;
-	t_map		map;
+	int	i;
 
-	if (ac == 1)
-		print_usage();
 	i = 0;
-	save_params(ac, av, &map);
-	play_game(&map);
-	if (map.dump != -1)
+	if (map->dump != -1)
 	{
 		ft_printf("\n");
 		while (i < MEM_SIZE)
 		{
 			if (i % 64 == 0 && i != 0)
 				ft_printf("\n");
-			ft_printf("%02x ", map.arena[i]);
+			ft_printf("%02x ", map->arena[i]);
 			i++;
 		}
 		ft_printf("\n");
 	}
+}
+
+int		main(int ac, char **av)
+{
+	t_map		map;
+
+	if (ac == 1)
+		print_usage();
+	save_params(ac, av, &map);
+	play_game(&map);
+	if (map.visu == 1)
+		finish_ncurse(&map);
+	else
+		print_map(&map);
 	if (map.cycle_to_die < 0 || is_alive(&map) == 0)
 		notif_winner(&map);
 	free_map(&map);
