@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/27 18:15:10 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/26 19:48:53 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/29 21:02:39 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,7 @@ void		indirect_store(t_map *map, t_process *proc, int player)
 	t_bin	bin;
 
 	if (proc->do_funk == 1)
-	{
 		do_funk(proc, 23, 11, 0);
-	}
 	else
 	{
 		do_funk(proc, 0, 0, 1);
