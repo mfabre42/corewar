@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/26 03:55:38 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/29 17:30:32 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/29 19:16:05 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,19 @@ static void		print_proc_pc(t_map *map, int i, int y, int x)
 		tmp = map->player[player].process;
 		while (tmp != NULL)
 		{
-			if (tmp->pc + tmp->start == i)
+			if ((tmp->pc + tmp->start) % MEM_SIZE == i)
 			{
-				if (ARENA_CLAIM[tmp->pc + tmp->start] + 4 > 4)
+				if (ARENA_CLAIM[(tmp->pc + tmp->start) % MEM_SIZE] + 4 > 4)
 				{
-					attron(COLOR_PAIR(ARENA_CLAIM[tmp->pc + tmp->start] + 4));
-					mvprintw(y, x, "%.2x", ARENA[tmp->pc + tmp->start]);
-					attroff(COLOR_PAIR(ARENA_CLAIM[tmp->pc + tmp->start] + 4));
+					attron(COLOR_PAIR(ARENA_CLAIM[(tmp->pc + tmp->start) % MEM_SIZE] + 4));
+					mvprintw(y, x, "%.2x", ARENA[(tmp->pc + tmp->start) % MEM_SIZE]);
+					attroff(COLOR_PAIR(ARENA_CLAIM[(tmp->pc + tmp->start) % MEM_SIZE] + 4));
 					break ;
 				}
 				else
 				{
 					attron(COLOR_PAIR(10));
-					mvprintw(y, x, "%.2x", ARENA[tmp->pc + tmp->start]);
+					mvprintw(y, x, "%.2x", ARENA[(tmp->pc + tmp->start) % MEM_SIZE]);
 					attroff(COLOR_PAIR(10));
 					break ;
 				}
@@ -95,7 +95,7 @@ void		print_visu(t_map *map, t_visu *visu)
 	info_joueur(visu, map);
 	print_arena_visu(map, visu);
 	info_map(map);
-	usleep(10000);
+	usleep(100);
 	refresh();
 }
 
