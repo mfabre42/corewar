@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/20 14:35:05 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/26 19:12:22 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/29 18:51:38 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ typedef struct	s_map
 	int					mute_aff;
 	int					visu;
 	int					dump;
+	int					ndump;
 	int					check;
 	int					cycle;
 	int					cycle_to_die;
@@ -164,7 +165,7 @@ void			check_n_np(int ac, char **av, t_params *param);
 ** Visualisateur
 */
 void			print_visu(t_map *map, t_visu *visu);
-void			finish_ncurse(t_map *map);
+void			finish_visu(t_map *map);
 t_visu			init_visu(t_map *map);
 void			check_resize(t_visu *visu);
 void			info_map(t_map *map);
