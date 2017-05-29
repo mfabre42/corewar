@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 19:32:42 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/29 19:20:07 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/29 19:27:11 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,15 @@ void	save_dump(char *opt, t_params *param, t_map *map, char *av)
 	}
 	if (map->dump != -1)
 		error(4);
+	if (map->dump != 0)
+		error(4);
 	if (ft_strcmp(opt, "-d") == 0)
 		map->dump = ft_atoi(av);
 	else
-		map->ndump = ft_atoi(av);
+		if (ft_atoi(av) == 0)
+			error(4);
+		else
+			map->ndump = ft_atoi(av);
 }
 
 void	save_number(char *av, t_params *param)
@@ -72,7 +77,7 @@ void	init_params(t_params *param, t_map *map)
 	map->next_ctd = CYCLE_TO_DIE;
 	map->check = 0;
 	map->dump = -1;
-	map->ndump = -1;
+	map->ndump = 0;
 	map->mute = 0;
 	map->mute_aff = 0;
 	map->visu = 0;
