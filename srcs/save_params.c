@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 19:32:42 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/29 19:19:11 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/29 19:20:07 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ void	init_params(t_params *param, t_map *map)
 	map->next_ctd = CYCLE_TO_DIE;
 	map->check = 0;
 	map->dump = -1;
+	map->ndump = -1;
 	map->mute = 0;
 	map->mute_aff = 0;
 	map->visu = 0;
