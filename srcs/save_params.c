@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 19:32:42 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/29 19:05:10 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/29 19:19:11 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	save_dump(char *opt, t_params *param, t_map *map, char *av)
 	}
 	if (map->dump != -1)
 		error(4);
-	if (ft_strcmp(av[param->i], "-d") == 0)
+	if (ft_strcmp(opt, "-d") == 0)
 		map->dump = ft_atoi(av);
 	else
 		map->ndump = ft_atoi(av);
