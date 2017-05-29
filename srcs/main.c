@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 17:05:36 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/29 19:05:44 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/29 19:49:58 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	print_map(t_map *map)
 	int	i;
 
 	i = 0;
-	if (map->dump != -1)
+	if (map->dump != -1 || map->ndump != 0)
 	{
 		ft_printf("\n");
 		while (i < MEM_SIZE)

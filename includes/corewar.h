@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/20 14:35:05 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/29 18:51:38 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/29 19:37:33 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,7 +158,7 @@ void			save_params(int ac, char **av, t_map *map);
 void			send_in_arena(t_convert *tab, t_params *param, t_map *map);
 void			play_game(t_map *map);
 unsigned int	read_in_arena(t_map *map, int adress);
-
+void			print_map(t_map *map);
 void			check_n_np(int ac, char **av, t_params *param);
 
 /*

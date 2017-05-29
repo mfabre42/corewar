@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 18:23:26 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/26 19:48:55 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/29 19:48:30 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,8 @@ void	play_game(t_map *map)
 		}
 		if (map->visu)
 			print_visu(map, &visu);
+		if (map->ndump != 0 && (map->cycle % map->ndump == 0))
+			print_map(map);
 		map->cycle++;
 		cycle_to_die(map);
 		if (map->cycle_to_die <= 0 || is_alive(map) == 0)
