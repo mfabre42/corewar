@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 19:32:42 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/29 19:27:11 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/29 20:50:23 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,12 +85,13 @@ void	init_params(t_params *param, t_map *map)
 
 void	if_save_params(int ac, char **av, t_map *map, t_params *param)
 {
+	param->n = 0;
 	if (param->i < ac - 1 && (ft_strcmp(av[param->i], "-d") == 0
 		|| ft_strcmp(av[param->i], "-s") == 0))
 		save_dump(av[param->i], param, map, av[++param->i]);
 	if (param->i == ac - 1 && (ft_strcmp(av[param->i], "-d") == 0
 		|| ft_strcmp(av[param->i], "-s") == 0))
-		save_dump(av[param->i], param, map, "-1");
+		error(4);
 	if (ft_strcmp(av[param->i], "-m") == 0)
 		map->mute = 1;
 	if (ft_strcmp(av[param->i], "-a") == 0)
@@ -103,7 +104,7 @@ void	if_save_params(int ac, char **av, t_map *map, t_params *param)
 		param->i++;
 	}
 	if (param->i >= ac - 2 && ft_strcmp(av[param->i], "-n") == 0)
-		save_number("-1", param);
+		error(2);
 	if (ft_strstr(av[param->i], ".cor") != NULL)
 		save_file(av[param->i], param, map);
 }
@@ -119,7 +120,6 @@ void	save_params(int ac, char **av, t_map *map)
 	init_player(&param, map);
 	while (++param.i < ac)
 	{
-		param.n = 0;
 		if_save_params(ac, av, map, &param);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 20:49:40 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/26 07:51:57 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/29 20:53:59 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,8 @@ void	get_n(t_params *param)
 		param->n = 4;
 		param->p4 = 1;
 	}
+	if (param->n - 1 > param->nb_player - 1)
+		error(2);
 }
 
 void	get_name_comment(t_convert *tab, t_params *param, t_map *map, int i)
