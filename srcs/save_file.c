@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 19:35:01 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/26 06:21:26 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/29 17:59:42 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ void	save_file(char *file, t_params *param, t_map *map)
 	int			i;
 	t_convert	*tab;
 
-	ret = 0;
 	i = 0;
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
@@ -70,6 +69,8 @@ void	save_file(char *file, t_params *param, t_map *map)
 	{
 		tab[i++] = convert;
 		ft_bzero(convert.c_char, 4);
+		if (i > 719 || (i == 719 && ret > 2))
+			error(6);
 	}
 	close(fd);
 	send_in_arena(tab, param, map);
