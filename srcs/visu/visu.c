@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/26 03:55:38 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/26 19:48:37 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/29 17:30:32 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,11 +95,11 @@ void		print_visu(t_map *map, t_visu *visu)
 	info_joueur(visu, map);
 	print_arena_visu(map, visu);
 	info_map(map);
-	usleep(100);
+	usleep(10000);
 	refresh();
 }
 
-void		finish_ncurse(t_map *map)
+void		finish_visu(t_map *map)
 {
 	int	player;
 	int	last_cycle;
@@ -117,8 +117,9 @@ void		finish_ncurse(t_map *map)
 	{
 		if (map->player[player].last_live == last_cycle)
 		{
-			mvprintw(73, 59, "Le joueur %d (%s) a gagne\n",
-			map->player[player].number, map->player[player].name);
+			attron(COLOR_PAIR(player + 2));
+			mvprintw(40, 198, "Le joueur %d (%s) a gagne\n",
+			map->player[player + 1].number, map->player[player + 1].name);
 			refresh();
 			sleep(100);
 			endwin();

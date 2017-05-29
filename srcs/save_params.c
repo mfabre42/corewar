@@ -6,13 +6,13 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 19:32:42 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/26 19:02:59 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/29 19:05:10 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-void	save_dump(char *av, t_params *param, t_map *map)
+void	save_dump(char *opt, t_params *param, t_map *map, char *av)
 {
 	int	i;
 
@@ -26,8 +26,10 @@ void	save_dump(char *av, t_params *param, t_map *map)
 	}
 	if (map->dump != -1)
 		error(4);
-	param->dump = ft_atoi(av);
-	map->dump = ft_atoi(av);
+	if (ft_strcmp(av[param->i], "-d") == 0)
+		map->dump = ft_atoi(av);
+	else
+		map->ndump = ft_atoi(av);
 }
 
 void	save_number(char *av, t_params *param)
@@ -77,10 +79,12 @@ void	init_params(t_params *param, t_map *map)
 
 void	if_save_params(int ac, char **av, t_map *map, t_params *param)
 {
-	if (param->i < ac - 1 && ft_strcmp(av[param->i], "-d") == 0)
-		save_dump(av[++param->i], param, map);
-	if (param->i == ac - 1 && ft_strcmp(av[param->i], "-d") == 0)
-		save_dump("-1", param, map);
+	if (param->i < ac - 1 && (ft_strcmp(av[param->i], "-d") == 0
+		|| ft_strcmp(av[param->i], "-s") == 0))
+		save_dump(av[param->i], param, map, av[++param->i]);
+	if (param->i == ac - 1 && (ft_strcmp(av[param->i], "-d") == 0
+		|| ft_strcmp(av[param->i], "-s") == 0))
+		save_dump(av[param->i], param, map, "-1");
 	if (ft_strcmp(av[param->i], "-m") == 0)
 		map->mute = 1;
 	if (ft_strcmp(av[param->i], "-a") == 0)

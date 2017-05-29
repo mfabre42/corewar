@@ -6,7 +6,7 @@
 /*   By: aleveque <aleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/09 19:49:54 by aleveque          #+#    #+#             */
-/*   Updated: 2017/05/22 19:59:00 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/29 18:52:49 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,9 @@ void	error(int nb)
 
 void	print_usage(void)
 {
-	ft_printf("Usage: ./corewar [-d N] [-n X] <champion1.cor> <...>\n\
+	ft_printf("Usage: ./corewar [-v][-d N][-s N][-n X] <champion1.cor> <...>\n\
 	-d N      : Dumps memory after N cycles then exits\n\
+	-s N      : Runs N cycles, dumps memory, pauses, then repeats\n\
 	-n X      : Choose player number X between 0 and NUMBER OF PLAYER\n\
 	-v        : Ncurses output mode (visualisateur)\n");
 	exit(0);

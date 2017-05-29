@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/26 01:43:57 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/26 19:47:52 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/29 19:05:24 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,10 @@ t_visu	init_visu(t_map *map)
 {
 	t_visu visu;
 
-	map->mute = -1;
+	map->mute = 1;
+	map->mute_aff = 0;
 	map->dump = -1;
+	map->ndump = -1;
 	initscr();
 	getmaxyx(stdscr, visu.row, visu.col);
 	check_term_size_color(visu);
