@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 20:49:40 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/29 20:53:59 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/30 17:34:37 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	get_n(t_params *param)
 		param->n = 4;
 		param->p4 = 1;
 	}
-	if (param->n - 1 > param->nb_player - 1)
+	if (param->n - 1 > param->nb_player - 1 || param->n - 1 < 0)
 		error(2);
 }
 

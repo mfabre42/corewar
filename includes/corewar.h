@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/20 14:35:05 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/30 16:19:25 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/30 18:11:58 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,26 +140,31 @@ void			error(int nb);
 void			print_usage(void);
 int				is_reg(unsigned int reg, t_process *proc, int pc);
 
-t_bin			init_bin(t_map *map, t_process *proc);
-int				check_last_survivor(t_map *map);
-int				is_alive(t_map *map);
-void			init_player(t_params *param, t_map *map);
-void			cycle_to_die(t_map *map);
-void			cp_process(t_map *map, t_process *proc, int player, int adress);
-t_player		init_process(t_map *map, int player, int start);
-void			kill_player(t_map *map, int n_player);
-void			kill_process(t_map *map, int n_player, t_process *proc);
-void			place_in_arena(t_map *map, int dest, int nbr, int player);
-unsigned int	hex_to_int(unsigned char a, unsigned char b,
-					unsigned char c, unsigned char d);
-t_ocp			ocp_master(int	ocp);
+
+/*
+** Recuperation fichier
+*/
+void			check_n_np(int ac, char **av, t_params *param);
 void			save_file(char *file, t_params *param, t_map *map);
 void			save_params(int ac, char **av, t_map *map);
 void			send_in_arena(t_convert *tab, t_params *param, t_map *map);
-void			play_game(t_map *map);
+
+t_bin			init_bin(t_map *map, t_process *proc);
+void			init_player(t_params *param, t_map *map);
+t_player		init_process(t_map *map, int player, int start);
+int				check_last_survivor(t_map *map);
+int				is_alive(t_map *map);
+t_ocp			ocp_master(int	ocp);
+unsigned int	hex_to_int(unsigned char a, unsigned char b,
+					unsigned char c, unsigned char d);
+void			cycle_to_die(t_map *map);
+void			kill_player(t_map *map, int n_player);
+void			kill_process(t_map *map, int n_player, t_process *proc);
+void			cp_process(t_map *map, t_process *proc, int player, int adress);
+void			place_in_arena(t_map *map, int dest, int nbr, int player);
 unsigned int	read_in_arena(t_map *map, int adress);
 void			print_map(t_map *map);
-void			check_n_np(int ac, char **av, t_params *param);
+void			play_game(t_map *map);
 
 /*
 ** Visualisateur

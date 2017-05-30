@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 17:05:36 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/30 17:02:28 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/30 17:42:50 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	print_map(t_map *map)
 		{
 			if (i % 64 == 0 && i != 0)
 				ft_printf("\n");
-			ft_printf("%02x ", map->arena[i]);
+			ft_printf("%02x ", ARENA[i]);
 			i++;
 		}
 		ft_printf("\n");
