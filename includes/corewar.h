@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/20 14:35:05 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/30 15:28:00 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/30 16:07:40 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -164,6 +164,7 @@ void			check_n_np(int ac, char **av, t_params *param);
 /*
 ** Visualisateur
 */
+void			print_arena_visu(t_map *map, t_visu *visu);
 void			print_visu(t_map *map, t_visu *visu);
 void			finish_visu(t_map *map, int last_cycle);
 t_visu			init_visu(t_map *map);
