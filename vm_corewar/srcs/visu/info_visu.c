@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/26 04:55:24 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/30 19:12:08 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/30 20:45:10 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,24 +39,24 @@ void	info_joueur2(t_visu *visu, t_map *map, int i)
 	if (map->player[i].number == 2)
 	{
 		attron(COLOR_PAIR(2));
-		mvprintw(9, 198, map->player[i].name);
-		mvprintw(10, 198, "Num joueur : %d", map->player[i].number);
+		mvprintw(9, 198, "Joueur %d:", map->player[i].number);
+		mvprintw(10, 198, map->player[i].name);
 		mvprintw(11, 198, "Dernier live : %d", map->player[i].last_live);
 		attroff(COLOR_PAIR(2));
 	}
 	if (map->player[i].number == 3)
 	{
 		attron(COLOR_PAIR(3));
-		mvprintw(15, 198, map->player[i].name);
-		mvprintw(16, 198, "Num joueur : %d", map->player[i].number);
+		mvprintw(15, 198, "Joueur %d:", map->player[i].number);
+		mvprintw(16, 198, map->player[i].name);
 		mvprintw(17, 198, "Dernier live : %d", map->player[i].last_live);
 		attroff(COLOR_PAIR(3));
 	}
 	if (map->player[i].number == 4)
 	{
 		attron(COLOR_PAIR(4));
-		mvprintw(21, 198, map->player[i].name);
-		mvprintw(22, 198, "Num joueur : %d", map->player[i].number);
+		mvprintw(21, 198, "Joueur %d:", map->player[i].number);
+		mvprintw(22, 198, map->player[i].name);
 		mvprintw(23, 198, "Dernier live : %d", map->player[i].last_live);
 		attroff(COLOR_PAIR(4));
 	}
@@ -72,8 +72,8 @@ void	info_joueur(t_visu *visu, t_map *map)
 		if (map->player[i].number == 1)
 		{
 			attron(COLOR_PAIR(1));
-			mvprintw(3, 198, map->player[i].name);
-			mvprintw(4, 198, "Num joueur : %d", map->player[i].number);
+			mvprintw(3, 198, "Joueur %d:", map->player[i].number);
+			mvprintw(4, 198, map->player[i].name);
 			mvprintw(5, 198, "Dernier live : %d", map->player[i].last_live);
 			attroff(COLOR_PAIR(1));
 		}

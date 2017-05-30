@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/20 14:35:05 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/30 19:04:33 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/30 20:50:21 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,12 +100,6 @@ typedef struct	s_bin
 
 typedef struct	s_visu
 {
-	WINDOW			*haut;
-	WINDOW			*bas;
-	WINDOW			*player1;
-	WINDOW			*player2;
-	WINDOW			*player3;
-	WINDOW			*player4;
 	char			**namejoueur;
 	int				row;
 	int				col;
