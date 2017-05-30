@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/26 03:55:38 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/29 19:16:05 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/30 16:09:37 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,31 +101,15 @@ void		print_visu(t_map *map, t_visu *visu)
 
 void		finish_visu(t_map *map)
 {
-	int	player;
-	int	last_cycle;
+	int	winner;
 
-	last_cycle = 0;
-	player = map->nb_player - 1;
-	while (player >= 0)
-	{
-		if (map->player[player].last_live > 1)
-			last_cycle = map->player[player].last_live;
-		player--;
-	}
-	player = map->nb_player - 1;
-	while (player >= 0)
-	{
-		if (map->player[player].last_live == last_cycle)
-		{
-			attron(COLOR_PAIR(player + 2));
-			mvprintw(40, 198, "Le joueur %d (%s) a gagne\n",
-			map->player[player + 1].number, map->player[player + 1].name);
-			refresh();
-			sleep(100);
-			endwin();
-			curs_set(1);
-			exit(0);
-		}
-		player--;
-	}
+	winner = check_last_survivor(map);
+	attron(COLOR_PAIR(winner + 1));
+	mvprintw(40, 198, "Le joueur %d (%s) a gagne\n",
+	map->player[winner].number, map->player[winner].name);
+	refresh();
+	sleep(100);
+	endwin();
+	curs_set(1);
+	exit(0);
 }
