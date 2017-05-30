@@ -6,11 +6,7 @@
 #    By: aleveque <aleveque@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/04 14:51:15 by aleveque          #+#    #+#              #
-<<<<<<< HEAD:libft/Makefile
-#    Updated: 2017/05/30 18:48:14 by acoupleu         ###   ########.fr        #
-=======
-#    Updated: 2017/05/30 18:44:31 by aleveque         ###   ########.fr        #
->>>>>>> c2c7cebb3f4d81b106b523c8b00214db2d0416e0:vm_corewar/libft/Makefile
+#    Updated: 2017/05/30 18:57:20 by acoupleu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
