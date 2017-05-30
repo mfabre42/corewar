@@ -6,7 +6,7 @@
 #    By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/10 15:31:11 by mafabre           #+#    #+#              #
-#    Updated: 2017/05/23 01:31:09 by mafabre          ###   ########.fr        #
+#    Updated: 2017/05/30 19:23:58 by aleveque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ CC					=	gcc
 NAME				=	asm
 FLAGS				=	-g
 LIB					=	$(LIBFT) $(LIBFTPRINTF)
-LIBFT_PATH			=	libft/
+LIBFT_PATH			=	lib_asm/
 LIBFT				=	$(LIB_PATH)libft.a
 LIBFTPRINTF_PATH	=	ft_printf/
 LIBFTPRINTF			=	$(LIBFTPRINTF_PATH)libftprintf.a
@@ -42,9 +42,9 @@ SUCCESS			=	[ $(C_GOOD)OK$(C_NO) ]
 OK				=	[ $(C_OK)OK$(C_NO) ]
 
 
-all: obj $(NAME)
+all: obj $(LIB) $(NAME)
 
-$(NAME): $(LIB) $(OBJS)
+$(NAME): $(OBJS)
 	$(CC) $(FLAGS) -o $@ $(OBJS) $(LIB_LINK)
 	@echo "Compiling" $(NAME) "\t\t" $(SUCCESS)
 

@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/07 17:07:22 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/02 12:10:42 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/05/30 19:03:36 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <wchar.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include "../../libft/libft.h"
+# include "../../lib_asm/libft.h"
 
 typedef struct		s_env
 {

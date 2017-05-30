@@ -6,19 +6,17 @@
 #    By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/10 15:31:11 by mafabre           #+#    #+#              #
-#    Updated: 2017/05/30 18:02:12 by aleveque         ###   ########.fr        #
+#    Updated: 2017/05/30 19:24:38 by aleveque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = coreware
 
-all: $(NAME)
-
-$(NAME):
+all:
 	make -C vm_corewar
 	make -C asm_corewar
-	cp vm_corewar/corewar .
-	cp asm_corewar/asm .
+	@cp vm_corewar/corewar .
+	@cp asm_corewar/asm .
 
 clean:
 	@make -C vm_corewar clean
