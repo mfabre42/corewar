@@ -6,11 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 17:05:36 by mafabre           #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2017/05/29 19:49:58 by acoupleu         ###   ########.fr       */
-=======
-/*   Updated: 2017/05/30 15:27:39 by aleveque         ###   ########.fr       */
->>>>>>> e626c6a9a75006fb54287bb9a9f6eb1123ab1c84
+/*   Updated: 2017/05/30 16:36:43 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +48,6 @@ void	print_map(t_map *map)
 	i = 0;
 	if (map->dump != -1 || map->ndump != 0)
 	{
-		ft_printf("\n");
 		while (i < MEM_SIZE)
 		{
 			if (i % 64 == 0 && i != 0)
@@ -61,6 +56,12 @@ void	print_map(t_map *map)
 			i++;
 		}
 		ft_printf("\n");
+	}
+	if (map->ndump != 0)
+	{
+		ft_printf("Cycle actuel: %d, appuyez sur une touche pour continuer\n",
+		map->cycle);
+		getchar();
 	}
 }
 
@@ -73,7 +74,7 @@ int		main(int ac, char **av)
 	save_params(ac, av, &map);
 	play_game(&map);
 	if (map.visu == 1)
-		finish_visu(&map, 0);
+		display_winner(&map, 0);
 	else
 		print_map(&map);
 	if (map.cycle_to_die < 0 || is_alive(&map) == 0)

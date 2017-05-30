@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/26 03:55:38 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/30 16:12:33 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/30 16:19:26 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void		print_arena_visu(t_map *map, t_visu *visu)
 	}
 }
 
-void		finish_visu(t_map *map, int last_cycle)
+void		display_winner(t_map *map, int last_cycle)
 {
 	int	winner;
 

@@ -6,11 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/20 14:35:05 by mafabre           #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2017/05/29 19:37:33 by acoupleu         ###   ########.fr       */
-=======
-/*   Updated: 2017/05/30 16:07:40 by aleveque         ###   ########.fr       */
->>>>>>> e626c6a9a75006fb54287bb9a9f6eb1123ab1c84
+/*   Updated: 2017/05/30 16:19:25 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,7 +166,7 @@ void			check_n_np(int ac, char **av, t_params *param);
 */
 void			print_arena_visu(t_map *map, t_visu *visu);
 void			print_visu(t_map *map, t_visu *visu);
-void			finish_visu(t_map *map, int last_cycle);
+void			display_winner(t_map *map, int last_cycle);
 t_visu			init_visu(t_map *map);
 void			check_resize(t_visu *visu);
 void			info_map(t_map *map);
