@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/20 14:35:05 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/30 18:11:58 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/30 19:04:33 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 # define POCP bin.ocp
 # define PREG_NBR bin.reg_nbr
 
-# include "../libft/libft.h"
+# include "../lib_vm/libft.h"
 # include "../srcs/op.h"
 # include "../ft_printf/ft_printf.h"
 # include <fcntl.h>

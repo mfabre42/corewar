@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:48:47 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/23 12:37:35 by mafabre          ###   ########.fr       */
+/*   Updated: 2017/05/30 19:03:50 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 # include "op.h"
 # include "../ft_printf/includes/ft_printf.h"
-# include "../libft/libft.h"
+# include "../lib_asm/libft.h"
 # include <fcntl.h>
 
 typedef struct		s_header

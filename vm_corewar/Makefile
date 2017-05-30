@@ -6,7 +6,7 @@
 #    By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/10 15:31:11 by mafabre           #+#    #+#              #
-#    Updated: 2017/05/29 15:34:51 by aleveque         ###   ########.fr        #
+#    Updated: 2017/05/30 19:01:50 by aleveque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ CC					=	gcc
 NAME				=	corewar
 FLAGS				=	-g
 LIB					=	$(LIBFT) $(LIBFTPRINTF)
-LIBFT_PATH			=	libft/
+LIBFT_PATH			=	lib_vm/
 LIBFT				=	$(LIB_PATH)libft.a
 LIBFTPRINTF_PATH	=	ft_printf/
 LIBFTPRINTF			=	$(LIBFTPRINTF_PATH)libftprintf.a
