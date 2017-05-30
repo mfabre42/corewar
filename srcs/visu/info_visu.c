@@ -6,11 +6,21 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/26 04:55:24 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/26 19:48:57 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/30 16:07:45 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
+
+void	print_visu(t_map *map, t_visu *visu)
+{
+	check_resize(visu);
+	info_joueur(visu, map);
+	print_arena_visu(map, visu);
+	info_map(map);
+	usleep(100);
+	refresh();
+}
 
 void	check_resize(t_visu *visu)
 {

@@ -6,13 +6,29 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/26 03:55:38 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/30 16:09:37 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/30 16:12:33 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-static void		print_proc_pc(t_map *map, int i, int y, int x)
+static void	print_proc_pc2(t_map *map, t_process *tmp, int y, int x)
+{
+	if (ARENA_CLAIM[(tmp->pc + tmp->start) % MEM_SIZE] + 4 > 4)
+	{
+		attron(COLOR_PAIR(ARENA_CLAIM[(tmp->pc + tmp->start) % MEM_SIZE] + 4));
+		mvprintw(y, x, "%.2x", ARENA[(tmp->pc + tmp->start) % MEM_SIZE]);
+		attroff(COLOR_PAIR(ARENA_CLAIM[(tmp->pc + tmp->start) % MEM_SIZE] + 4));
+	}
+	else
+	{
+		attron(COLOR_PAIR(10));
+		mvprintw(y, x, "%.2x", ARENA[(tmp->pc + tmp->start) % MEM_SIZE]);
+		attroff(COLOR_PAIR(10));
+	}
+}
+
+static void	print_proc_pc(t_map *map, int i, int y, int x)
 {
 	int			player;
 	t_process	*tmp;
@@ -25,20 +41,8 @@ static void		print_proc_pc(t_map *map, int i, int y, int x)
 		{
 			if ((tmp->pc + tmp->start) % MEM_SIZE == i)
 			{
-				if (ARENA_CLAIM[(tmp->pc + tmp->start) % MEM_SIZE] + 4 > 4)
-				{
-					attron(COLOR_PAIR(ARENA_CLAIM[(tmp->pc + tmp->start) % MEM_SIZE] + 4));
-					mvprintw(y, x, "%.2x", ARENA[(tmp->pc + tmp->start) % MEM_SIZE]);
-					attroff(COLOR_PAIR(ARENA_CLAIM[(tmp->pc + tmp->start) % MEM_SIZE] + 4));
-					break ;
-				}
-				else
-				{
-					attron(COLOR_PAIR(10));
-					mvprintw(y, x, "%.2x", ARENA[(tmp->pc + tmp->start) % MEM_SIZE]);
-					attroff(COLOR_PAIR(10));
-					break ;
-				}
+				print_proc_pc2(map, tmp, y, x);
+				break ;
 			}
 			tmp = tmp->next;
 		}
@@ -46,7 +50,7 @@ static void		print_proc_pc(t_map *map, int i, int y, int x)
 	}
 }
 
-static void		print_arena_content(t_map *map, int i, int y, int x)
+static void	print_arena_content(t_map *map, int i, int y, int x)
 {
 	if (ARENA_CLAIM[i])
 	{
@@ -62,7 +66,7 @@ static void		print_arena_content(t_map *map, int i, int y, int x)
 	}
 }
 
-static void		print_arena_visu(t_map *map, t_visu *visu)
+void		print_arena_visu(t_map *map, t_visu *visu)
 {
 	int		i;
 	int		x;
@@ -89,17 +93,7 @@ static void		print_arena_visu(t_map *map, t_visu *visu)
 	}
 }
 
-void		print_visu(t_map *map, t_visu *visu)
-{
-	check_resize(visu);
-	info_joueur(visu, map);
-	print_arena_visu(map, visu);
-	info_map(map);
-	usleep(100);
-	refresh();
-}
-
-void		finish_visu(t_map *map)
+void		finish_visu(t_map *map, int last_cycle)
 {
 	int	winner;
 

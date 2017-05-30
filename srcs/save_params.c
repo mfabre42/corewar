@@ -6,7 +6,11 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 19:32:42 by mafabre           #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2017/05/29 19:44:23 by acoupleu         ###   ########.fr       */
+=======
+/*   Updated: 2017/05/29 21:01:46 by aleveque         ###   ########.fr       */
+>>>>>>> e626c6a9a75006fb54287bb9a9f6eb1123ab1c84
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +35,12 @@ void	save_dump(char *opt, t_params *param, t_map *map, char *av)
 	if (ft_strcmp(opt, "-d") == 0)
 		map->dump = ft_atoi(av);
 	else
+	{
 		if (ft_atoi(av) == 0)
 			error(4);
 		else
 			map->ndump = ft_atoi(av);
+	}
 }
 
 void	save_number(char *av, t_params *param)
@@ -85,12 +91,13 @@ void	init_params(t_params *param, t_map *map)
 
 void	if_save_params(int ac, char **av, t_map *map, t_params *param)
 {
+	param->n = 0;
 	if (param->i < ac - 1 && (ft_strcmp(av[param->i], "-d") == 0
 		|| ft_strcmp(av[param->i], "-s") == 0))
 		save_dump(av[param->i], param, map, av[++param->i]);
 	if (param->i == ac - 1 && (ft_strcmp(av[param->i], "-d") == 0
 		|| ft_strcmp(av[param->i], "-s") == 0))
-		save_dump(av[param->i], param, map, "-1");
+		error(4);
 	if (ft_strcmp(av[param->i], "-m") == 0)
 		map->mute = 1;
 	if (ft_strcmp(av[param->i], "-a") == 0)
@@ -103,7 +110,7 @@ void	if_save_params(int ac, char **av, t_map *map, t_params *param)
 		param->i++;
 	}
 	if (param->i >= ac - 2 && ft_strcmp(av[param->i], "-n") == 0)
-		save_number("-1", param);
+		error(2);
 	if (ft_strstr(av[param->i], ".cor") != NULL)
 		save_file(av[param->i], param, map);
 }
@@ -119,7 +126,6 @@ void	save_params(int ac, char **av, t_map *map)
 	init_player(&param, map);
 	while (++param.i < ac)
 	{
-		param.n = 0;
 		if_save_params(ac, av, map, &param);
 	}
 }
