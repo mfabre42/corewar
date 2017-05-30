@@ -6,7 +6,7 @@
 #    By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/10 15:31:11 by mafabre           #+#    #+#              #
-#    Updated: 2017/05/30 19:02:17 by aleveque         ###   ########.fr        #
+#    Updated: 2017/05/30 19:23:58 by aleveque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,9 +42,9 @@ SUCCESS			=	[ $(C_GOOD)OK$(C_NO) ]
 OK				=	[ $(C_OK)OK$(C_NO) ]
 
 
-all: obj $(NAME)
+all: obj $(LIB) $(NAME)
 
-$(NAME): $(LIB) $(OBJS)
+$(NAME): $(OBJS)
 	$(CC) $(FLAGS) -o $@ $(OBJS) $(LIB_LINK)
 	@echo "Compiling" $(NAME) "\t\t" $(SUCCESS)
 
