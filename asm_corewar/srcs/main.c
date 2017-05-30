@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:46:38 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/30 19:37:10 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/30 20:56:31 by mfabre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ char		*epur(char *str, int a, int i, char *buffer)
 {
 	if ((str != NULL) && (str[0] == '\0' || str[0] == '.'))
 		return (str);
-	if ((buffer = (char *)malloc(sizeof(char) * strlen(str) + 1)) == NULL)
+	if ((buffer = (char *)malloc(sizeof(char) * strlen(str))) == NULL)
 		return (NULL);
 	while (str[a] == ' ' || str[a] == '\t')
 		a++;
@@ -92,7 +92,7 @@ void		save_file(char *av, t_file *file, int fd, int i)
 	fd = open(av, O_RDONLY);
 	if (fd == -1)
 		exit_error_nl("Le fichier n'a pu etre ouvert.");
-	file->file_s = (char **)malloc(sizeof(char *) * (i + 1));
+	file->file_s = (char **)malloc(sizeof(char *) * i + 1);
 	i = 0;
 	while (get_next_line(fd, &line) > 0)
 	{
