@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/22 15:56:41 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/23 01:40:29 by mafabre          ###   ########.fr       */
+/*   Updated: 2017/05/30 21:37:43 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void		write_magic_number(t_file *file, t_line *line, int fd)
 	write(fd, (char *)&convert[0].c_char[2], 1);
 	write(fd, (char *)&convert[0].c_char[1], 1);
 	write(fd, (char *)&convert[0].c_char[0], 1);
+	free(convert);
 }
 
 void		write_header(t_file *file, t_line *line, int fd)
@@ -41,6 +42,7 @@ void		write_header(t_file *file, t_line *line, int fd)
 	write(fd, (char *)&convert[0].c_char[2], 1);
 	write(fd, (char *)&convert[0].c_char[1], 1);
 	write(fd, (char *)&convert[0].c_char[0], 1);
+	free(convert);
 }
 
 void		write_name_comment(t_file *file, t_line *line, int fd)

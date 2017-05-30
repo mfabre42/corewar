@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/12 19:07:11 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/23 10:31:26 by mafabre          ###   ########.fr       */
+/*   Updated: 2017/05/30 21:33:37 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,6 +126,7 @@ void		save_size_and_label(t_file *file)
 		file->tmp_line = ft_strsplit(file->file_s[file->line], ' ');
 		if (file->tmp_line != NULL)
 			save_size_and_label2(file, &line);
+		free(file->tmp_line);
 		file->line++;
 	}
 }

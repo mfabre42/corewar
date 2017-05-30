@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:46:38 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/30 20:56:31 by mfabre           ###   ########.fr       */
+/*   Updated: 2017/05/30 21:37:54 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,18 @@
 ** Epur every tab and space in the file.s.
 */
 
-void		move_to_next_line(t_file *file)
+void		free_file(t_file *file)
 {
-	while (file->file_s[file->line] && (file->file_s[file->line][0] == '\0' ||
-	file->file_s[file->line][0] == '#'))
-		file->line++;
+	int		i;
+
+	i = 0;
+	while (file->file_s[i] != NULL)
+	{
+		free(file->file_s[i]);
+		i++;
+	}
+	free(file->file_s);
+	free(file->tmp_line);
 }
 
 char		*add_space(char *line, int i)
@@ -55,7 +62,7 @@ char		*epur(char *str, int a, int i, char *buffer)
 {
 	if ((str != NULL) && (str[0] == '\0' || str[0] == '.'))
 		return (str);
-	if ((buffer = (char *)malloc(sizeof(char) * strlen(str))) == NULL)
+	if ((buffer = (char *)malloc(sizeof(char) * (strlen(str) + 1))) == NULL)
 		return (NULL);
 	while (str[a] == ' ' || str[a] == '\t')
 		a++;
@@ -92,7 +99,7 @@ void		save_file(char *av, t_file *file, int fd, int i)
 	fd = open(av, O_RDONLY);
 	if (fd == -1)
 		exit_error_nl("Le fichier n'a pu etre ouvert.");
-	file->file_s = (char **)malloc(sizeof(char *) * i + 1);
+	file->file_s = (char **)malloc(sizeof(char *) * (i + 1));
 	i = 0;
 	while (get_next_line(fd, &line) > 0)
 	{
@@ -100,6 +107,7 @@ void		save_file(char *av, t_file *file, int fd, int i)
 		line = add_space(line, 0);
 		line = epur(line, 0, 0, ft_strdup(""));
 		ft_strcpy(file->file_s[i], line);
+		free(line);
 		i++;
 	}
 	file->file_s[i] = NULL;
@@ -129,5 +137,6 @@ int			main(int ac, char **av)
 	if (file.pc == 0)
 		exit_error_nl("Aucune instructions.");
 	ft_printf("%s successfully created.\n", file.filename);
+	free_file(&file);
 	return (0);
 }

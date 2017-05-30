@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/17 17:12:54 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/23 11:08:50 by mafabre          ###   ########.fr       */
+/*   Updated: 2017/05/30 21:34:30 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ void		conv_file(t_file *file)
 			break ;
 		file->tmp_line = ft_strsplit(file->file_s[file->line], ' ');
 		int_line(file, &line);
+		free(file->tmp_line);
 		file->line++;
 	}
 	conv_in_hex(file, &line);
