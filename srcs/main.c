@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 17:05:36 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/30 16:36:43 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/30 17:02:28 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,14 @@ void	notif_winner(t_map *map)
 	map->player[winner].name);
 }
 
+void	pauses(void)
+{
+	int c;
+
+	while (c != '\n')
+		c = getchar();
+}
+
 void	print_map(t_map *map)
 {
 	int	i;
@@ -59,9 +67,9 @@ void	print_map(t_map *map)
 	}
 	if (map->ndump != 0)
 	{
-		ft_printf("Cycle actuel: %d, appuyez sur une touche pour continuer\n",
+		ft_printf("Cycle actuel: %d, appuyez sur entrer pour continuer\n",
 		map->cycle);
-		getchar();
+		pauses();
 	}
 }
 
