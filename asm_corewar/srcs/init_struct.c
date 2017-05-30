@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/18 22:11:48 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/23 10:56:39 by mafabre          ###   ########.fr       */
+/*   Updated: 2017/05/30 19:47:24 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ void		init_file_secondparse(t_file *file)
 	file->pc = 0;
 	if (!(file->int_file = (int *)malloc(sizeof(int) * file->file_size + 1)))
 		exit_error_nl("Erreur de malloc.");
-	if (!(file->size_hex = (int *)malloc(sizeof(int) * file->file_size + 1)))
+	if (!(file->size_hex =
+		(int *)ft_memalloc(sizeof(int) * file->file_size + 1)))
 		exit_error_nl("Erreur de malloc.");
 }
 

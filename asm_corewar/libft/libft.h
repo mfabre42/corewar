@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 22:13:34 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/30 18:43:10 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/30 19:44:03 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int					ft_count_word(const char *s, char c);
 char				*ft_itoa(int n);
 void				ft_lstadd(t_label **alst, t_label *new);
 t_label				*ft_lstnew(char *name, int value);
+void				*ft_memalloc(size_t size);
 char				*ft_strcat(char *dest, const char *src);
 char				*ft_strchr(const char *s, int c);
 int					ft_strcmp(const char *s1, const char *s2);

@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/26 03:55:38 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/30 16:19:26 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/30 19:10:09 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,6 @@ void		print_arena_visu(t_map *map, t_visu *visu)
 	i = 0;
 	x = 1;
 	y = 1;
-	box(stdscr, 0, 0);
 	while (i < MEM_SIZE)
 	{
 		check_resize(visu);

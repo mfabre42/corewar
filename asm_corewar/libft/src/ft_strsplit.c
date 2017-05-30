@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/22 17:30:21 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/22 23:49:24 by mafabre          ###   ########.fr       */
+/*   Updated: 2017/05/30 19:40:11 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	**ft_strsplit(char const *s, char c)
 
 	i = 0;
 	k = 0;
-	if (!(split = (char **)malloc(sizeof(char *) * ft_count_word(s, c) + 1)))
+	if (!(split = (char **)malloc(sizeof(char *) * (ft_count_word(s, c) + 1))))
 		return (NULL);
 	while (s[i] != '\0' && k < ft_count_word(s, c))
 	{
@@ -32,7 +32,7 @@ char	**ft_strsplit(char const *s, char c)
 			i++;
 		while (s[i + j] != c && s[i + j] != '\0')
 			j++;
-		split[k] = (char *)malloc(sizeof(char) * j + 1);
+		split[k] = (char *)malloc(sizeof(char) * (j + 1));
 		while (j > p)
 			split[k][p++] = s[i++];
 		split[k++][p] = '\0';
