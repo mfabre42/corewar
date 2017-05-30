@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 17:05:36 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/29 19:05:44 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/30 15:27:39 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int		main(int ac, char **av)
 	save_params(ac, av, &map);
 	play_game(&map);
 	if (map.visu == 1)
-		finish_visu(&map);
+		finish_visu(&map, 0);
 	else
 		print_map(&map);
 	if (map.cycle_to_die < 0 || is_alive(&map) == 0)

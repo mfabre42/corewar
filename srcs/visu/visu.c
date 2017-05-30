@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/26 03:55:38 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/29 19:16:05 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/30 15:33:15 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,12 +99,10 @@ void		print_visu(t_map *map, t_visu *visu)
 	refresh();
 }
 
-void		finish_visu(t_map *map)
+void		finish_visu(t_map *map, int last_cycle)
 {
 	int	player;
-	int	last_cycle;
-
-	last_cycle = 0;
+	
 	player = map->nb_player - 1;
 	while (player >= 0)
 	{
