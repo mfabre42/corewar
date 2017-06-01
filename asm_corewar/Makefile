@@ -6,7 +6,7 @@
 #    By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/10 15:31:11 by mafabre           #+#    #+#              #
-#    Updated: 2017/05/31 18:07:20 by mafabre          ###   ########.fr        #
+#    Updated: 2017/06/01 16:59:03 by mafabre          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ LIBFTPRINTF			=	$(LIBFTPRINTF_PATH)libftprintf.a
 LIB_LINK			=	-L $(LIBFT_PATH) -lft -L $(LIBFTPRINTF_PATH) -lftprintf
 INCLUDES			=	-I $(LIBFT_PATH) -I $(LIBFTPRINTF_PATH)/includes -I ./includes
 SRCS				=	srcs/main.c \
-						srcs/exit_error.c \
+						srcs/tools.c \
 						srcs/init_struct.c \
 						srcs/name_comment.c srcs/size_and_label.c \
 						srcs/conv_file.c srcs/save_params.c srcs/opc.c \

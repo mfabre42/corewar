@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/27 23:07:14 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/26 18:58:16 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/06/01 18:38:05 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ unsigned int	read_in_arena(t_map *map, int adress)
 {
 	t_convert conv;
 
-	conv.c_char[3] = ARENA[adress];
-	conv.c_char[2] = ARENA[adress + 1];
-	conv.c_char[1] = ARENA[adress + 2];
-	conv.c_char[0] = ARENA[adress + 3];
+	conv.c_char[3] = ARENA[adress % MEM_SIZE];
+	conv.c_char[2] = ARENA[adress + 1 % MEM_SIZE];
+	conv.c_char[1] = ARENA[adress + 2 % MEM_SIZE];
+	conv.c_char[0] = ARENA[adress + 3 % MEM_SIZE];
 	return (conv.c_int);
 }

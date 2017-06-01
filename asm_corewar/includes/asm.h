@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:48:47 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/31 18:10:42 by mafabre          ###   ########.fr       */
+/*   Updated: 2017/06/01 17:19:07 by mafabre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ void				init_line(t_line *line);
 /*
 ** first parse, save size and label
 */
+void				check_label_inst(t_file *file);
 void				save_name_comment(t_file *file);
 void				save_label(t_file *file, t_line *line);
 void				save_size_and_label(t_file *file);

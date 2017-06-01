@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:46:38 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/31 18:03:52 by mafabre          ###   ########.fr       */
+/*   Updated: 2017/06/01 17:16:29 by mafabre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ void		free_file(t_file *file)
 	ft_lstdel(&file->label);
 }
 
-char		*add_space(char *line, int i)
+char		*add_space(char *line, int i, int separator)
 {
-	int		separator;
 	char	*new_line;
 
-	separator = 0;
+	if ((line != NULL) && (line[0] == '\0' || line[0] == '.'))
+		return (line);
 	while (line[i] != '\0')
 	{
 		if (line[i] == ',')
@@ -108,7 +108,7 @@ void		save_file(char *av, t_file *file, int fd, int i)
 	while (get_next_line(fd, &line))
 	{
 		file->file_s[i] = "";
-		line = add_space(line, 0);
+		line = add_space(line, 0, 0);
 		line = epur(line, 0, 0, "");
 		file->file_s[i] = ft_strjoin(file->file_s[i], line);
 		free(line);

@@ -6,7 +6,7 @@
 /*   By: aleveque <aleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 19:54:02 by aleveque          #+#    #+#             */
-/*   Updated: 2017/05/24 01:14:13 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/06/01 18:46:58 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,16 @@ static int	func_or3(t_map *map, t_process *proc, t_bin *bin, int *param1)
 	}
 	else if (OCP.param2 == 'I')
 	{
-		*param1 = *param1 | (short)hex_to_int(0x00, 0x00, ARENA[(POS + PC)
-		% MEM_SIZE], ARENA[(POS + PC + 1) % MEM_SIZE]);
+		*param1 = *param1 | read_in_arena(map, POS + (short)hex_to_int(0x00,
+			0x00, ARENA[(POS + PC) % MEM_SIZE],
+			ARENA[(POS + PC + 1) % MEM_SIZE]) % IDX_MOD);
 		PC += 2;
 	}
 	else if (OCP.param2 == 'D')
 	{
 		*param1 = *param1 | hex_to_int(ARENA[(POS + PC) % MEM_SIZE],
-		ARENA[(POS + PC + 1) % MEM_SIZE], ARENA[(POS + PC + 2) % MEM_SIZE],
-		ARENA[(POS + PC + 3) % MEM_SIZE]);
+			ARENA[(POS + PC + 1) % MEM_SIZE], ARENA[(POS + PC + 2) % MEM_SIZE],
+			ARENA[(POS + PC + 3) % MEM_SIZE]);
 		PC += 4;
 	}
 	return (1);
@@ -48,8 +49,9 @@ static int	func_or2(t_map *map, t_process *proc, t_bin *bin, int *param1)
 	}
 	else if (OCP.param1 == 'I')
 	{
-		*param1 = (short)hex_to_int(0x00, 0x00, ARENA[(POS + 2)
-		% MEM_SIZE], ARENA[(POS + 3) % MEM_SIZE]);
+		*param1 = read_in_arena(map, POS + (short)hex_to_int(0x00, 0x00,
+			ARENA[(POS + 2) % MEM_SIZE],
+			ARENA[(POS + 3) % MEM_SIZE]) % IDX_MOD);
 		PC += 2;
 	}
 	else if (OCP.param1 == 'D')

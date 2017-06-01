@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 19:35:01 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/30 16:17:51 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/06/01 19:07:04 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ void	check_n_np(int ac, char **av, t_params *param)
 		if (i < ac - 1 && ft_strcmp(av[i], "-n") == 0)
 			if_check_np(av, param, &i);
 		if (ft_strstr(av[i], ".cor") == NULL && ft_strcmp(av[i], "-n") != 0 &&
-		ft_strcmp(av[i], "-d") != 0 && ft_strcmp(av[i - 1], "-n") != 0 &&
-		ft_strcmp(av[i - 1], "-d") != 0 && ft_strcmp(av[i], "-m") != 0 &&
+		ft_strcmp(av[i], "-dump") != 0 && ft_strcmp(av[i - 1], "-n") != 0 &&
+		ft_strcmp(av[i - 1], "-dump") != 0 && ft_strcmp(av[i], "-m") != 0 &&
 		ft_strcmp(av[i], "-a") != 0 && ft_strcmp(av[i], "-v") != 0 &&
 		ft_strcmp(av[i], "-s") != 0 && ft_strcmp(av[i - 1], "-s") != 0)
 			error(3);

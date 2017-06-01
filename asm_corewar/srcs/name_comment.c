@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/12 16:06:16 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/31 14:41:38 by mafabre          ###   ########.fr       */
+/*   Updated: 2017/06/01 16:59:15 by mafabre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,6 @@
 ** Cut les quotes du nom et commentaire, check s'ils sont valides.
 ** Sauvegarde nom et commentaire dans leur variable respective (file->).
 */
-
-void	move_to_next_line(t_file *file)
-{
-	while (file->file_s[file->line] && (file->file_s[file->line][0] == '\0' ||
-	file->file_s[file->line][0] == '#'))
-		file->line++;
-}
 
 int		check_and_cut(t_file *file, int i)
 {

@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 17:05:36 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/31 18:59:24 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/06/01 19:07:45 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	print_map(t_map *map)
 	{
 		while (i < MEM_SIZE)
 		{
-			if (i % 64 == 0 && i != 0)
+			if (i % 32 == 0 && i != 0)
 				ft_printf("\n");
 			ft_printf("%02x ", ARENA[i]);
 			i++;

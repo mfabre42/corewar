@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:39:11 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/24 02:06:46 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/06/01 18:45:57 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ static int		ldirect_load2(t_map *map, t_process *proc, t_bin *bin)
 		if (!is_reg((int)ARENA[(POS + 4) % MEM_SIZE], proc, 5))
 			return (0);
 		REG_NBR = (int)ARENA[(POS + 4) % MEM_SIZE];
-		proc->reg[REG_NBR - 1] = (short)hex_to_int(0x00, 0x00,
-			ARENA[(POS + 2) % MEM_SIZE],
-			ARENA[(POS + 3) % MEM_SIZE]);
+		proc->reg[REG_NBR - 1] = read_in_arena(map, POS +
+			(short)hex_to_int(0x00, 0x00, ARENA[(POS + 2) % MEM_SIZE],
+			ARENA[(POS + 3) % MEM_SIZE]));
 		proc->pc = proc->pc + 5;
 	}
 	else
