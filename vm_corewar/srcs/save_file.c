@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 19:35:01 by mafabre           #+#    #+#             */
-/*   Updated: 2017/06/01 20:16:51 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/06/01 20:18:46 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	size(t_convert *tab, int i, int tmp)
 
 	t_t = tab[34].c_char[2] << 8;
 	t_t = tab[34].c_char[3] | t_t;
+	if (t_t == 0)
+		error(8);
 	champ_len = tmp != 0 ? (i - (COMMENT_LENGTH / 4 + PROG_NAME_LENGTH
 	/ 4 + 4)) * 4 + tmp - 4 : (i - (COMMENT_LENGTH / 4 + PROG_NAME_LENGTH / 4
 	+ 4)) * 4 + tmp;

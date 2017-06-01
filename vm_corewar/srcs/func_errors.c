@@ -6,7 +6,7 @@
 /*   By: aleveque <aleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/09 19:49:54 by aleveque          #+#    #+#             */
-/*   Updated: 2017/06/01 20:13:41 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/06/01 20:20:43 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ void	error(int nb)
 		ft_printf("Error player len\n");
 	else if (nb == 7)
 		ft_printf("Error header\n");
+	else if (nb == 8)
+		ft_printf("Error player too short\n");
 	else
 		ft_printf("Error\n");
 	exit(0);
@@ -41,7 +43,8 @@ void	error(int nb)
 
 void	print_usage(void)
 {
-	ft_printf("Usage: ./corewar [-v][-dump N][-s N][-n X] <champion1.cor> <...>\n\
+	ft_printf("Usage: ./corewar [-v][-dump N][-s N][-n X]\
+	<champion1.cor> <...>\n\
 	-a        : Prints output from \"aff\" (Default is to hide it)\n\
 	-m        : Mute live\n\
 	-dump N   : Dumps memory after N cycles then exits\n\

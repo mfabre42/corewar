@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/12 16:09:02 by mafabre           #+#    #+#             */
-/*   Updated: 2017/06/01 17:38:40 by mafabre          ###   ########.fr       */
+/*   Updated: 2017/06/01 20:22:09 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,14 @@ void	move_to_next_line(t_file *file)
 		exit_error("pas de nom et/ou commentaire.", file);
 }
 
-void		exit_error(char *error, t_file *file)
+void	exit_error(char *error, t_file *file)
 {
 	ft_printf("Ligne %d : ", file->line + 1);
 	ft_printf("%s\n", error);
 	exit(0);
 }
 
-void		exit_error_nl(char *error)
+void	exit_error_nl(char *error)
 {
 	ft_printf("%s\n", error);
 	exit(0);

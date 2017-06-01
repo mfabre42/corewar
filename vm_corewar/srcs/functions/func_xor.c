@@ -6,7 +6,7 @@
 /*   By: aleveque <aleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 19:57:24 by aleveque          #+#    #+#             */
-/*   Updated: 2017/06/01 18:46:32 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/06/01 20:21:35 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static int	func_xor3(t_map *map, t_process *proc, t_bin *bin, int *param1)
 	else if (OCP.param2 == 'I')
 	{
 		*param1 = *param1 ^ read_in_arena(map, POS + (short)hex_to_int(0x00,
-			0x00, ARENA[(POS + PC)% MEM_SIZE],
+			0x00, ARENA[(POS + PC) % MEM_SIZE],
 			ARENA[(POS + PC + 1) % MEM_SIZE]) % IDX_MOD);
 		PC += 2;
 	}

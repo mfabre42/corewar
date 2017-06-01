@@ -6,13 +6,14 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:42:36 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/06/01 18:46:13 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/06/01 20:21:19 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-static int	lindirect_load4(t_map *map, t_process *proc, t_bin *bin, int *result)
+static int	lindirect_load4(t_map *map, t_process *proc, t_bin *bin,
+	int *result)
 {
 	if (!is_reg((int)ARENA[(POS + 6) % MEM_SIZE], proc, 7))
 		return (0);
@@ -31,7 +32,8 @@ static int	lindirect_load4(t_map *map, t_process *proc, t_bin *bin, int *result)
 	return (1);
 }
 
-static int	lindirect_load3(t_map *map, t_process *proc, t_bin *bin, int *result)
+static int	lindirect_load3(t_map *map, t_process *proc, t_bin *bin,
+	int *result)
 {
 	if ((OCP.param1 == 'D' || OCP.param1 == 'I') && OCP.param2 == 'R')
 	{
