@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/20 14:35:05 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/31 18:56:17 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/06/01 20:11:41 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,7 +138,7 @@ int				is_reg(unsigned int reg, t_process *proc, int pc);
 ** Recuperation fichier
 */
 void			check_n_np(int ac, char **av, t_params *param);
-void			save_file(char *file, t_params *param, t_map *map);
+void			save_file(char *file, t_params *param, t_map *map, int tmp);
 void			save_params(int ac, char **av, t_map *map);
 void			send_in_arena(t_convert *tab, t_params *param, t_map *map);
 

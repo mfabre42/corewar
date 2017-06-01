@@ -6,11 +6,25 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 19:35:01 by mafabre           #+#    #+#             */
-/*   Updated: 2017/06/01 19:07:04 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/06/01 20:16:51 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
+
+void	size(t_convert *tab, int i, int tmp)
+{
+	int t_t;
+	int champ_len;
+
+	t_t = tab[34].c_char[2] << 8;
+	t_t = tab[34].c_char[3] | t_t;
+	champ_len = tmp != 0 ? (i - (COMMENT_LENGTH / 4 + PROG_NAME_LENGTH
+	/ 4 + 4)) * 4 + tmp - 4 : (i - (COMMENT_LENGTH / 4 + PROG_NAME_LENGTH / 4
+	+ 4)) * 4 + tmp;
+	if (t_t != champ_len)
+		error(7);
+}
 
 void	if_check_np(char **av, t_params *param, int *i)
 {
@@ -51,7 +65,7 @@ void	check_n_np(int ac, char **av, t_params *param)
 		error(2);
 }
 
-void	save_file(char *file, t_params *param, t_map *map)
+void	save_file(char *file, t_params *param, t_map *map, int tmp)
 {
 	t_convert	convert;
 	int			fd;
@@ -72,7 +86,9 @@ void	save_file(char *file, t_params *param, t_map *map)
 		ft_bzero(convert.c_char, 4);
 		if (i > 719 || (i == 719 && ret > 2))
 			error(6);
+		tmp = ret;
 	}
+	size(tab, i, tmp);
 	close(fd);
 	send_in_arena(tab, param, map);
 	free(tab);

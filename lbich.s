@@ -22,5 +22,7 @@ aff: ld %82,r2
 	ld %32,r2
 	aff r2
 	and r3, r4, r5
+	sti r1, %:live, %1
 
-live:	zjmp %480
+live:	live %1
+		zjmp %480

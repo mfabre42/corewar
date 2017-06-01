@@ -6,7 +6,7 @@
 /*   By: aleveque <aleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/09 19:49:54 by aleveque          #+#    #+#             */
-/*   Updated: 2017/06/01 19:06:54 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/06/01 20:13:41 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ void	error(int nb)
 		ft_printf("Error open\n");
 	else if (nb == 6)
 		ft_printf("Error player len\n");
+	else if (nb == 7)
+		ft_printf("Error header\n");
 	else
 		ft_printf("Error\n");
 	exit(0);
