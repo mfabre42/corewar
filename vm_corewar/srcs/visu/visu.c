@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/26 03:55:38 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/30 19:10:09 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/31 19:06:31 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,16 +92,16 @@ void		print_arena_visu(t_map *map, t_visu *visu)
 	}
 }
 
-void		display_winner(t_map *map, int last_cycle)
+void		display_winner(t_map *map)
 {
 	int	winner;
 
 	winner = check_last_survivor(map);
 	attron(COLOR_PAIR(winner + 1));
-	mvprintw(40, 198, "Le joueur %d (%s) a gagne\n",
+	mvprintw(40, 198, "Le joueur %d (%s) a gagné.\n",
 	map->player[winner].number, map->player[winner].name);
 	refresh();
-	sleep(100);
+	sleep(1000);
 	endwin();
 	curs_set(1);
 	exit(0);

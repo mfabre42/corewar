@@ -6,13 +6,13 @@
 #    By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/10 15:31:11 by mafabre           #+#    #+#              #
-#    Updated: 2017/05/30 20:33:21 by acoupleu         ###   ########.fr        #
+#    Updated: 2017/05/31 18:49:15 by acoupleu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC					=	gcc
 NAME				=	corewar
-FLAGS				=	-g
+FLAGS				=	-Wall -Werror -Wextra
 LIB					=	$(LIBFT) $(LIBFTPRINTF)
 LIBFT_PATH			=	lib_vm/
 LIBFT				=	$(LIB_PATH)libft.a

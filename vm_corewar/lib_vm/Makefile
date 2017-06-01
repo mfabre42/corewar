@@ -6,7 +6,7 @@
 #    By: aleveque <aleveque@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/04 14:51:15 by aleveque          #+#    #+#              #
-#    Updated: 2017/05/30 18:57:20 by acoupleu         ###   ########.fr        #
+#    Updated: 2017/05/31 18:49:30 by acoupleu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,16 +33,16 @@ SRCPATH = $(addprefix $(SRCDIR)/, $(SRC))
 
 FLAG = -Wall -Werror -Wextra
 
-all: $(OBJDIR) $(NAME)
+all: obj $(NAME)
 
 re: fclean all
 
-$(OBJDIR)/%.o: $(SRCDIR)/%.c
+obj/%.o: $(SRCDIR)/%.c
 	@$(CC) -c -o $@ $^
 
-$(OBJDIR):
+obj:
 	@echo "\033[1;32mcompiling libft obj"
-	@mkdir -p $(OBJDIR)
+	@mkdir -p obj
 
 $(NAME): $(OBJP)
 	@echo "\033[1;34mcompiling libft"
@@ -50,7 +50,7 @@ $(NAME): $(OBJP)
 
 clean:
 	@echo "\033[1;31mcleaning libft"
-	@rm -rf $(OBJDIR)
+	@rm -rf obj
 
 fclean: clean
 	@echo "\033[1;31mfclean libft.a"

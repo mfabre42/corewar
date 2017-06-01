@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/20 14:35:05 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/30 20:50:21 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/31 18:56:17 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,7 +134,6 @@ void			error(int nb);
 void			print_usage(void);
 int				is_reg(unsigned int reg, t_process *proc, int pc);
 
-
 /*
 ** Recuperation fichier
 */
@@ -165,10 +164,10 @@ void			play_game(t_map *map);
 */
 void			print_arena_visu(t_map *map, t_visu *visu);
 void			print_visu(t_map *map, t_visu *visu);
-void			display_winner(t_map *map, int last_cycle);
+void			display_winner(t_map *map);
 t_visu			init_visu(t_map *map);
 void			check_resize(t_visu *visu);
 void			info_map(t_map *map);
-void			info_joueur(t_visu *visu, t_map *map);
+void			info_joueur(t_map *map);
 
 #endif

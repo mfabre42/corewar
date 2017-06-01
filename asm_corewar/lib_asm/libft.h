@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 22:13:34 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/30 19:44:03 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/31 15:54:09 by mafabre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@ typedef struct		s_label
 	struct s_label	*next;
 }					t_label;
 
+void				ft_memdel(void **ap);
+void				ft_lstdelone(t_label **alst);
+void				ft_lstdel(t_label **alst);
 int					ft_atoi(const char *nptr);
 int					ft_count_word(const char *s, char c);
 char				*ft_itoa(int n);

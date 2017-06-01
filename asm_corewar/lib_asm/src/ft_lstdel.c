@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aleveque <aleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/30 12:40:09 by aleveque          #+#    #+#             */
-/*   Updated: 2017/05/31 15:33:12 by mafabre          ###   ########.fr       */
+/*   Created: 2016/11/30 14:07:13 by aleveque          #+#    #+#             */
+/*   Updated: 2017/05/31 15:37:36 by mafabre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 #include <string.h>
-#include <stdlib.h>
-#include "../../includes/op.h"
 
-t_label				*ft_lstnew(char *name, int value)
+void	ft_lstdel(t_label **alst)
 {
-	t_label		*new;
+	t_label	*list;
+	t_label	*old;
 
-	if (!(new = (t_label*)malloc(sizeof(t_label))))
-		return (NULL);
-	new->l_name = ft_strdup(name);
-	if (new->l_name == NULL)
-		return (NULL);
-	new->l_value = value;
-	new->next = NULL;
-	return (new);
+	old = *alst;
+	while (old != NULL)
+	{
+		list = old->next;
+		ft_lstdelone(&old);
+		old = list;
+	}
+	*alst = NULL;
 }

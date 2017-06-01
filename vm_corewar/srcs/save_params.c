@@ -6,13 +6,13 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/26 19:32:42 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/30 16:17:42 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/31 18:53:05 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "corewar.h"
 
-void	save_dump(char *opt, t_params *param, t_map *map, char *av)
+void	save_dump(char *opt, t_map *map, char *av)
 {
 	int	i;
 
@@ -90,7 +90,7 @@ void	if_save_params(int ac, char **av, t_map *map, t_params *param)
 	param->n = 0;
 	if (param->i < ac - 1 && (ft_strcmp(av[param->i], "-d") == 0
 		|| ft_strcmp(av[param->i], "-s") == 0))
-		save_dump(av[param->i], param, map, av[++param->i]);
+		save_dump(av[param->i], map, av[++param->i]);
 	if (param->i == ac - 1 && (ft_strcmp(av[param->i], "-d") == 0
 		|| ft_strcmp(av[param->i], "-s") == 0))
 		error(4);

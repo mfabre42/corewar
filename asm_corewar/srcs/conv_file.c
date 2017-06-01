@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/17 17:12:54 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/30 21:34:30 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/31 18:37:29 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void		get_label_value(t_file *file, t_line *line)
 {
 	t_label	*tmp;
 	int		label_value;
+	char	*tmp_value;
 
 	tmp = file->label;
 	label_value = 0;
@@ -29,10 +30,9 @@ void		get_label_value(t_file *file, t_line *line)
 		if (ft_strcmp(&file->tmp_line[line->i][line->j], tmp->l_name) == 0)
 		{
 			label_value = tmp->l_value - file->pc;
-			file->tmp_line[line->i] = ft_strdup("");
-			file->tmp_line[line->i] =
-			ft_strdup(ft_itoa(label_value));
-			file->tmp_line[line->i] = ft_strjoin("%", file->tmp_line[line->i]);
+			tmp_value = ft_itoa(label_value);
+			file->tmp_line[line->i] = ft_strjoin("%", tmp_value);
+			free(tmp_value);
 			line->j = 1;
 			return ;
 		}
@@ -72,18 +72,23 @@ void		int_line(t_file *file, t_line *line)
 
 void		conv_file(t_file *file)
 {
-	t_line line;
+	t_line	line;
+	int		i;
 
 	while (file->file_s[file->line])
 	{
 		init_line(&line);
 		move_to_next_line(file);
-		if (file->file_s[file->line] == NULL)
-			break ;
-		file->tmp_line = ft_strsplit(file->file_s[file->line], ' ');
-		int_line(file, &line);
-		free(file->tmp_line);
-		file->line++;
+		if (file->file_s[file->line] != NULL)
+		{
+			file->tmp_line = ft_strsplit(file->file_s[file->line], ' ');
+			int_line(file, &line);
+			i = 0;
+			while (file->tmp_line[i])
+				free(file->tmp_line[i++]);
+			free(file->tmp_line);
+			file->line++;
+		}
 	}
-	conv_in_hex(file, &line);
+	conv_in_hex(file);
 }

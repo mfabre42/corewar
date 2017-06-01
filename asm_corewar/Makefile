@@ -6,13 +6,13 @@
 #    By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/10 15:31:11 by mafabre           #+#    #+#              #
-#    Updated: 2017/05/30 19:23:58 by aleveque         ###   ########.fr        #
+#    Updated: 2017/05/31 18:07:20 by mafabre          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC					=	gcc
 NAME				=	asm
-FLAGS				=	-g
+FLAGS				=	-Wall -Wextra -Werror
 LIB					=	$(LIBFT) $(LIBFTPRINTF)
 LIBFT_PATH			=	lib_asm/
 LIBFT				=	$(LIB_PATH)libft.a

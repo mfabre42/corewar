@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/12 16:06:16 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/30 21:38:43 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/31 14:41:38 by mafabre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ int		check_and_cut(t_file *file, int i)
 	while (file->file_s[file->line][i] == ' ' ||
 			file->file_s[file->line][i] == '\t')
 	{
-			i++;
-			space++;
+		i++;
+		space++;
 	}
 	while (file->file_s[file->line][i])
 	{
@@ -72,12 +72,7 @@ void	save_name_comment(t_file *file)
 			file->has_comm += 1;
 		}
 		else
-		{
-			exit_error("caractere non reconnu avant le nom et/ou commentire."
-				,file);
-			exit_error("caractere non reconnu avant le nom et/ou commentaire."
-				,file);
-		}
+			exit_error("caractere non reconnu.", file);
 		file->line++;
 	}
 	file->start = file->line;

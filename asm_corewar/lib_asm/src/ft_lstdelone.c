@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aleveque <aleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/30 12:40:09 by aleveque          #+#    #+#             */
-/*   Updated: 2017/05/31 15:33:12 by mafabre          ###   ########.fr       */
+/*   Created: 2016/11/30 13:55:11 by aleveque          #+#    #+#             */
+/*   Updated: 2017/05/31 15:38:35 by mafabre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 #include <string.h>
 #include <stdlib.h>
-#include "../../includes/op.h"
 
-t_label				*ft_lstnew(char *name, int value)
+void	ft_lstdelone(t_label **alst)
 {
-	t_label		*new;
+	t_label *list;
 
-	if (!(new = (t_label*)malloc(sizeof(t_label))))
-		return (NULL);
-	new->l_name = ft_strdup(name);
-	if (new->l_name == NULL)
-		return (NULL);
-	new->l_value = value;
-	new->next = NULL;
-	return (new);
+	list = *alst;
+	free(list->l_name);
+	free(list);
+	*alst = NULL;
 }

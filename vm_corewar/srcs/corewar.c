@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/02 18:23:26 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/30 17:30:43 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/31 18:58:29 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,8 @@ void	play_game(t_map *map)
 	t_process	*tmp;
 	t_visu		visu;
 
-	visu = (map->visu ? init_visu(map) : visu);
+	if (map->visu)
+		init_visu(map);
 	while (1 && (map->dump == -1 || map->cycle <= map->dump))
 	{
 		player = map->nb_player;
@@ -98,8 +99,7 @@ void	play_game(t_map *map)
 			}
 		}
 		map->visu ? print_visu(map, &visu) : 0;
-		if (map->ndump != 0 && (map->cycle % map->ndump == 0))
-			print_map(map);
+		map->ndump != 0 && (map->cycle % map->ndump == 0) ? print_map(map) : 0;
 		map->cycle++;
 		cycle_to_die(map);
 		if (map->cycle_to_die <= 0 || is_alive(map) == 0)

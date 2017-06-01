@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/26 04:55:24 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/30 20:45:10 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/31 18:56:10 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	print_visu(t_map *map, t_visu *visu)
 {
 	check_resize(visu);
-	info_joueur(visu, map);
+	info_joueur(map);
 	print_arena_visu(map, visu);
 	info_map(map);
 	usleep(100);
@@ -34,7 +34,7 @@ void	check_resize(t_visu *visu)
 	}
 }
 
-void	info_joueur2(t_visu *visu, t_map *map, int i)
+void	info_joueur2(t_map *map, int i)
 {
 	if (map->player[i].number == 2)
 	{
@@ -62,7 +62,7 @@ void	info_joueur2(t_visu *visu, t_map *map, int i)
 	}
 }
 
-void	info_joueur(t_visu *visu, t_map *map)
+void	info_joueur(t_map *map)
 {
 	int		i;
 
@@ -77,7 +77,7 @@ void	info_joueur(t_visu *visu, t_map *map)
 			mvprintw(5, 198, "Dernier live : %d", map->player[i].last_live);
 			attroff(COLOR_PAIR(1));
 		}
-		info_joueur2(visu, map, i);
+		info_joueur2(map, i);
 		i++;
 	}
 }

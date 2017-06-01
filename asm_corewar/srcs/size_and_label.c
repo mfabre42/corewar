@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/12 19:07:11 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/30 21:33:37 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/31 18:08:06 by mafabre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void		check_inst(t_file *file, t_line *line)
 	line->i++;
 }
 
-void		check_label_char(t_file *file, t_line *line)
+void		check_label_char(t_file *file)
 {
 	t_label	*tmp;
 	int		i;
@@ -81,7 +81,7 @@ void		save_label(t_file *file, t_line *line)
 	{
 		exit_error("trop de label sur cette ligne.", file);
 	}
-	check_label_char(file, line);
+	check_label_char(file);
 }
 
 void		save_size_and_label2(t_file *file, t_line *line)
@@ -116,9 +116,11 @@ void		save_size_and_label2(t_file *file, t_line *line)
 void		save_size_and_label(t_file *file)
 {
 	t_line	line;
+	int		i;
 
 	while (file->file_s[file->line] != NULL)
 	{
+		i = 0;
 		init_line(&line);
 		move_to_next_line(file);
 		if (file->file_s[file->line] == NULL)
@@ -126,6 +128,8 @@ void		save_size_and_label(t_file *file)
 		file->tmp_line = ft_strsplit(file->file_s[file->line], ' ');
 		if (file->tmp_line != NULL)
 			save_size_and_label2(file, &line);
+		while (file->tmp_line[i])
+			free(file->tmp_line[i++]);
 		free(file->tmp_line);
 		file->line++;
 	}

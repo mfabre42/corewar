@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:43:55 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/24 04:00:07 by anonymous        ###   ########.fr       */
+/*   Updated: 2017/05/31 18:54:27 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	aff_char(t_map *map, t_process *proc)
 {
 	int		pos;
-	int		result;
 	t_ocp	ocp;
 
 	if (proc->do_funk == 1)

@@ -6,16 +6,13 @@
 #    By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/04/10 22:21:01 by mafabre           #+#    #+#              #
-#    Updated: 2017/05/02 12:09:35 by aleveque         ###   ########.fr        #
+#    Updated: 2017/05/31 18:50:53 by acoupleu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC				=	gcc
 NAME			=	libftprintf.a
-FLAGS			=	-Wall -Wextra
-# LIB_PATH		=	libft/
-# LIB				=	$(LIB_PATH)libft.a
-# LIB_LINK		=	-L $(LIB_PATH) -lft
+FLAGS			=	-Wall -Werror -Wextra
 INCLUDES		=	-I ./includes -I ../libft
 SRCS			=	srcs/ft_printf.c										\
 					\

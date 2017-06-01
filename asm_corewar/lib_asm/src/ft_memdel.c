@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_memdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aleveque <aleveque@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aleveque <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/30 12:40:09 by aleveque          #+#    #+#             */
-/*   Updated: 2017/05/31 15:33:12 by mafabre          ###   ########.fr       */
+/*   Created: 2016/11/09 18:39:06 by aleveque          #+#    #+#             */
+/*   Updated: 2016/12/02 13:31:16 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft.h"
 #include <string.h>
 #include <stdlib.h>
-#include "../../includes/op.h"
 
-t_label				*ft_lstnew(char *name, int value)
+void	ft_memdel(void **ap)
 {
-	t_label		*new;
-
-	if (!(new = (t_label*)malloc(sizeof(t_label))))
-		return (NULL);
-	new->l_name = ft_strdup(name);
-	if (new->l_name == NULL)
-		return (NULL);
-	new->l_value = value;
-	new->next = NULL;
-	return (new);
+	if (ap)
+	{
+		free(*ap);
+		*ap = NULL;
+	}
 }

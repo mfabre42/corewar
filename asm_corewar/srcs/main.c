@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:46:38 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/30 21:37:54 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/31 18:03:52 by mafabre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,19 @@
 
 void		free_file(t_file *file)
 {
-	int		i;
+	int i;
 
 	i = 0;
-	while (file->file_s[i] != NULL)
-	{
-		free(file->file_s[i]);
-		i++;
-	}
+	while (file->file_s[i])
+		free(file->file_s[i++]);
 	free(file->file_s);
-	free(file->tmp_line);
+	free(file->filename);
+	free(file->tmp_filename);
+	free(file->name);
+	free(file->comm);
+	free(file->int_file);
+	free(file->size_hex);
+	ft_lstdel(&file->label);
 }
 
 char		*add_space(char *line, int i)
@@ -55,6 +58,7 @@ char		*add_space(char *line, int i)
 		separator++;
 	}
 	new_line[separator] = '\0';
+	free(line);
 	return (new_line);
 }
 
@@ -79,7 +83,7 @@ char		*epur(char *str, int a, int i, char *buffer)
 		else
 			buffer[i++] = str[a++];
 	}
-	while (buffer[i - 1] == ' ' || buffer[i - 1] == '\t')
+	while (i > 0 && (buffer[i - 1] == ' ' || buffer[i - 1] == '\t'))
 		i--;
 	buffer[i] = '\0';
 	free(str);
@@ -93,23 +97,24 @@ void		save_file(char *av, t_file *file, int fd, int i)
 	fd = open(av, O_RDONLY);
 	if (fd == -1)
 		exit_error_nl("Le fichier n'a pu etre ouvert.");
-	while (get_next_line(fd, &line))
-		i++;
+	while (get_next_line(fd, &line) && i++ > -1)
+		free(line);
+	free(line);
 	close(fd);
 	fd = open(av, O_RDONLY);
-	if (fd == -1)
-		exit_error_nl("Le fichier n'a pu etre ouvert.");
+	(fd == -1) ? exit_error_nl("Le fichier n'a pu etre ouvert.") : 0;
 	file->file_s = (char **)malloc(sizeof(char *) * (i + 1));
 	i = 0;
-	while (get_next_line(fd, &line) > 0)
+	while (get_next_line(fd, &line))
 	{
-		file->file_s[i] = (char *)malloc(sizeof(char) * ft_strlen(line) + 5);
+		file->file_s[i] = "";
 		line = add_space(line, 0);
-		line = epur(line, 0, 0, ft_strdup(""));
-		ft_strcpy(file->file_s[i], line);
+		line = epur(line, 0, 0, "");
+		file->file_s[i] = ft_strjoin(file->file_s[i], line);
 		free(line);
 		i++;
 	}
+	free(line);
 	file->file_s[i] = NULL;
 	close(fd);
 }
@@ -127,7 +132,7 @@ int			main(int ac, char **av)
 	len = ft_strlen(av[1]);
 	if (len < 3 || av[1][len - 2] != '.' || av[1][len - 1] != 's')
 		exit_error_nl("Le fichier ne termine pas par \".s\".");
-	file.filename = ft_strdup(av[1]);
+	file.tmp_filename = ft_strdup(av[1]);
 	init_file_firstparse(&file);
 	save_file(av[1], &file, 0, 0);
 	save_name_comment(&file);

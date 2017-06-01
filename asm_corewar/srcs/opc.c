@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/18 22:38:12 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/23 13:14:55 by mafabre          ###   ########.fr       */
+/*   Updated: 2017/05/31 14:36:09 by mafabre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void		check_separator(t_file *file, t_line *line)
 			line->separator++;
 		}
 		else
-			exit_error("nombre de parametres incorrect2.", file);
+			exit_error("nombre de parametres incorrect.", file);
 	}
 	else
 		exit_error("caractere de separation au dernier parametre.", file);

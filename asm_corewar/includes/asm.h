@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:48:47 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/30 21:31:25 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/31 18:10:42 by mafabre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,11 +54,11 @@ typedef struct		s_file
 	t_header		header;
 	t_label			*label;
 	int				line;
-	unsigned char	*file_cor;
 	char			**tmp_line;
 	int				*int_file;
 	int				*size_hex;
 	char			**file_s;
+	char			*tmp_filename;
 	int				file_size;
 	int				int_i;
 	int				i;
@@ -92,7 +92,7 @@ void				save_label(t_file *file, t_line *line);
 void				save_size_and_label(t_file *file);
 void				move_to_next_line(t_file *file);
 /*
-** second parse, save inst and params and converse all data in int
+** second parse, save inst and params and convert all data in int
 */
 void				conv_file(t_file *file);
 void				save_inst(t_file *file, t_line *line);
@@ -105,6 +105,6 @@ void				check_separator(t_file *file, t_line *line);
 /*
 ** last phase, save and write in hex
 */
-void				conv_in_hex(t_file *file, t_line *line);
+void				conv_in_hex(t_file *file);
 
 #endif

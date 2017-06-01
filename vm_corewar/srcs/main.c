@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 17:05:36 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/30 17:42:50 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/05/31 18:59:24 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	free_map(t_map *map)
 {
 	int			i;
-	t_process	*tmp;
 
 	i = 0;
 	while (i < map->nb_player)
@@ -45,6 +44,7 @@ void	pauses(void)
 {
 	int c;
 
+	c = getchar();
 	while (c != '\n')
 		c = getchar();
 }
@@ -82,7 +82,7 @@ int		main(int ac, char **av)
 	save_params(ac, av, &map);
 	play_game(&map);
 	if (map.visu == 1)
-		display_winner(&map, 0);
+		display_winner(&map);
 	else
 		print_map(&map);
 	if (map.cycle_to_die < 0 || is_alive(&map) == 0)
