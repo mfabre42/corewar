@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 17:05:36 by mafabre           #+#    #+#             */
-/*   Updated: 2017/06/08 14:34:07 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/06/08 15:32:31 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	pauses(void)
 	int c;
 
 	c = getchar();
-	while (c != '\n')
+	while (c != '\n' && c != -1)
 		c = getchar();
 }
 
