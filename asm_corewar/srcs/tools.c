@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/12 16:09:02 by mafabre           #+#    #+#             */
-/*   Updated: 2017/06/01 20:22:09 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/06/08 12:59:55 by mafabre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,31 @@
 
 void	check_label_inst(t_file *file)
 {
-	file->has_name = 1;
+	int		i;
+	int		j;
+	char	*tmp;
+
+	i = 0;
+	j = -1;
+	tmp = ft_strdup(file->file_s[file->line]);
+	while (tmp[i])
+	{
+		if (i > 0 && tmp[i] == ':' && tmp[i + 1] &&
+			ft_strchr(LABEL_CHARS, tmp[i - 1]) && tmp[i + 1] != ' ')
+		{
+			free(file->file_s[file->line]);
+			file->file_s[file->line] = malloc(sizeof(char) *
+				ft_strlen(tmp) + 1);
+			while (j++ < i)
+				file->file_s[file->line][j] = tmp[j];
+			file->file_s[file->line][j++] = ' ';
+			while (tmp[++i])
+				file->file_s[file->line][j++] = tmp[i];
+			file->file_s[file->line][j] = '\0';
+		}
+		i++;
+	}
+	free(tmp);
 }
 
 void	move_to_next_line(t_file *file)
