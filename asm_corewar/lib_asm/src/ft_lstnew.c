@@ -6,7 +6,7 @@
 /*   By: aleveque <aleveque@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 12:40:09 by aleveque          #+#    #+#             */
-/*   Updated: 2017/05/31 15:33:12 by mafabre          ###   ########.fr       */
+/*   Updated: 2017/06/08 15:30:57 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ t_label				*ft_lstnew(char *name, int value)
 	t_label		*new;
 
 	if (!(new = (t_label*)malloc(sizeof(t_label))))
-		return (NULL);
+		exit_malloc();
 	new->l_name = ft_strdup(name);
 	if (new->l_name == NULL)
-		return (NULL);
+		exit_malloc();
 	new->l_value = value;
 	new->next = NULL;
 	return (new);

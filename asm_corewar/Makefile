@@ -6,7 +6,7 @@
 #    By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/10 15:31:11 by mafabre           #+#    #+#              #
-#    Updated: 2017/06/01 16:59:03 by mafabre          ###   ########.fr        #
+#    Updated: 2017/06/08 15:34:31 by aleveque         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,6 +62,8 @@ obj/%.o: srcs/%.c
 
 clean:
 	@rm -rf obj
+	@make -C $(LIBFT_PATH) clean
+	@make -C $(LIBFTPRINTF_PATH) clean
 	@echo "Cleaning" $(NAME) "\t\t" $(OK)
 
 fclean: clean

@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:46:38 by mafabre           #+#    #+#             */
-/*   Updated: 2017/06/01 17:16:29 by mafabre          ###   ########.fr       */
+/*   Updated: 2017/06/08 15:33:53 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ char		*add_space(char *line, int i, int separator)
 			separator++;
 		i++;
 	}
-	new_line = (char *)malloc(sizeof(char) * (i + separator + 1));
+	if ((new_line = (char *)malloc(sizeof(char) * (i + separator + 1))) == NULL)
+		exit_error_nl("Erreur de malloc.");
 	i = 0;
 	separator = 0;
 	while (line[i] != '\0')
@@ -67,7 +68,7 @@ char		*epur(char *str, int a, int i, char *buffer)
 	if ((str != NULL) && (str[0] == '\0' || str[0] == '.'))
 		return (str);
 	if ((buffer = (char *)malloc(sizeof(char) * (strlen(str) + 1))) == NULL)
-		return (NULL);
+		exit_error_nl("Erreur de malloc.");
 	while (str[a] == ' ' || str[a] == '\t')
 		a++;
 	while (str[a] != '\0')
@@ -103,16 +104,16 @@ void		save_file(char *av, t_file *file, int fd, int i)
 	close(fd);
 	fd = open(av, O_RDONLY);
 	(fd == -1) ? exit_error_nl("Le fichier n'a pu etre ouvert.") : 0;
-	file->file_s = (char **)malloc(sizeof(char *) * (i + 1));
-	i = 0;
+	if ((file->file_s = (char **)malloc(sizeof(char *) * (i + 1))) == NULL)
+		exit_error_nl("Erreur de malloc.");
+	i = -1;
 	while (get_next_line(fd, &line))
 	{
-		file->file_s[i] = "";
+		file->file_s[++i] = "";
 		line = add_space(line, 0, 0);
 		line = epur(line, 0, 0, "");
 		file->file_s[i] = ft_strjoin(file->file_s[i], line);
 		free(line);
-		i++;
 	}
 	free(line);
 	file->file_s[i] = NULL;

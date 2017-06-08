@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/17 19:51:27 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/12 11:39:27 by mafabre          ###   ########.fr       */
+/*   Updated: 2017/06/08 15:30:44 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_strdup(const char *s)
 	len = ft_strlen(s);
 	str = (char *)malloc(sizeof(*str) * len + 1);
 	if (str == NULL)
-		return (NULL);
+		exit_malloc();
 	while (s[i] != '\0')
 	{
 		str[i] = s[i];

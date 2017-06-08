@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 17:05:36 by mafabre           #+#    #+#             */
-/*   Updated: 2017/06/08 14:34:07 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/06/08 14:39:50 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ void	notif_winner(t_map *map)
 	winner + 1,
 	map->player[winner].name);
 }
-
 
 void	pauses(void)
 {
