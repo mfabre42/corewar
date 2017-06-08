@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/12 19:07:11 by mafabre           #+#    #+#             */
-/*   Updated: 2017/06/01 17:19:43 by mafabre          ###   ########.fr       */
+/*   Updated: 2017/06/08 15:22:31 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,8 +125,8 @@ void		save_size_and_label(t_file *file)
 		move_to_next_line(file);
 		if (file->file_s[file->line] == NULL)
 			break ;
-		check_label_inst(file);
-		file->tmp_line = ft_strsplit(file->file_s[file->line], ' ');
+		check_label_inst(file, 0);
+		file->tmp_line = ft_strsplit(file->file_s[file->line], ' ', 0);
 		if (file->tmp_line != NULL)
 			save_size_and_label2(file, &line);
 		while (file->tmp_line[i])

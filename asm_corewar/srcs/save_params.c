@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/14 15:38:02 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/23 13:20:04 by mafabre          ###   ########.fr       */
+/*   Updated: 2017/06/01 23:38:24 by mfabre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ void		save_register(t_file *file, t_line *line)
 	line->j = 1;
 	if (file->tmp_line[line->i][ft_strlen(file->tmp_line[line->i]) - 1] == ',')
 		check_separator(file, line);
+	if (!(file->tmp_line[line->i][line->j]))
+		exit_error("registre incorrect.", file);
 	while (file->tmp_line[line->i][line->j])
 	{
 		if (file->tmp_line[line->i][line->j] >= '0' &&
@@ -84,6 +86,8 @@ void		save_direct(t_file *file, t_line *line)
 		line->j++;
 		get_label_value(file, line);
 	}
+	if (!(file->tmp_line[line->i][line->j]))
+		exit_error("direct incorrect.", file);
 	if (file->tmp_line[line->i][line->j] == '-')
 		line->j++;
 	while (file->tmp_line[line->i][line->j])
@@ -92,7 +96,7 @@ void		save_direct(t_file *file, t_line *line)
 			file->tmp_line[line->i][line->j] <= '9')
 			line->j++;
 		else
-			exit_error("parametre incorrect.", file);
+			exit_error("direct incorrect.", file);
 	}
 	save_direct2(file, line);
 }
@@ -110,18 +114,18 @@ void		save_index(t_file *file, t_line *line, int label)
 	}
 	if (file->tmp_line[line->i][line->j] == '-')
 		line->j++;
+	if (!(file->tmp_line[line->i][line->j]))
+		exit_error("index incorrect.", file);
 	while (file->tmp_line[line->i][line->j])
 	{
 		if (file->tmp_line[line->i][line->j] >= '0' &&
 			file->tmp_line[line->i][line->j] <= '9')
 			line->j++;
 		else
-			exit_error("parametre incorrect.", file);
+			exit_error("index incorrect.", file);
 	}
 	file->int_file[file->int_i] = ft_atoi(&file->tmp_line[line->i][0 + label]);
-	file->size_hex[file->int_i] = 2;
-	line->params[line->nb_params] = T_IND;
-	line->nb_params += 1;
+	file->size_hex[file->int_i++] = 2;
+	line->params[line->nb_params++] = T_IND;
 	line->size_line += 2;
-	file->int_i++;
 }

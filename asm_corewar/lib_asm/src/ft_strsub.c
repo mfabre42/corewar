@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/17 21:08:56 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/31 15:44:43 by mafabre          ###   ########.fr       */
+/*   Updated: 2017/06/08 15:30:15 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 	sub = (char *)malloc(sizeof(char) * len + 1);
 	i = 0;
 	if (sub == NULL)
-		return (NULL);
+		exit_malloc();
 	while (i < start)
 		i++;
 	k = i;

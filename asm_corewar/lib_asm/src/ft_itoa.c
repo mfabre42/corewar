@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/22 21:37:41 by mafabre           #+#    #+#             */
-/*   Updated: 2017/04/19 14:42:49 by mafabre          ###   ########.fr       */
+/*   Updated: 2017/06/08 15:31:05 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char		*ft_itoa(int n)
 	n = (n < 0) ? -n : n;
 	nbr = (char *)malloc(sizeof(char) * len + 1);
 	if (nbr == NULL)
-		return (NULL);
+		exit_malloc();
 	nbr[len--] = '\0';
 	if (n == -2147483648)
 		return (ft_strdup("-2147483648"));

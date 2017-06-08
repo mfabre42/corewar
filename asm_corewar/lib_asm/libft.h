@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 22:13:34 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/31 15:54:09 by mafabre          ###   ########.fr       */
+/*   Updated: 2017/06/08 15:29:21 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct		s_label
 	struct s_label	*next;
 }					t_label;
 
+void				exit_malloc(void);
 void				ft_memdel(void **ap);
 void				ft_lstdelone(t_label **alst);
 void				ft_lstdel(t_label **alst);
@@ -42,7 +43,7 @@ char				*ft_strjoin(char const *s1, char const *s2);
 size_t				ft_strlen(const char *s);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 char				*ft_strnew(size_t size);
-char				**ft_strsplit(char const *s, char c);
+char				**ft_strsplit(char const *s, char c, int i);
 char				*ft_strsub(char const *s, unsigned int start, size_t len);
 int					ft_toupper(int c);
 int					get_next_line(const int fd, char **line);

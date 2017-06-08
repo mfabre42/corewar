@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/17 17:12:54 by mafabre           #+#    #+#             */
-/*   Updated: 2017/05/31 18:37:29 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/06/08 15:22:16 by aleveque         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void		conv_file(t_file *file)
 		move_to_next_line(file);
 		if (file->file_s[file->line] != NULL)
 		{
-			file->tmp_line = ft_strsplit(file->file_s[file->line], ' ');
+			file->tmp_line = ft_strsplit(file->file_s[file->line], ' ', 0);
 			int_line(file, &line);
 			i = 0;
 			while (file->tmp_line[i])
