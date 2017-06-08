@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/12 16:06:16 by mafabre           #+#    #+#             */
-/*   Updated: 2017/06/08 14:36:53 by mafabre          ###   ########.fr       */
+/*   Updated: 2017/06/08 15:53:14 by mafabre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ int		check_comment_char(t_file *file, int i, int comm)
 			file->file_s[file->line][i - 1] == '\t')
 		i--;
 	while (file->file_s[file->line][i] == ' ' ||
-			file->file_s[file->line][i--] == '\t')
+			file->file_s[file->line][i] == '\t')
 	{
 		comm = 1;
 		i--;
 	}
-	return (i + 1 + comm);
+	return (i + comm);
 }
 
 int		check_and_cut(t_file *file, int i, int quote, int space)
@@ -52,7 +52,7 @@ int		check_and_cut(t_file *file, int i, int quote, int space)
 		i++;
 	}
 	if (file->file_s[file->line][i - 1] != '"')
-		exit_error("erreur nom ou commentaire1.", file);
+		exit_error("erreur nom ou commentaire.", file);
 	file->file_s[file->line][i - 1] = '\0';
 	if (quote != 2)
 		exit_error("erreur nom ou commentaire.", file);

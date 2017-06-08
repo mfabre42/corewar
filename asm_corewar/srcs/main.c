@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/04 15:46:38 by mafabre           #+#    #+#             */
-/*   Updated: 2017/06/08 15:33:53 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/06/08 15:49:55 by mafabre          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,7 @@ void		save_file(char *av, t_file *file, int fd, int i)
 	char	*line;
 
 	fd = open(av, O_RDONLY);
-	if (fd == -1)
-		exit_error_nl("Le fichier n'a pu etre ouvert.");
+	(fd == -1) ? exit_error_nl("Le fichier n'a pu etre ouvert.") : 0;
 	while (get_next_line(fd, &line) && i++ > -1)
 		free(line);
 	free(line);
@@ -106,14 +105,15 @@ void		save_file(char *av, t_file *file, int fd, int i)
 	(fd == -1) ? exit_error_nl("Le fichier n'a pu etre ouvert.") : 0;
 	if ((file->file_s = (char **)malloc(sizeof(char *) * (i + 1))) == NULL)
 		exit_error_nl("Erreur de malloc.");
-	i = -1;
+	i = 0;
 	while (get_next_line(fd, &line))
 	{
-		file->file_s[++i] = "";
+		file->file_s[i] = "";
 		line = add_space(line, 0, 0);
 		line = epur(line, 0, 0, "");
 		file->file_s[i] = ft_strjoin(file->file_s[i], line);
 		free(line);
+		i++;
 	}
 	free(line);
 	file->file_s[i] = NULL;
