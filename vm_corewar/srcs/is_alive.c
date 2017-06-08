@@ -6,7 +6,7 @@
 /*   By: acoupleu <acoupleu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/09 21:04:01 by acoupleu          #+#    #+#             */
-/*   Updated: 2017/05/24 02:19:06 by aleveque         ###   ########.fr       */
+/*   Updated: 2017/06/08 15:56:33 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,13 @@ int		check_last_survivor(t_map *map)
 		i++;
 	}
 	return (warrior);
+}
+
+void	pauses(void)
+{
+	int c;
+
+	c = getchar();
+	while (c != '\n' && c != -1)
+		c = getchar();
 }

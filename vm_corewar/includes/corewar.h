@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/20 14:35:05 by mafabre           #+#    #+#             */
-/*   Updated: 2017/06/08 14:24:32 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/06/08 15:56:44 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,6 +158,7 @@ void			place_in_arena(t_map *map, int dest, int nbr, int player);
 unsigned int	read_in_arena(t_map *map, int adress);
 void			print_map(t_map *map);
 void			play_game(t_map *map);
+void			pauses(void);
 
 /*
 ** Visualisateur

@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 17:05:36 by mafabre           #+#    #+#             */
-/*   Updated: 2017/06/08 15:32:31 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/06/08 15:56:09 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,16 +59,6 @@ void	notif_winner(t_map *map)
 	ft_printf("And the winner is n : %d *drum roll* %s !!\n",
 	winner + 1,
 	map->player[winner].name);
-}
-
-
-void	pauses(void)
-{
-	int c;
-
-	c = getchar();
-	while (c != '\n' && c != -1)
-		c = getchar();
 }
 
 void	print_map(t_map *map)
