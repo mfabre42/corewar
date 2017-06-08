@@ -6,7 +6,7 @@
 /*   By: mafabre <mafabre@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/06 17:05:36 by mafabre           #+#    #+#             */
-/*   Updated: 2017/06/01 19:07:45 by acoupleu         ###   ########.fr       */
+/*   Updated: 2017/06/08 14:34:07 by acoupleu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,37 @@ void	free_map(t_map *map)
 	free(ARENA);
 }
 
+void	intro_contest(t_map *map)
+{
+	int		i;
+
+	i = 0;
+	ft_printf("Voici les champions qui entrent dans l'arene:\n");
+	while (i < map->nb_player)
+	{
+		if (i == 0)
+			ft_printf("A ma droite, le premier concurant, l'exeptionnel : ");
+		else if (i == 1)
+			ft_printf("A ma gauche, l'imbattable                        : ");
+		else if (i == 2)
+			ft_printf("Au milieu de l'arene je vous présente            : ");
+		else if (i == 3)
+			ft_printf("Et pour finir, voici le monstrueux               : ");
+		ft_printf("%s (%s)\n", map->player[i].name, map->player[i].comm);
+		i++;
+	}
+}
+
 void	notif_winner(t_map *map)
 {
-	int		winner;
+	int	winner;
 
 	winner = check_last_survivor(map);
 	ft_printf("And the winner is n : %d *drum roll* %s !!\n",
 	winner + 1,
 	map->player[winner].name);
 }
+
 
 void	pauses(void)
 {
@@ -80,6 +102,8 @@ int		main(int ac, char **av)
 	if (ac == 1)
 		print_usage();
 	save_params(ac, av, &map);
+	if (map.visu != 1)
+		intro_contest(&map);
 	play_game(&map);
 	if (map.visu == 1)
 		display_winner(&map);
